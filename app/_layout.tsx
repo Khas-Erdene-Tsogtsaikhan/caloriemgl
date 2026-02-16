@@ -1,24 +1,51 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { Stack } from 'expo-router';
+import { useNutrioStore } from '@/src/store';
+import { Stack, router } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
+import React, { useEffect, useState } from 'react';
 import 'react-native-reanimated';
 
-import { useColorScheme } from '@/hooks/use-color-scheme';
-
 export const unstable_settings = {
-  anchor: '(tabs)',
+  initialRouteName: 'index',
 };
 
 export default function RootLayout() {
-  const colorScheme = useColorScheme();
+  const [ready, setReady] = useState(false);
+  const [hydrated, setHydrated] = useState(false);
+
+  useEffect(() => {
+    // Wait for zustand to rehydrate from AsyncStorage
+    const unsub = useNutrioStore.persist.onFinishHydration(() => {
+      setHydrated(true);
+    });
+    // If already hydrated (sync)
+    if (useNutrioStore.persist.hasHydrated()) {
+      setHydrated(true);
+    }
+    return () => { unsub(); };
+  }, []);
+
+  useEffect(() => {
+    if (!hydrated) return;
+    const profile = useNutrioStore.getState().profile;
+    const timer = setTimeout(() => {
+      setReady(true);
+      if (profile?.onboardingCompleted) {
+        router.replace('/(tabs)/home');
+      } else {
+        router.replace('/(onboarding)/welcome');
+      }
+    }, 1200);
+    return () => clearTimeout(timer);
+  }, [hydrated]);
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="modal" options={{ presentation: 'modal', title: 'Modal' }} />
+    <>
+      <Stack screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="index" />
+        <Stack.Screen name="(onboarding)" />
+        <Stack.Screen name="(tabs)" />
       </Stack>
-      <StatusBar style="auto" />
-    </ThemeProvider>
+      <StatusBar style="dark" />
+    </>
   );
 }
