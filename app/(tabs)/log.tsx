@@ -1,254 +1,300 @@
+import Button from '@/src/components/ui/Button';
+import Card from '@/src/components/ui/Card';
+import Input from '@/src/components/ui/Input';
+import ProgressBar from '@/src/components/ui/ProgressBar';
+import { useNutrioStore } from '@/src/store';
+import { colors, radii, spacing, typography } from '@/src/theme/tokens';
+import { calculateBMI, getBMICategory } from '@/src/utils/calories';
+import { formatDate } from '@/src/utils/date';
+import { router } from 'expo-router';
 import React, { useState } from 'react';
 import {
-  View,
-  Text,
-  StyleSheet,
-  ScrollView,
-  TouchableOpacity,
-  Alert,
-  Modal,
+    Alert,
+    Modal,
+    ScrollView,
+    StyleSheet,
+    Text,
+    TouchableOpacity,
+    View,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { useNutrioStore } from '@/src/store';
-import { colors, spacing, typography, radii, shadows } from '@/src/theme/tokens';
-import { getTodayString } from '@/src/utils/date';
-import { MEAL_LABELS, MEAL_EMOJIS } from '@/src/data/presets';
-import Card from '@/src/components/ui/Card';
-import Button from '@/src/components/ui/Button';
-import Input from '@/src/components/ui/Input';
-import Chip from '@/src/components/ui/Chip';
-import { MealType, FoodUnit } from '@/src/types';
 
-type TabMode = 'meals' | 'activities';
-
-const UNITS: FoodUnit[] = ['ширхэг (piece)', 'аяга (cup)', 'таваг (plate)', 'хувь (serving)'];
-
-export default function LogScreen() {
+export default function WeightScreen() {
   const insets = useSafeAreaInsets();
-  const [mode, setMode] = useState<TabMode>('meals');
+  const profile = useNutrioStore((s) => s.profile);
+  const weightEntries = useNutrioStore((s) => s.weightEntries);
+  const addWeightEntry = useNutrioStore((s) => s.addWeightEntry);
+  const updateWeightEntry = useNutrioStore((s) => s.updateWeightEntry);
+  const removeWeightEntry = useNutrioStore((s) => s.removeWeightEntry);
+
+  const [showUpdateModal, setShowUpdateModal] = useState(false);
+  const [weightInput, setWeightInput] = useState('');
+
+  // Edit modal state
+  const [editId, setEditId] = useState<string | null>(null);
+  const [editWeight, setEditWeight] = useState('');
+
+  const currentWeight = profile?.currentWeightKg ?? 0;
+  const startingWeight = profile?.currentWeightKg ?? 0; // first onboarding weight
+  const goalWeight = profile?.targetWeightKg ?? 0;
+  const heightCm = profile?.heightCm ?? 170;
+
+  // Compute starting weight from first entry or profile
+  const firstEntry = weightEntries.length > 0 ? weightEntries[0] : null;
+  const startW = firstEntry ? firstEntry.weightKg : startingWeight;
+
+  // Change from previous entry
+  const sorted = [...weightEntries].sort((a, b) => a.date.localeCompare(b.date));
+  const latestEntry = sorted.length > 0 ? sorted[sorted.length - 1] : null;
+  const prevEntry = sorted.length > 1 ? sorted[sorted.length - 2] : null;
+  const changeFromPrev = latestEntry && prevEntry
+    ? Math.round((latestEntry.weightKg - prevEntry.weightKg) * 10) / 10
+    : 0;
+
+  // Progress toward goal (0 to 1)
+  const totalToLose = startW - goalWeight;
+  const lost = startW - currentWeight;
+  const progressRatio = totalToLose !== 0 ? Math.min(Math.max(lost / totalToLose, 0), 1) : 0;
+
+  const bmi = calculateBMI(currentWeight, heightCm);
+  const bmiCategory = getBMICategory(bmi);
+
+  // Get change indicator for each entry
+  const getChange = (idx: number): number => {
+    if (idx === 0) return 0;
+    return Math.round((sorted[idx].weightKg - sorted[idx - 1].weightKg) * 10) / 10;
+  };
 
   return (
-    <View style={[styles.container, { paddingTop: insets.top }]}>
-      <Text style={styles.screenTitle}>Log</Text>
-      <View style={styles.tabs}>
-        <TouchableOpacity
-          style={[styles.tab, mode === 'meals' && styles.tabActive]}
-          onPress={() => setMode('meals')}
-        >
-          <Text style={[styles.tabText, mode === 'meals' && styles.tabTextActive]}>🍽️ Meals</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={[styles.tab, mode === 'activities' && styles.tabActive]}
-          onPress={() => setMode('activities')}
-        >
-          <Text style={[styles.tabText, mode === 'activities' && styles.tabTextActive]}>🏃 Activities</Text>
+    <ScrollView
+      style={[styles.container, { paddingTop: insets.top }]}
+      contentContainerStyle={styles.content}
+      showsVerticalScrollIndicator={false}
+    >
+      <Text style={styles.screenTitle}>Weight Tracker</Text>
+
+      {/* Current Weight Card */}
+      <Card style={styles.currentCard}>
+        <Text style={styles.currentLabel}>Current</Text>
+        <View style={styles.currentRow}>
+          <Text style={styles.currentWeight}>{currentWeight}</Text>
+          <Text style={styles.currentUnit}>kg</Text>
+          {changeFromPrev !== 0 && (
+            <View style={[styles.changeBadge, changeFromPrev < 0 ? styles.changeBadgeGreen : styles.changeBadgeRed]}>
+              <Text style={[styles.changeText, changeFromPrev < 0 ? styles.changeTextGreen : styles.changeTextRed]}>
+                {changeFromPrev > 0 ? '+' : ''}{changeFromPrev} kg
+              </Text>
+            </View>
+          )}
+        </View>
+
+        <ProgressBar
+          progress={progressRatio}
+          color={colors.secondary}
+          height={10}
+          style={{ marginTop: spacing.lg, marginBottom: spacing.sm }}
+        />
+        <View style={styles.progressLabels}>
+          <Text style={styles.progressLabel}>Starting: {startW} kg</Text>
+          <Text style={styles.progressLabel}>Goal: {goalWeight} kg</Text>
+        </View>
+
+        <Button
+          title="Update"
+          onPress={() => {
+            setWeightInput(String(currentWeight));
+            setShowUpdateModal(true);
+          }}
+          style={styles.updateBtn}
+        />
+      </Card>
+
+      {/* BMI Quick View */}
+      <Card style={styles.bmiCard}>
+        <View style={styles.bmiRow}>
+          <View>
+            <Text style={styles.bmiLabel}>BMI</Text>
+            <Text style={styles.bmiValue}>{bmi}</Text>
+          </View>
+          <View style={[styles.bmiCategoryBadge, { backgroundColor: getBmiColor(bmi) + '20' }]}>
+            <Text style={[styles.bmiCategoryText, { color: getBmiColor(bmi) }]}>{bmiCategory}</Text>
+          </View>
+        </View>
+      </Card>
+
+      {/* History */}
+      <View style={styles.historyHeader}>
+        <Text style={styles.historyTitle}>History</Text>
+        <TouchableOpacity onPress={() => router.push('/weight-history')}>
+          <Text style={styles.viewAllBtn}>View all</Text>
         </TouchableOpacity>
       </View>
-      {mode === 'meals' ? <MealsTab /> : <ActivitiesTab />}
-    </View>
-  );
-}
 
-function MealsTab() {
-  const addFoodEntry = useNutrioStore((s) => s.addFoodEntry);
-  const recentFoods = useNutrioStore((s) => s.recentFoods);
-  const today = getTodayString();
-
-  const [showForm, setShowForm] = useState(false);
-  const [name, setName] = useState('');
-  const [calories, setCalories] = useState('');
-  const [quantity, setQuantity] = useState('1');
-  const [unit, setUnit] = useState<FoodUnit>('ширхэг (piece)');
-  const [meal, setMeal] = useState<MealType>('lunch');
-
-  const meals: MealType[] = ['breakfast', 'lunch', 'dinner', 'snack'];
-
-  const resetForm = () => {
-    setName('');
-    setCalories('');
-    setQuantity('1');
-    setUnit('ширхэг (piece)');
-    setShowForm(false);
-  };
-
-  const handleAdd = () => {
-    const cal = parseInt(calories, 10);
-    const qty = parseInt(quantity, 10) || 1;
-    if (!name.trim() || !cal || cal <= 0) {
-      Alert.alert('Error', 'Please enter a valid food name and calories.');
-      return;
-    }
-    addFoodEntry({ name: name.trim(), calories: cal, quantity: qty, unit, mealType: meal, date: today });
-    resetForm();
-  };
-
-  return (
-    <ScrollView contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
-      <Button
-        title={showForm ? 'Cancel' : '+ Add Food Manually'}
-        variant={showForm ? 'ghost' : 'primary'}
-        onPress={() => (showForm ? resetForm() : setShowForm(true))}
-      />
-
-      {showForm && (
-        <Card style={styles.formCard}>
-          <Text style={styles.formTitle}>New Food Entry</Text>
-          <Input label="Food name" value={name} onChangeText={setName} placeholder="e.g. Бууз" />
-          <Input label="Calories per unit" value={calories} onChangeText={setCalories} placeholder="70" keyboardType="numeric" suffix="kcal" />
-          <Input label="Quantity" value={quantity} onChangeText={setQuantity} placeholder="1" keyboardType="numeric" />
-
-          <Text style={styles.fieldLabel}>Unit</Text>
-          <View style={styles.chipRow}>
-            {UNITS.map((u) => (
-              <Chip key={u} label={u} selected={unit === u} onPress={() => setUnit(u)} />
-            ))}
-          </View>
-
-          <Text style={styles.fieldLabel}>Meal</Text>
-          <View style={styles.chipRow}>
-            {meals.map((m) => (
-              <Chip key={m} label={`${MEAL_EMOJIS[m]} ${MEAL_LABELS[m]}`} selected={meal === m} onPress={() => setMeal(m)} />
-            ))}
-          </View>
-
-          <Button title="Save" onPress={handleAdd} style={{ marginTop: spacing.lg }} />
-        </Card>
-      )}
-
-      {/* Recent Foods */}
-      {recentFoods.length > 0 && (
-        <>
-          <Text style={styles.sectionTitle}>⏱️ Recent Foods</Text>
-          {recentFoods.map((food, idx) => (
-            <TouchableOpacity
-              key={`${food.name}-${idx}`}
-              style={styles.recentItem}
-              onPress={() => {
-                addFoodEntry({
-                  name: food.name,
-                  calories: food.calories,
-                  quantity: 1,
-                  unit: food.unit,
-                  mealType: 'snack',
-                  date: today,
-                });
-                Alert.alert('Added!', `${food.name} added to Snacks.`);
-              }}
-            >
-              <View style={{ flex: 1 }}>
-                <Text style={styles.recentName}>{food.name}</Text>
-                <Text style={styles.recentCals}>{food.calories} kcal · {food.unit}</Text>
-              </View>
-              <Text style={styles.recentAdd}>+ Add</Text>
-            </TouchableOpacity>
-          ))}
-        </>
-      )}
-    </ScrollView>
-  );
-}
-
-function ActivitiesTab() {
-  const addActivityEntry = useNutrioStore((s) => s.addActivityEntry);
-  const activityEntries = useNutrioStore((s) => s.activityEntries);
-  const removeActivityEntry = useNutrioStore((s) => s.removeActivityEntry);
-  const today = getTodayString();
-
-  const [showForm, setShowForm] = useState(false);
-  const [name, setName] = useState('');
-  const [duration, setDuration] = useState('');
-  const [burned, setBurned] = useState('');
-
-  const todayActivities = activityEntries.filter((a) => a.date === today);
-
-  const resetForm = () => {
-    setName('');
-    setDuration('');
-    setBurned('');
-    setShowForm(false);
-  };
-
-  const handleAdd = () => {
-    const dur = parseInt(duration, 10);
-    const cal = parseInt(burned, 10);
-    if (!name.trim() || !dur || !cal) {
-      Alert.alert('Error', 'Please fill all fields.');
-      return;
-    }
-    addActivityEntry({ name: name.trim(), durationMinutes: dur, caloriesBurned: cal, date: today });
-    resetForm();
-  };
-
-  return (
-    <ScrollView contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
-      <Button
-        title={showForm ? 'Cancel' : '+ Add Activity'}
-        variant={showForm ? 'ghost' : 'primary'}
-        onPress={() => (showForm ? resetForm() : setShowForm(true))}
-      />
-
-      {showForm && (
-        <Card style={styles.formCard}>
-          <Text style={styles.formTitle}>New Activity</Text>
-          <Input label="Activity name" value={name} onChangeText={setName} placeholder="e.g. Walking" />
-          <Input label="Duration" value={duration} onChangeText={setDuration} placeholder="30" keyboardType="numeric" suffix="min" />
-          <Input label="Calories burned" value={burned} onChangeText={setBurned} placeholder="150" keyboardType="numeric" suffix="kcal" />
-          <Button title="Save" onPress={handleAdd} style={{ marginTop: spacing.lg }} />
-        </Card>
-      )}
-
-      {/* Today's Activities */}
-      <Text style={styles.sectionTitle}>🏃 Today's Activities</Text>
-      {todayActivities.length === 0 ? (
-        <Text style={styles.emptyText}>No activities logged today.</Text>
+      {sorted.length === 0 ? (
+        <Text style={styles.emptyText}>No weight entries yet. Tap "Update" to log your first weight.</Text>
       ) : (
-        todayActivities.map((a) => (
-          <Card key={a.id} style={styles.activityItem}>
-            <View style={styles.activityRow}>
-              <View style={{ flex: 1 }}>
-                <Text style={styles.activityName}>{a.name}</Text>
-                <Text style={styles.activityMeta}>{a.durationMinutes} min · {a.caloriesBurned} kcal burned</Text>
+        [...sorted].reverse().slice(0, 7).map((entry, revIdx) => {
+          const realIdx = sorted.length - 1 - revIdx;
+          const change = getChange(realIdx);
+          return (
+            <Card key={entry.id} style={styles.historyItem}>
+              <View style={styles.historyRow}>
+                <View style={{ flex: 1 }}>
+                  <Text style={styles.historyWeight}>{entry.weightKg} kg</Text>
+                  <Text style={styles.historyDate}>{formatDate(entry.date)}</Text>
+                </View>
+                {change !== 0 && (
+                  <View style={[styles.changeBadgeSm, change < 0 ? styles.changeBadgeGreen : styles.changeBadgeRed]}>
+                    <Text style={[styles.changeTextSm, change < 0 ? styles.changeTextGreen : styles.changeTextRed]}>
+                      {change > 0 ? '+' : ''}{change} kg
+                    </Text>
+                  </View>
+                )}
+                <TouchableOpacity
+                  style={styles.moreBtn}
+                  onPress={() => {
+                    Alert.alert(
+                      `${entry.weightKg} kg`,
+                      `${formatDate(entry.date)}`,
+                      [
+                        {
+                          text: 'Edit',
+                          onPress: () => {
+                            setEditId(entry.id);
+                            setEditWeight(String(entry.weightKg));
+                          },
+                        },
+                        {
+                          text: 'Delete',
+                          style: 'destructive',
+                          onPress: () => removeWeightEntry(entry.id),
+                        },
+                        { text: 'Cancel', style: 'cancel' },
+                      ]
+                    );
+                  }}
+                >
+                  <Text style={styles.moreBtnText}>⋮</Text>
+                </TouchableOpacity>
               </View>
-              <TouchableOpacity
-                onPress={() =>
-                  Alert.alert('Delete', `Remove ${a.name}?`, [
-                    { text: 'Cancel' },
-                    { text: 'Delete', style: 'destructive', onPress: () => removeActivityEntry(a.id) },
-                  ])
-                }
-              >
-                <Text style={styles.deleteBtn}>✕</Text>
-              </TouchableOpacity>
-            </View>
-          </Card>
-        ))
+            </Card>
+          );
+        })
       )}
+
+      <View style={{ height: 30 }} />
+
+      {/* Update Weight Modal */}
+      <Modal visible={showUpdateModal} transparent animationType="slide">
+        <View style={styles.modalOverlay}>
+          <View style={styles.modalContent}>
+            <Text style={styles.modalTitle}>Update Weight</Text>
+            <Input
+              label="New weight"
+              value={weightInput}
+              onChangeText={setWeightInput}
+              placeholder={String(currentWeight)}
+              keyboardType="numeric"
+              suffix="kg"
+            />
+            <View style={styles.modalActions}>
+              <Button title="Cancel" variant="ghost" onPress={() => setShowUpdateModal(false)} style={{ flex: 1 }} />
+              <Button
+                title="Save"
+                onPress={() => {
+                  const w = parseFloat(weightInput);
+                  if (w > 0) {
+                    addWeightEntry(w);
+                    setShowUpdateModal(false);
+                    setWeightInput('');
+                  }
+                }}
+                style={{ flex: 1 }}
+              />
+            </View>
+          </View>
+        </View>
+      </Modal>
+
+      {/* Edit Weight Modal */}
+      <Modal visible={!!editId} transparent animationType="slide">
+        <View style={styles.modalOverlay}>
+          <View style={styles.modalContent}>
+            <Text style={styles.modalTitle}>Edit Weight</Text>
+            <Input
+              label="Weight"
+              value={editWeight}
+              onChangeText={setEditWeight}
+              keyboardType="numeric"
+              suffix="kg"
+            />
+            <View style={styles.modalActions}>
+              <Button title="Cancel" variant="ghost" onPress={() => setEditId(null)} style={{ flex: 1 }} />
+              <Button
+                title="Save"
+                onPress={() => {
+                  const w = parseFloat(editWeight);
+                  if (w > 0 && editId) {
+                    updateWeightEntry(editId, w);
+                    setEditId(null);
+                    setEditWeight('');
+                  }
+                }}
+                style={{ flex: 1 }}
+              />
+            </View>
+          </View>
+        </View>
+      </Modal>
     </ScrollView>
   );
+}
+
+function getBmiColor(bmi: number): string {
+  if (bmi < 18.5) return '#42A5F5';
+  if (bmi < 25) return colors.primary;
+  if (bmi < 30) return colors.warning;
+  return colors.error;
 }
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: colors.background },
-  screenTitle: { ...typography.h1, color: colors.text, paddingHorizontal: spacing.xl, marginTop: spacing.lg, marginBottom: spacing.md },
-  tabs: { flexDirection: 'row', marginHorizontal: spacing.xl, backgroundColor: colors.surfaceAlt, borderRadius: radii.lg, padding: 4, marginBottom: spacing.lg },
-  tab: { flex: 1, paddingVertical: spacing.md, borderRadius: radii.md, alignItems: 'center' },
-  tabActive: { backgroundColor: colors.surface, ...shadows.sm },
-  tabText: { ...typography.bodyBold, color: colors.textTertiary },
-  tabTextActive: { color: colors.text },
-  scrollContent: { paddingHorizontal: spacing.xl, paddingBottom: spacing.huge },
-  formCard: { marginTop: spacing.lg },
-  formTitle: { ...typography.h3, color: colors.text, marginBottom: spacing.lg },
-  fieldLabel: { ...typography.captionBold, color: colors.textSecondary, marginBottom: spacing.sm, marginTop: spacing.md, textTransform: 'uppercase', letterSpacing: 0.5 },
-  chipRow: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.sm },
-  sectionTitle: { ...typography.h3, color: colors.text, marginTop: spacing.xxl, marginBottom: spacing.md },
-  recentItem: { flexDirection: 'row', alignItems: 'center', backgroundColor: colors.surface, padding: spacing.lg, borderRadius: radii.lg, marginBottom: spacing.sm, ...shadows.sm },
-  recentName: { ...typography.bodyBold, color: colors.text },
-  recentCals: { ...typography.caption, color: colors.textSecondary },
-  recentAdd: { ...typography.captionBold, color: colors.primary },
+  content: { paddingHorizontal: spacing.xl, paddingBottom: spacing.huge },
+  screenTitle: { ...typography.h1, color: colors.text, textAlign: 'center', marginTop: spacing.lg, marginBottom: spacing.xl },
+  currentCard: { marginBottom: spacing.lg },
+  currentLabel: { ...typography.captionBold, color: colors.textSecondary, textTransform: 'uppercase', letterSpacing: 0.5 },
+  currentRow: { flexDirection: 'row', alignItems: 'baseline', gap: spacing.sm, marginTop: spacing.xs },
+  currentWeight: { ...typography.big, color: colors.text, fontSize: 42 },
+  currentUnit: { ...typography.h3, color: colors.textSecondary },
+  changeBadge: { paddingVertical: 2, paddingHorizontal: spacing.sm, borderRadius: radii.full, marginLeft: spacing.sm },
+  changeBadgeGreen: { backgroundColor: colors.success + '18' },
+  changeBadgeRed: { backgroundColor: colors.error + '18' },
+  changeText: { ...typography.captionBold },
+  changeTextGreen: { color: colors.success },
+  changeTextRed: { color: colors.error },
+  progressLabels: { flexDirection: 'row', justifyContent: 'space-between' },
+  progressLabel: { ...typography.caption, color: colors.textTertiary },
+  updateBtn: { marginTop: spacing.lg, backgroundColor: colors.secondary },
+  bmiCard: { marginBottom: spacing.xl },
+  bmiRow: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
+  bmiLabel: { ...typography.captionBold, color: colors.textSecondary, textTransform: 'uppercase' },
+  bmiValue: { ...typography.h1, color: colors.text },
+  bmiCategoryBadge: { paddingVertical: spacing.sm, paddingHorizontal: spacing.lg, borderRadius: radii.full },
+  bmiCategoryText: { ...typography.captionBold },
+  historyHeader: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: spacing.md },
+  historyTitle: { ...typography.h3, color: colors.text },
+  viewAllBtn: { ...typography.captionBold, color: colors.primary },
   emptyText: { ...typography.body, color: colors.textTertiary, textAlign: 'center', paddingVertical: spacing.xxl },
-  activityItem: { marginBottom: spacing.sm },
-  activityRow: { flexDirection: 'row', alignItems: 'center' },
-  activityName: { ...typography.bodyBold, color: colors.text },
-  activityMeta: { ...typography.caption, color: colors.textSecondary },
-  deleteBtn: { fontSize: 16, color: colors.error, padding: spacing.sm },
+  historyItem: { marginBottom: spacing.sm },
+  historyRow: { flexDirection: 'row', alignItems: 'center' },
+  historyWeight: { ...typography.bodyBold, color: colors.text, fontSize: 18 },
+  historyDate: { ...typography.caption, color: colors.textTertiary, marginTop: 2 },
+  changeBadgeSm: { paddingVertical: 2, paddingHorizontal: spacing.sm, borderRadius: radii.full },
+  changeTextSm: { ...typography.small, fontWeight: '600' },
+  moreBtn: { padding: spacing.sm, marginLeft: spacing.sm },
+  moreBtnText: { fontSize: 20, color: colors.textTertiary, fontWeight: '700' },
+  modalOverlay: { flex: 1, backgroundColor: colors.overlay, justifyContent: 'flex-end' },
+  modalContent: { backgroundColor: colors.surface, borderTopLeftRadius: radii.xxl, borderTopRightRadius: radii.xxl, padding: spacing.xxl, paddingBottom: spacing.huge },
+  modalTitle: { ...typography.h2, color: colors.text, textAlign: 'center', marginBottom: spacing.xl },
+  modalActions: { flexDirection: 'row', gap: spacing.md, marginTop: spacing.md },
 });

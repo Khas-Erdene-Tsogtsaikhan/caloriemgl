@@ -35,6 +35,9 @@ export interface FoodEntry {
   id: string;
   name: string;
   calories: number;
+  protein_g: number;
+  carbs_g: number;
+  fat_g: number;
   quantity: number;
   unit: FoodUnit;
   mealType: MealType;
@@ -70,4 +73,7 @@ export interface FoodPreset {
   emoji: string;
   defaultUnit: FoodUnit;
   caloriesPerUnit: number;
+  protein_g: number;
+  carbs_g: number;
+  fat_g: number;
 }

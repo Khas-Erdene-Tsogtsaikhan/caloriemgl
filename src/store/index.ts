@@ -1,17 +1,16 @@
-import { create } from 'zustand';
-import { persist, createJSONStorage } from 'zustand/middleware';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { create } from 'zustand';
+import { createJSONStorage, persist } from 'zustand/middleware';
 import {
-  UserProfile,
-  FoodEntry,
-  ActivityEntry,
-  WaterEntry,
-  WeightEntry,
-  MealType,
-  FoodUnit,
+    ActivityEntry,
+    FoodEntry,
+    FoodUnit,
+    UserProfile,
+    WaterEntry,
+    WeightEntry
 } from '../types';
+import { calculateBMI, calculateDailyCalories } from '../utils/calories';
 import { getTodayString } from '../utils/date';
-import { calculateDailyCalories, calculateBMI } from '../utils/calories';
 
 interface NutrioState {
   // User profile
@@ -22,6 +21,7 @@ interface NutrioState {
   // Food entries
   foodEntries: FoodEntry[];
   addFoodEntry: (entry: Omit<FoodEntry, 'id' | 'createdAt'>) => void;
+  updateFoodEntry: (id: string, updates: Partial<Omit<FoodEntry, 'id' | 'createdAt'>>) => void;
   removeFoodEntry: (id: string) => void;
 
   // Activity entries
@@ -36,18 +36,15 @@ interface NutrioState {
   // Weight
   weightEntries: WeightEntry[];
   addWeightEntry: (weightKg: number) => void;
+  updateWeightEntry: (id: string, weightKg: number) => void;
   removeWeightEntry: (id: string) => void;
 
   // Recent foods (names for quick re-add)
-  recentFoods: Array<{ name: string; calories: number; unit: FoodUnit }>;
+  recentFoods: Array<{ name: string; calories: number; protein_g: number; carbs_g: number; fat_g: number; unit: FoodUnit }>;
 
-  // Helpers
-  getTodayFoodEntries: () => FoodEntry[];
-  getTodayCaloriesEaten: () => number;
-  getTodayCaloriesBurned: () => number;
-  getTodayMealCalories: (meal: MealType) => number;
-  getTodayWater: () => number;
+  // Helpers (kept for backward compat but prefer raw arrays + useMemo in components)
   getCaloriesForDate: (date: string) => number;
+  getBurnedForDate: (date: string) => number;
   getWaterForDate: (date: string) => number;
 
   // Reset
@@ -101,13 +98,27 @@ export const useNutrioStore = create<NutrioState>()(
         if (exists >= 0) {
           updatedRecent.splice(exists, 1);
         }
-        updatedRecent.unshift({ name: entry.name, calories: entry.calories, unit: entry.unit });
+        updatedRecent.unshift({
+          name: entry.name,
+          calories: entry.calories,
+          protein_g: entry.protein_g,
+          carbs_g: entry.carbs_g,
+          fat_g: entry.fat_g,
+          unit: entry.unit,
+        });
         if (updatedRecent.length > 10) updatedRecent = updatedRecent.slice(0, 10);
         set((state) => ({
           foodEntries: [...state.foodEntries, newEntry],
           recentFoods: updatedRecent,
         }));
       },
+
+      updateFoodEntry: (id, updates) =>
+        set((state) => ({
+          foodEntries: state.foodEntries.map((e) =>
+            e.id === id ? { ...e, ...updates } : e
+          ),
+        })),
 
       removeFoodEntry: (id) =>
         set((state) => ({
@@ -159,47 +170,46 @@ export const useNutrioStore = create<NutrioState>()(
         }));
       },
 
+      updateWeightEntry: (id, weightKg) => {
+        const profile = get().profile;
+        if (!profile) return;
+        const bmi = calculateBMI(weightKg, profile.heightCm);
+        set((state) => {
+          const updated = state.weightEntries.map((e) =>
+            e.id === id ? { ...e, weightKg, bmi } : e
+          );
+          const sorted = [...updated].sort((a, b) => a.date.localeCompare(b.date));
+          const latestWeight = sorted.length > 0 ? sorted[sorted.length - 1].weightKg : weightKg;
+          return {
+            weightEntries: updated,
+            profile: state.profile ? { ...state.profile, currentWeightKg: latestWeight } : null,
+          };
+        });
+      },
+
       removeWeightEntry: (id) =>
-        set((state) => ({
-          weightEntries: state.weightEntries.filter((e) => e.id !== id),
-        })),
-
-      getTodayFoodEntries: () => {
-        const today = getTodayString();
-        return get().foodEntries.filter((e) => e.date === today);
-      },
-
-      getTodayCaloriesEaten: () => {
-        const today = getTodayString();
-        return get()
-          .foodEntries.filter((e) => e.date === today)
-          .reduce((sum, e) => sum + e.calories * e.quantity, 0);
-      },
-
-      getTodayCaloriesBurned: () => {
-        const today = getTodayString();
-        return get()
-          .activityEntries.filter((e) => e.date === today)
-          .reduce((sum, e) => sum + e.caloriesBurned, 0);
-      },
-
-      getTodayMealCalories: (meal) => {
-        const today = getTodayString();
-        return get()
-          .foodEntries.filter((e) => e.date === today && e.mealType === meal)
-          .reduce((sum, e) => sum + e.calories * e.quantity, 0);
-      },
-
-      getTodayWater: () => {
-        const today = getTodayString();
-        const entry = get().waterEntries.find((w) => w.date === today);
-        return entry?.totalMl || 0;
-      },
+        set((state) => {
+          const remaining = state.weightEntries.filter((e) => e.id !== id);
+          const sorted = [...remaining].sort((a, b) => a.date.localeCompare(b.date));
+          const latestWeight = sorted.length > 0
+            ? sorted[sorted.length - 1].weightKg
+            : state.profile?.currentWeightKg ?? 0;
+          return {
+            weightEntries: remaining,
+            profile: state.profile ? { ...state.profile, currentWeightKg: latestWeight } : null,
+          };
+        }),
 
       getCaloriesForDate: (date) => {
         return get()
           .foodEntries.filter((e) => e.date === date)
           .reduce((sum, e) => sum + e.calories * e.quantity, 0);
+      },
+
+      getBurnedForDate: (date) => {
+        return get()
+          .activityEntries.filter((e) => e.date === date)
+          .reduce((sum, e) => sum + e.caloriesBurned, 0);
       },
 
       getWaterForDate: (date) => {
