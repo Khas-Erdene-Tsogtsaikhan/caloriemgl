@@ -36,7 +36,6 @@ export default function Step10() {
           </View>
         </Card>
       </View>
-
       <Button
         title="Continue"
         onPress={() => {
