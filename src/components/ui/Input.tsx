@@ -1,6 +1,6 @@
 import React from 'react';
-import { View, TextInput, Text, StyleSheet, ViewStyle, KeyboardTypeOptions } from 'react-native';
-import { colors, spacing, radii, typography } from '../../theme/tokens';
+import { KeyboardTypeOptions, StyleSheet, Text, TextInput, View, ViewStyle } from 'react-native';
+import { colors, radii, spacing, typography } from '../../theme/tokens';
 
 interface InputProps {
   label?: string;
@@ -52,9 +52,7 @@ const styles = StyleSheet.create({
   label: {
     ...typography.captionBold,
     color: colors.textSecondary,
-    marginBottom: spacing.sm,
-    textTransform: 'uppercase',
-    letterSpacing: 0.5,
+    marginBottom: spacing.xs,
   },
   inputRow: {
     flexDirection: 'row',
@@ -69,7 +67,7 @@ const styles = StyleSheet.create({
     flex: 1,
     ...typography.body,
     color: colors.text,
-    paddingVertical: spacing.md + 2,
+    paddingVertical: spacing.md,
   },
   multiline: {
     minHeight: 80,

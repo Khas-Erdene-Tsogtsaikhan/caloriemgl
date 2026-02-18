@@ -2,6 +2,7 @@ import DateSwitcher from '@/src/components/home/DateSwitcher';
 import Button from '@/src/components/ui/Button';
 import Card from '@/src/components/ui/Card';
 import Input from '@/src/components/ui/Input';
+import ModalHandle from '@/src/components/ui/ModalHandle';
 import ProgressBar from '@/src/components/ui/ProgressBar';
 import ProgressRing from '@/src/components/ui/ProgressRing';
 import { MEAL_EMOJIS, MEAL_LABELS, MONGOLIAN_FOOD_PRESETS } from '@/src/data/presets';
@@ -9,7 +10,6 @@ import { useNutrioStore } from '@/src/store';
 import { colors, radii, shadows, spacing, typography } from '@/src/theme/tokens';
 import { FoodEntry, FoodPreset, MealType } from '@/src/types';
 import { addDays, getTodayString } from '@/src/utils/date';
-import { LinearGradient } from 'expo-linear-gradient';
 import React, { useMemo, useState } from 'react';
 import {
     Alert,
@@ -132,16 +132,11 @@ export default function HomeScreen() {
       contentContainerStyle={styles.content}
       showsVerticalScrollIndicator={false}
     >
-      {/* Gradient Header */}
-      <LinearGradient
-        colors={[colors.gradientStart, colors.gradientEnd]}
-        start={{ x: 0, y: 0 }}
-        end={{ x: 1, y: 1 }}
-        style={[styles.gradientHeader, { paddingTop: insets.top + spacing.lg }]}
-      >
-        <Text style={styles.greeting}>Hello, {profile?.name ?? 'there'} 👋</Text>
-        <Text style={styles.greetingSub}>Let's track your nutrition</Text>
-      </LinearGradient>
+      {/* Header */}
+      <View style={[styles.header, { paddingTop: insets.top + spacing.lg }]}>
+        <Text style={styles.greeting}>Hello, {profile?.name ?? 'there'}</Text>
+        <Text style={styles.greetingSub}>Track your nutrition today</Text>
+      </View>
 
       <View style={styles.body}>
         {/* Date Switcher */}
@@ -231,7 +226,7 @@ export default function HomeScreen() {
           )}
 
           {dayActivities.length === 0 && !showActivityForm ? (
-            <Text style={styles.emptyText}>No activities logged yet</Text>
+            <Text style={styles.emptyText}>No activities yet — tap + Add to start</Text>
           ) : (
             dayActivities.map((a) => (
               <View key={a.id} style={styles.entryRow}>
@@ -357,6 +352,7 @@ export default function HomeScreen() {
       <Modal visible={!!quickAddModal} transparent animationType="slide">
         <View style={styles.modalOverlay}>
           <View style={styles.modalContent}>
+            <ModalHandle />
             {quickAddModal && (
               <>
                 <Text style={styles.modalTitle}>
@@ -430,6 +426,7 @@ export default function HomeScreen() {
       <Modal visible={!!editEntry} transparent animationType="slide">
         <View style={styles.modalOverlay}>
           <View style={styles.modalContent}>
+            <ModalHandle />
             {editEntry && (
               <>
                 <Text style={styles.modalTitle}>Edit: {editEntry.name}</Text>
@@ -479,7 +476,8 @@ export default function HomeScreen() {
       <Modal visible={!!quickCalModal} transparent animationType="slide">
         <View style={styles.modalOverlay}>
           <View style={styles.modalContent}>
-            <Text style={styles.modalTitle}>⚡ Quick Add Calories</Text>
+            <ModalHandle />
+            <Text style={styles.modalTitle}>Quick Add Calories</Text>
             <View style={styles.quickCalRow}>
               {[100, 200, 300, 500].map((amt) => (
                 <TouchableOpacity
@@ -531,6 +529,7 @@ export default function HomeScreen() {
       <Modal visible={!!addMealModal} transparent animationType="slide">
         <View style={styles.modalOverlay}>
           <View style={[styles.modalContent, { maxHeight: '80%' }]}>
+            <ModalHandle />
             <Text style={styles.modalTitle}>
               Add to {addMealModal ? MEAL_LABELS[addMealModal] : ''}
             </Text>
@@ -621,7 +620,7 @@ export default function HomeScreen() {
             {addMealTab === 'recent' && (
               <ScrollView showsVerticalScrollIndicator={false} style={{ maxHeight: 350 }}>
                 {recentFoods.length === 0 ? (
-                  <Text style={styles.emptyText}>No recent foods yet. Log something first!</Text>
+                  <Text style={styles.emptyText}>No recent foods yet — log something first</Text>
                 ) : (
                   recentFoods.map((food, idx) => (
                     <TouchableOpacity
@@ -684,15 +683,14 @@ function MacroBar({ label, value, color, suffix }: { label: string; value: numbe
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: colors.background },
   content: { paddingBottom: spacing.huge },
-  gradientHeader: {
+  header: {
     paddingHorizontal: spacing.xl,
-    paddingBottom: spacing.xxl,
-    borderBottomLeftRadius: radii.xxl,
-    borderBottomRightRadius: radii.xxl,
+    paddingBottom: spacing.lg,
+    backgroundColor: colors.background,
   },
-  greeting: { ...typography.h2, color: colors.textInverse },
-  greetingSub: { ...typography.caption, color: 'rgba(255,255,255,0.75)', marginTop: 2 },
-  body: { paddingHorizontal: spacing.xl, marginTop: -spacing.sm },
+  greeting: { ...typography.h1, color: colors.text },
+  greetingSub: { ...typography.caption, color: colors.textSecondary, marginTop: 2 },
+  body: { paddingHorizontal: spacing.xl },
   calorieCard: { marginBottom: spacing.lg, marginTop: spacing.md },
   calorieRow: { flexDirection: 'row', alignItems: 'center', gap: spacing.xl },
   calorieDetails: { flex: 1, gap: spacing.md },
@@ -732,7 +730,7 @@ const styles = StyleSheet.create({
   presetName: { ...typography.captionBold, color: colors.text, textAlign: 'center' },
   presetCals: { ...typography.small, color: colors.textTertiary, marginTop: 2 },
   modalOverlay: { flex: 1, backgroundColor: colors.overlay, justifyContent: 'flex-end' },
-  modalContent: { backgroundColor: colors.surface, borderTopLeftRadius: radii.xxl, borderTopRightRadius: radii.xxl, padding: spacing.xxl, paddingBottom: spacing.huge },
+  modalContent: { backgroundColor: colors.surface, borderTopLeftRadius: radii.xl, borderTopRightRadius: radii.xl, padding: spacing.xxl, paddingBottom: spacing.huge },
   modalTitle: { ...typography.h2, color: colors.text, textAlign: 'center', marginBottom: spacing.md },
   modalSub: { ...typography.caption, color: colors.textSecondary, textAlign: 'center', marginTop: 2, marginBottom: spacing.lg },
   modalInfo: { ...typography.body, color: colors.textSecondary, textAlign: 'center', marginBottom: spacing.xl },

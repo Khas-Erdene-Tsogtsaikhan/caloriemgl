@@ -1,6 +1,6 @@
 import React from 'react';
-import { TouchableOpacity, Text, StyleSheet, ViewStyle } from 'react-native';
-import { colors, spacing, radii, typography } from '../../theme/tokens';
+import { StyleSheet, Text, TouchableOpacity, ViewStyle } from 'react-native';
+import { colors, radii, spacing, typography } from '../../theme/tokens';
 
 interface ChipProps {
   label: string;
@@ -27,16 +27,16 @@ const styles = StyleSheet.create({
   chip: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingVertical: spacing.sm + 2,
+    paddingVertical: spacing.sm,
     paddingHorizontal: spacing.lg,
     borderRadius: radii.full,
     backgroundColor: colors.surfaceAlt,
-    borderWidth: 1.5,
+    borderWidth: 1,
     borderColor: colors.border,
     gap: spacing.xs,
   },
   selected: {
-    backgroundColor: colors.primaryLight + '20',
+    backgroundColor: colors.primaryMuted,
     borderColor: colors.primary,
   },
   emoji: {

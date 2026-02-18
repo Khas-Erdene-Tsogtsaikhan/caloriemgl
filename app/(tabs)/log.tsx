@@ -1,6 +1,7 @@
 import Button from '@/src/components/ui/Button';
 import Card from '@/src/components/ui/Card';
 import Input from '@/src/components/ui/Input';
+import ModalHandle from '@/src/components/ui/ModalHandle';
 import ProgressBar from '@/src/components/ui/ProgressBar';
 import { useNutrioStore } from '@/src/store';
 import { colors, radii, spacing, typography } from '@/src/theme/tokens';
@@ -131,7 +132,7 @@ export default function WeightScreen() {
       </View>
 
       {sorted.length === 0 ? (
-        <Text style={styles.emptyText}>No weight entries yet. Tap "Update" to log your first weight.</Text>
+        <Text style={styles.emptyText}>No weight entries yet — tap Update to start tracking</Text>
       ) : (
         [...sorted].reverse().slice(0, 7).map((entry, revIdx) => {
           const realIdx = sorted.length - 1 - revIdx;
@@ -188,6 +189,7 @@ export default function WeightScreen() {
       <Modal visible={showUpdateModal} transparent animationType="slide">
         <View style={styles.modalOverlay}>
           <View style={styles.modalContent}>
+            <ModalHandle />
             <Text style={styles.modalTitle}>Update Weight</Text>
             <Input
               label="New weight"
@@ -220,6 +222,7 @@ export default function WeightScreen() {
       <Modal visible={!!editId} transparent animationType="slide">
         <View style={styles.modalOverlay}>
           <View style={styles.modalContent}>
+            <ModalHandle />
             <Text style={styles.modalTitle}>Edit Weight</Text>
             <Input
               label="Weight"
@@ -262,7 +265,7 @@ const styles = StyleSheet.create({
   content: { paddingHorizontal: spacing.xl, paddingBottom: spacing.huge },
   screenTitle: { ...typography.h1, color: colors.text, textAlign: 'center', marginTop: spacing.lg, marginBottom: spacing.xl },
   currentCard: { marginBottom: spacing.lg },
-  currentLabel: { ...typography.captionBold, color: colors.textSecondary, textTransform: 'uppercase', letterSpacing: 0.5 },
+  currentLabel: { ...typography.captionBold, color: colors.textSecondary },
   currentRow: { flexDirection: 'row', alignItems: 'baseline', gap: spacing.sm, marginTop: spacing.xs },
   currentWeight: { ...typography.big, color: colors.text, fontSize: 42 },
   currentUnit: { ...typography.h3, color: colors.textSecondary },
@@ -277,7 +280,7 @@ const styles = StyleSheet.create({
   updateBtn: { marginTop: spacing.lg, backgroundColor: colors.secondary },
   bmiCard: { marginBottom: spacing.xl },
   bmiRow: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
-  bmiLabel: { ...typography.captionBold, color: colors.textSecondary, textTransform: 'uppercase' },
+  bmiLabel: { ...typography.captionBold, color: colors.textSecondary },
   bmiValue: { ...typography.h1, color: colors.text },
   bmiCategoryBadge: { paddingVertical: spacing.sm, paddingHorizontal: spacing.lg, borderRadius: radii.full },
   bmiCategoryText: { ...typography.captionBold },
@@ -294,7 +297,7 @@ const styles = StyleSheet.create({
   moreBtn: { padding: spacing.sm, marginLeft: spacing.sm },
   moreBtnText: { fontSize: 20, color: colors.textTertiary, fontWeight: '700' },
   modalOverlay: { flex: 1, backgroundColor: colors.overlay, justifyContent: 'flex-end' },
-  modalContent: { backgroundColor: colors.surface, borderTopLeftRadius: radii.xxl, borderTopRightRadius: radii.xxl, padding: spacing.xxl, paddingBottom: spacing.huge },
+  modalContent: { backgroundColor: colors.surface, borderTopLeftRadius: radii.xl, borderTopRightRadius: radii.xl, padding: spacing.xxl, paddingBottom: spacing.huge },
   modalTitle: { ...typography.h2, color: colors.text, textAlign: 'center', marginBottom: spacing.xl },
   modalActions: { flexDirection: 'row', gap: spacing.md, marginTop: spacing.md },
 });

@@ -1,59 +1,59 @@
-// ─── Warm Mongolian-inspired palette ───────────────────────────────
+// ─── Color palette — warm, earthy, slightly desaturated ──────────
 export const colors = {
-  // Brand greens (warm, earthy)
-  primary: '#3B9B5E',
-  primaryLight: '#6BBF8A',
-  primaryDark: '#2A7A45',
-  primaryMuted: '#E8F5ED',
+  // Brand greens (warm, earthy — slightly desaturated for sophistication)
+  primary: '#34915A',
+  primaryLight: '#5FB882',
+  primaryDark: '#266E42',
+  primaryMuted: '#EBF5EF',
 
   // Warm accent (golden amber)
-  secondary: '#E8943A',
-  secondaryLight: '#F5B870',
-  secondaryMuted: '#FFF3E0',
+  secondary: '#D98B35',
+  secondaryLight: '#F0B468',
+  secondaryMuted: '#FEF4E8',
 
   // Teal accent
   accent: '#2A9D8F',
   accentMuted: '#E0F5F2',
 
-  // Surfaces (warm off-whites)
-  background: '#FAF9F6',
+  // Surfaces (warm off-whites, subtle warmth)
+  background: '#F8F7F4',
   surface: '#FFFFFF',
-  surfaceAlt: '#F4F3EE',
+  surfaceAlt: '#F2F1EC',
   surfaceElevated: '#FFFFFF',
 
-  // Text (warm dark tones)
-  text: '#1A1C1E',
-  textSecondary: '#5C5F62',
-  textTertiary: '#9B9EA2',
+  // Text (warm dark tones, high contrast)
+  text: '#1A1A1A',
+  textSecondary: '#6B6E72',
+  textTertiary: '#A0A3A8',
   textInverse: '#FFFFFF',
 
-  // Borders
-  border: '#E5E3DE',
-  borderLight: '#EFEDE8',
+  // Borders (subtle, warm)
+  border: '#E2E0DB',
+  borderLight: '#ECEAE5',
 
   // Semantic
-  success: '#3B9B5E',
-  warning: '#E8943A',
-  error: '#DC4545',
-  info: '#4A90D9',
+  success: '#34915A',
+  warning: '#D98B35',
+  error: '#D44040',
+  info: '#4A8DD4',
 
   // Macro colors
-  calorieRing: '#3B9B5E',
-  proteinColor: '#4A90D9',
-  carbColor: '#E8943A',
-  fatColor: '#DC4545',
-  waterColor: '#4AAFDB',
+  calorieRing: '#34915A',
+  proteinColor: '#4A8DD4',
+  carbColor: '#D98B35',
+  fatColor: '#D44040',
+  waterColor: '#4AACD6',
 
   // Utility
-  shadow: 'rgba(26, 28, 30, 0.06)',
-  overlay: 'rgba(26, 28, 30, 0.45)',
+  shadow: 'rgba(20, 20, 22, 0.08)',
+  overlay: 'rgba(20, 20, 22, 0.5)',
 
-  // Gradient stops (for header)
-  gradientStart: '#3B9B5E',
-  gradientEnd: '#2A7A45',
+  // Gradient stops (for header — kept but will be used sparingly)
+  gradientStart: '#34915A',
+  gradientEnd: '#266E42',
 };
 
-// ─── Spacing (generous, breathable) ───────────────────────────────
+// ─── Spacing — strict 4px grid ───────────────────────────────────
 export const spacing = {
   xs: 4,
   sm: 8,
@@ -65,8 +65,9 @@ export const spacing = {
   huge: 48,
 };
 
-// ─── Radii (soft, premium feel) ───────────────────────────────────
+// ─── Radii — tighter, cleaner, Apple-like ────────────────────────
 export const radii = {
+  xs: 4,
   sm: 8,
   md: 12,
   lg: 16,
@@ -75,40 +76,40 @@ export const radii = {
   full: 999,
 };
 
-// ─── Typography ───────────────────────────────────────────────────
+// ─── Typography — tighter tracking on headings, optical balance ──
 export const typography = {
-  h1: { fontSize: 28, fontWeight: '700' as const, lineHeight: 34 },
-  h2: { fontSize: 22, fontWeight: '700' as const, lineHeight: 28 },
-  h3: { fontSize: 18, fontWeight: '600' as const, lineHeight: 24 },
+  h1: { fontSize: 28, fontWeight: '700' as const, lineHeight: 34, letterSpacing: -0.4 },
+  h2: { fontSize: 22, fontWeight: '700' as const, lineHeight: 28, letterSpacing: -0.3 },
+  h3: { fontSize: 18, fontWeight: '600' as const, lineHeight: 24, letterSpacing: -0.2 },
   body: { fontSize: 15, fontWeight: '400' as const, lineHeight: 22 },
   bodyBold: { fontSize: 15, fontWeight: '600' as const, lineHeight: 22 },
   caption: { fontSize: 13, fontWeight: '400' as const, lineHeight: 18 },
   captionBold: { fontSize: 13, fontWeight: '600' as const, lineHeight: 18 },
   small: { fontSize: 11, fontWeight: '400' as const, lineHeight: 16 },
-  big: { fontSize: 36, fontWeight: '700' as const, lineHeight: 42 },
+  big: { fontSize: 36, fontWeight: '700' as const, lineHeight: 42, letterSpacing: -0.5 },
 };
 
-// ─── Shadows (soft, warm) ─────────────────────────────────────────
+// ─── Shadows — visible but soft, warm ────────────────────────────
 export const shadows = {
   sm: {
-    shadowColor: '#1A1C1E',
+    shadowColor: '#1A1A1A',
     shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.04,
-    shadowRadius: 3,
+    shadowOpacity: 0.06,
+    shadowRadius: 4,
     elevation: 1,
   },
   md: {
-    shadowColor: '#1A1C1E',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.06,
-    shadowRadius: 10,
+    shadowColor: '#1A1A1A',
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.08,
+    shadowRadius: 12,
     elevation: 3,
   },
   lg: {
-    shadowColor: '#1A1C1E',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.08,
-    shadowRadius: 16,
-    elevation: 5,
+    shadowColor: '#1A1A1A',
+    shadowOffset: { width: 0, height: 6 },
+    shadowOpacity: 0.1,
+    shadowRadius: 20,
+    elevation: 6,
   },
 };

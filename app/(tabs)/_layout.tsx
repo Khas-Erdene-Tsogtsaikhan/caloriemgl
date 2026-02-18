@@ -56,16 +56,20 @@ const styles = StyleSheet.create({
   tabBar: {
     backgroundColor: colors.surface,
     borderTopColor: colors.borderLight,
-    paddingTop: 4,
-    height: 60,
+    borderTopWidth: 1,
+    paddingTop: 6,
+    height: 72,
+    elevation: 0,
+    shadowOpacity: 0,
   },
   tabLabel: {
     fontSize: 11,
     fontWeight: '600',
+    marginTop: 2,
   },
   icon: {
-    fontSize: 22,
-    opacity: 0.5,
+    fontSize: 20,
+    opacity: 0.45,
   },
   iconFocused: {
     opacity: 1,

@@ -19,9 +19,11 @@ export default function Card({ children, style, noPadding }: CardProps) {
 const styles = StyleSheet.create({
   card: {
     backgroundColor: colors.surface,
-    borderRadius: radii.xxl,
+    borderRadius: radii.lg,
     padding: spacing.xl,
-    ...shadows.md,
+    borderWidth: 1,
+    borderColor: colors.borderLight,
+    ...shadows.sm,
   },
   noPadding: {
     padding: 0,

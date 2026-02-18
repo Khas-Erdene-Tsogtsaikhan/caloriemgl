@@ -1,6 +1,7 @@
 import Button from '@/src/components/ui/Button';
 import Card from '@/src/components/ui/Card';
 import Input from '@/src/components/ui/Input';
+import ModalHandle from '@/src/components/ui/ModalHandle';
 import { ACTIVITY_LABELS, GOAL_LABELS } from '@/src/data/presets';
 import { useNutrioStore } from '@/src/store';
 import { colors, radii, spacing, typography } from '@/src/theme/tokens';
@@ -122,6 +123,7 @@ export default function AccountScreen() {
       <Modal visible={editModal} transparent animationType="slide">
         <View style={styles.modalOverlay}>
           <View style={styles.modalContent}>
+            <ModalHandle />
             <Text style={styles.modalTitle}>Edit Profile</Text>
             <Input label="Name" value={editName} onChangeText={setEditName} />
             <Input label="Height" value={editHeight} onChangeText={setEditHeight} keyboardType="numeric" suffix="cm" />
@@ -167,7 +169,7 @@ const styles = StyleSheet.create({
   profileStatDivider: { width: 1, height: 30, backgroundColor: colors.border },
   actions: { gap: spacing.md },
   modalOverlay: { flex: 1, backgroundColor: colors.overlay, justifyContent: 'flex-end' },
-  modalContent: { backgroundColor: colors.surface, borderTopLeftRadius: radii.xxl, borderTopRightRadius: radii.xxl, padding: spacing.xxl, paddingBottom: spacing.huge },
+  modalContent: { backgroundColor: colors.surface, borderTopLeftRadius: radii.xl, borderTopRightRadius: radii.xl, padding: spacing.xxl, paddingBottom: spacing.huge },
   modalTitle: { ...typography.h2, color: colors.text, textAlign: 'center', marginBottom: spacing.xl },
   modalActions: { flexDirection: 'row', gap: spacing.md, marginTop: spacing.md },
 });

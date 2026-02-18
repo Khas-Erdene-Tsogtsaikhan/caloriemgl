@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import {
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-  Modal,
-  ScrollView,
+    Modal,
+    StyleSheet,
+    Text,
+    TouchableOpacity,
+    View
 } from 'react-native';
-import { colors, spacing, typography, radii, shadows } from '../../theme/tokens';
+import { colors, radii, shadows, spacing, typography } from '../../theme/tokens';
 import { addDays, formatDateWithDay, getTodayString, toDateString } from '../../utils/date';
 
 interface DateSwitcherProps {
@@ -160,16 +159,18 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     backgroundColor: colors.surface,
-    borderRadius: radii.lg,
+    borderRadius: radii.md,
     paddingVertical: spacing.md,
     paddingHorizontal: spacing.md,
     marginBottom: spacing.lg,
+    borderWidth: 1,
+    borderColor: colors.borderLight,
     ...shadows.sm,
   },
   chevron: {
     width: 36,
     height: 36,
-    borderRadius: 18,
+    borderRadius: radii.sm,
     backgroundColor: colors.surfaceAlt,
     alignItems: 'center',
     justifyContent: 'center',
@@ -191,7 +192,7 @@ const styles = StyleSheet.create({
   },
   pickerCard: {
     backgroundColor: colors.surface,
-    borderRadius: radii.xxl,
+    borderRadius: radii.lg,
     padding: spacing.xl,
     width: '100%',
     maxWidth: 340,
