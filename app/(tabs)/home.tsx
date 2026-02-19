@@ -1,3 +1,5 @@
+import FoodDetailSheet from '@/components/foods/FoodDetailSheet';
+import FoodSearchPanel from '@/components/foods/FoodSearchPanel';
 import DateSwitcher from '@/src/components/home/DateSwitcher';
 import Button from '@/src/components/ui/Button';
 import Card from '@/src/components/ui/Card';
@@ -5,15 +7,17 @@ import Input from '@/src/components/ui/Input';
 import ModalHandle from '@/src/components/ui/ModalHandle';
 import ProgressBar from '@/src/components/ui/ProgressBar';
 import ProgressRing from '@/src/components/ui/ProgressRing';
-import { MEAL_EMOJIS, MEAL_LABELS, MONGOLIAN_FOOD_PRESETS } from '@/src/data/presets';
+import { MEAL_EMOJIS, MEAL_LABELS } from '@/src/data/presets';
 import { useNutrioStore } from '@/src/store';
+import { useFoodStore } from '@/store/useFoodStore';
+import { createCustomFood, getFoodById, type FoodRow } from '@/lib/repo/foodsRepo';
+import { listRecentFoods, type RecentFoodRow } from '@/lib/repo/logsRepo';
 import { colors, radii, shadows, spacing, typography } from '@/src/theme/tokens';
-import { FoodEntry, FoodPreset, MealType } from '@/src/types';
+import { MealType } from '@/src/types';
 import { addDays, getTodayString } from '@/src/utils/date';
-import React, { useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import {
     Alert,
-    FlatList,
     Modal,
     ScrollView,
     StyleSheet,
@@ -26,22 +30,20 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 export default function HomeScreen() {
   const insets = useSafeAreaInsets();
   const profile = useNutrioStore((s) => s.profile);
-  const foodEntries = useNutrioStore((s) => s.foodEntries);
   const activityEntries = useNutrioStore((s) => s.activityEntries);
-  const recentFoods = useNutrioStore((s) => s.recentFoods);
-  const addFoodEntry = useNutrioStore((s) => s.addFoodEntry);
-  const updateFoodEntry = useNutrioStore((s) => s.updateFoodEntry);
-  const removeFoodEntry = useNutrioStore((s) => s.removeFoodEntry);
   const addActivityEntry = useNutrioStore((s) => s.addActivityEntry);
   const removeActivityEntry = useNutrioStore((s) => s.removeActivityEntry);
 
-  const [quickAddModal, setQuickAddModal] = useState<{
-    preset: FoodPreset;
-    meal: MealType;
-  } | null>(null);
-  const [quickQty, setQuickQty] = useState(1);
+  const logsByDay = useFoodStore((s) => s.logsByDay);
+  const loadLogsByDay = useFoodStore((s) => s.loadLogsByDay);
+  const addLog = useFoodStore((s) => s.addLog);
+  const removeLog = useFoodStore((s) => s.removeLog);
+  const copyLogsFromDay = useFoodStore((s) => s.copyLogsFromDay);
+
   const [addMealModal, setAddMealModal] = useState<MealType | null>(null);
-  const [addMealTab, setAddMealTab] = useState<'presets' | 'manual' | 'recent'>('presets');
+  const [addMealTab, setAddMealTab] = useState<'search' | 'manual' | 'recent'>('search');
+  const [recentFoods, setRecentFoods] = useState<RecentFoodRow[]>([]);
+  const [recentDetailFood, setRecentDetailFood] = useState<FoodRow | null>(null);
 
   // Manual food entry state
   const [manualName, setManualName] = useState('');
@@ -49,14 +51,6 @@ export default function HomeScreen() {
   const [manualProtein, setManualProtein] = useState('');
   const [manualCarbs, setManualCarbs] = useState('');
   const [manualFat, setManualFat] = useState('');
-
-  // Edit food entry state
-  const [editEntry, setEditEntry] = useState<FoodEntry | null>(null);
-  const [editCals, setEditCals] = useState('');
-  const [editProtein, setEditProtein] = useState('');
-  const [editCarbs, setEditCarbs] = useState('');
-  const [editFat, setEditFat] = useState('');
-  const [editQty, setEditQty] = useState('');
 
   // Quick add calories state
   const [quickCalModal, setQuickCalModal] = useState<MealType | null>(null);
@@ -74,17 +68,26 @@ export default function HomeScreen() {
   const dailyGoal = profile?.dailyCalorieGoal ?? 2000;
   const meals: MealType[] = ['breakfast', 'lunch', 'dinner', 'snack'];
 
-  // Reactive derived values from raw arrays
+  useEffect(() => {
+    loadLogsByDay(selectedDate);
+  }, [selectedDate, loadLogsByDay]);
+
+  useEffect(() => {
+    if (addMealTab === 'recent') {
+      listRecentFoods(10).then(setRecentFoods);
+    }
+  }, [addMealTab]);
+
   const dayEntries = useMemo(
-    () => foodEntries.filter((e) => e.date === selectedDate),
-    [foodEntries, selectedDate]
+    () => logsByDay[selectedDate] ?? [],
+    [logsByDay, selectedDate]
   );
   const dayActivities = useMemo(
     () => activityEntries.filter((a) => a.date === selectedDate),
     [activityEntries, selectedDate]
   );
   const eaten = useMemo(
-    () => dayEntries.reduce((s, e) => s + e.calories * e.quantity, 0),
+    () => dayEntries.reduce((s, e) => s + e.calories, 0),
     [dayEntries]
   );
   const burned = useMemo(
@@ -92,9 +95,9 @@ export default function HomeScreen() {
     [dayActivities]
   );
   const macros = useMemo(() => ({
-    protein: Math.round(dayEntries.reduce((s, e) => s + (e.protein_g ?? 0) * e.quantity, 0)),
-    carbs: Math.round(dayEntries.reduce((s, e) => s + (e.carbs_g ?? 0) * e.quantity, 0)),
-    fat: Math.round(dayEntries.reduce((s, e) => s + (e.fat_g ?? 0) * e.quantity, 0)),
+    protein: Math.round(dayEntries.reduce((s, e) => s + (e.protein_g ?? 0), 0)),
+    carbs: Math.round(dayEntries.reduce((s, e) => s + (e.carbs_g ?? 0), 0)),
+    fat: Math.round(dayEntries.reduce((s, e) => s + (e.fat_g ?? 0), 0)),
   }), [dayEntries]);
 
   const remaining = Math.max(dailyGoal - eaten + burned, 0);
@@ -102,29 +105,15 @@ export default function HomeScreen() {
 
   const resetManualForm = () => { setManualName(''); setManualCals(''); setManualProtein(''); setManualCarbs(''); setManualFat(''); };
 
-  const openEditEntry = (entry: FoodEntry) => {
-    setEditEntry(entry);
-    setEditCals(String(entry.calories));
-    setEditProtein(String(entry.protein_g));
-    setEditCarbs(String(entry.carbs_g));
-    setEditFat(String(entry.fat_g));
-    setEditQty(String(entry.quantity));
-  };
-
-  const copyYesterday = () => {
+  const copyYesterday = useCallback(async () => {
     const yesterday = addDays(selectedDate, -1);
-    const yEntries = foodEntries.filter((e) => e.date === yesterday);
-    if (yEntries.length === 0) {
+    const logs = logsByDay[yesterday] ?? [];
+    if (logs.length === 0) {
       Alert.alert('Nothing to copy', 'No food entries found for yesterday.');
       return;
     }
-    yEntries.forEach((e) => {
-      addFoodEntry({
-        name: e.name, calories: e.calories, protein_g: e.protein_g, carbs_g: e.carbs_g,
-        fat_g: e.fat_g, quantity: e.quantity, unit: e.unit, mealType: e.mealType, date: selectedDate,
-      });
-    });
-  };
+    await copyLogsFromDay(yesterday, selectedDate);
+  }, [selectedDate, logsByDay, copyLogsFromDay]);
 
   return (
     <ScrollView
@@ -251,12 +240,12 @@ export default function HomeScreen() {
 
         {/* Meal Sections */}
         {meals.map((meal) => {
-          const mealEntries = dayEntries.filter((e) => e.mealType === meal);
-          const mealCals = mealEntries.reduce((s, e) => s + e.calories * e.quantity, 0);
+          const mealEntries = dayEntries.filter((e) => e.meal === meal);
+          const mealCals = mealEntries.reduce((s, e) => s + e.calories, 0);
           const mealMacros = {
-            protein: Math.round(mealEntries.reduce((s, e) => s + (e.protein_g ?? 0) * e.quantity, 0)),
-            carbs: Math.round(mealEntries.reduce((s, e) => s + (e.carbs_g ?? 0) * e.quantity, 0)),
-            fat: Math.round(mealEntries.reduce((s, e) => s + (e.fat_g ?? 0) * e.quantity, 0)),
+            protein: Math.round(mealEntries.reduce((s, e) => s + (e.protein_g ?? 0), 0)),
+            carbs: Math.round(mealEntries.reduce((s, e) => s + (e.carbs_g ?? 0), 0)),
+            fat: Math.round(mealEntries.reduce((s, e) => s + (e.fat_g ?? 0), 0)),
           };
           return (
             <Card key={meal} style={styles.mealCard}>
@@ -268,7 +257,7 @@ export default function HomeScreen() {
                   <Text style={styles.mealCals}>{mealCals} kcal</Text>
                   <TouchableOpacity
                     style={styles.addBtn}
-                    onPress={() => { setAddMealTab('presets'); setAddMealModal(meal); }}
+                    onPress={() => { setAddMealTab('search'); setAddMealModal(meal); }}
                   >
                     <Text style={styles.addBtnText}>+ Add</Text>
                   </TouchableOpacity>
@@ -282,28 +271,28 @@ export default function HomeScreen() {
                 </View>
               )}
               {mealEntries.map((entry) => (
-                <TouchableOpacity key={entry.id} style={styles.entryRow} activeOpacity={0.6} onPress={() => openEditEntry(entry)}>
+                <View key={entry.id} style={styles.entryRow}>
                   <View style={styles.entryInfo}>
-                    <Text style={styles.entryName}>{entry.name}</Text>
+                    <Text style={styles.entryName}>{entry.name_mn ?? 'Food'}</Text>
                     <Text style={styles.entrySub}>
-                      {entry.quantity} × {entry.calories} kcal
+                      {entry.portion_label_mn} · {Math.round(entry.calories)} kcal
                       {(entry.protein_g > 0 || entry.carbs_g > 0 || entry.fat_g > 0)
-                        ? `  ·  P${Math.round(entry.protein_g * entry.quantity)}  C${Math.round(entry.carbs_g * entry.quantity)}  F${Math.round(entry.fat_g * entry.quantity)}`
+                        ? `  ·  P${Math.round(entry.protein_g)}  C${Math.round(entry.carbs_g)}  F${Math.round(entry.fat_g)}`
                         : ''}
                     </Text>
                   </View>
                   <TouchableOpacity
                     onPress={() =>
-                      Alert.alert('Delete', `Remove ${entry.name}?`, [
+                      Alert.alert('Delete', `Remove ${entry.name_mn ?? 'this'}?`, [
                         { text: 'Cancel' },
-                        { text: 'Delete', style: 'destructive', onPress: () => removeFoodEntry(entry.id) },
+                        { text: 'Delete', style: 'destructive', onPress: () => removeLog(entry.id, selectedDate) },
                       ])
                     }
                     hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
                   >
                     <Text style={styles.deleteBtnText}>✕</Text>
                   </TouchableOpacity>
-                </TouchableOpacity>
+                </View>
               ))}
             </Card>
           );
@@ -321,156 +310,8 @@ export default function HomeScreen() {
           </TouchableOpacity>
         </View>
 
-        {/* Quick Mongolian Presets */}
-        <Text style={styles.sectionTitle}>🥟 Quick Add — Mongolian Foods</Text>
-        <FlatList
-          horizontal
-          data={MONGOLIAN_FOOD_PRESETS}
-          keyExtractor={(item) => item.id}
-          showsHorizontalScrollIndicator={false}
-          contentContainerStyle={styles.presetList}
-          renderItem={({ item }) => (
-            <TouchableOpacity
-              style={styles.presetCard}
-              activeOpacity={0.7}
-              onPress={() => {
-                setQuickQty(1);
-                setQuickAddModal({ preset: item, meal: 'snack' });
-              }}
-            >
-              <Text style={styles.presetEmoji}>{item.emoji}</Text>
-              <Text style={styles.presetName} numberOfLines={1}>{item.name}</Text>
-              <Text style={styles.presetCals}>{item.caloriesPerUnit} kcal</Text>
-            </TouchableOpacity>
-          )}
-        />
-
         <View style={{ height: 30 }} />
       </View>
-
-      {/* Quick Add Modal (preset quantity picker) */}
-      <Modal visible={!!quickAddModal} transparent animationType="slide">
-        <View style={styles.modalOverlay}>
-          <View style={styles.modalContent}>
-            <ModalHandle />
-            {quickAddModal && (
-              <>
-                <Text style={styles.modalTitle}>
-                  {quickAddModal.preset.emoji} {quickAddModal.preset.name}
-                </Text>
-                <Text style={styles.modalSub}>{quickAddModal.preset.nameEn}</Text>
-                <Text style={styles.modalInfo}>
-                  {quickAddModal.preset.caloriesPerUnit} kcal · P{quickAddModal.preset.protein_g} C{quickAddModal.preset.carbs_g} F{quickAddModal.preset.fat_g}
-                </Text>
-
-                <Text style={styles.modalLabel}>Meal</Text>
-                <View style={styles.mealPicker}>
-                  {meals.map((m) => (
-                    <TouchableOpacity
-                      key={m}
-                      style={[styles.mealPickerBtn, quickAddModal.meal === m && styles.mealPickerBtnActive]}
-                      onPress={() => setQuickAddModal({ ...quickAddModal, meal: m })}
-                    >
-                      <Text style={[styles.mealPickerText, quickAddModal.meal === m && styles.mealPickerTextActive]}>
-                        {MEAL_LABELS[m]}
-                      </Text>
-                    </TouchableOpacity>
-                  ))}
-                </View>
-
-                <Text style={styles.modalLabel}>Quantity</Text>
-                <View style={styles.qtyRow}>
-                  {[1, 2, 3, 4, 5, 6].map((q) => (
-                    <TouchableOpacity
-                      key={q}
-                      style={[styles.qtyBtn, quickQty === q && styles.qtyBtnActive]}
-                      onPress={() => setQuickQty(q)}
-                    >
-                      <Text style={[styles.qtyText, quickQty === q && styles.qtyTextActive]}>{q}</Text>
-                    </TouchableOpacity>
-                  ))}
-                </View>
-
-                <Text style={styles.totalCals}>
-                  Total: {quickAddModal.preset.caloriesPerUnit * quickQty} kcal
-                </Text>
-
-                <View style={styles.modalActions}>
-                  <Button title="Cancel" variant="ghost" onPress={() => setQuickAddModal(null)} style={{ flex: 1 }} />
-                  <Button
-                    title="Add"
-                    onPress={() => {
-                      addFoodEntry({
-                        name: quickAddModal.preset.name,
-                        calories: quickAddModal.preset.caloriesPerUnit,
-                        protein_g: quickAddModal.preset.protein_g,
-                        carbs_g: quickAddModal.preset.carbs_g,
-                        fat_g: quickAddModal.preset.fat_g,
-                        quantity: quickQty,
-                        unit: quickAddModal.preset.defaultUnit,
-                        mealType: quickAddModal.meal,
-                        date: selectedDate,
-                      });
-                      setQuickAddModal(null);
-                    }}
-                    style={{ flex: 1 }}
-                  />
-                </View>
-              </>
-            )}
-          </View>
-        </View>
-      </Modal>
-
-      {/* Edit Food Entry Modal */}
-      <Modal visible={!!editEntry} transparent animationType="slide">
-        <View style={styles.modalOverlay}>
-          <View style={styles.modalContent}>
-            <ModalHandle />
-            {editEntry && (
-              <>
-                <Text style={styles.modalTitle}>Edit: {editEntry.name}</Text>
-                <Input label="Calories" value={editCals} onChangeText={setEditCals} keyboardType="numeric" suffix="kcal" />
-                <View style={styles.actFormRow}>
-                  <View style={{ flex: 1 }}>
-                    <Input label="Protein" value={editProtein} onChangeText={setEditProtein} keyboardType="numeric" suffix="g" />
-                  </View>
-                  <View style={{ flex: 1 }}>
-                    <Input label="Carbs" value={editCarbs} onChangeText={setEditCarbs} keyboardType="numeric" suffix="g" />
-                  </View>
-                  <View style={{ flex: 1 }}>
-                    <Input label="Fat" value={editFat} onChangeText={setEditFat} keyboardType="numeric" suffix="g" />
-                  </View>
-                </View>
-                <Input label="Quantity" value={editQty} onChangeText={setEditQty} keyboardType="numeric" />
-                <View style={styles.modalActions}>
-                  <Button title="Cancel" variant="ghost" onPress={() => setEditEntry(null)} style={{ flex: 1 }} />
-                  <Button
-                    title="Save"
-                    onPress={() => {
-                      const cal = parseInt(editCals, 10);
-                      const qty = parseInt(editQty, 10);
-                      if (!cal || cal <= 0 || !qty || qty <= 0) {
-                        Alert.alert('Error', 'Enter valid calories and quantity.');
-                        return;
-                      }
-                      updateFoodEntry(editEntry.id, {
-                        calories: cal,
-                        protein_g: parseFloat(editProtein) || 0,
-                        carbs_g: parseFloat(editCarbs) || 0,
-                        fat_g: parseFloat(editFat) || 0,
-                        quantity: qty,
-                      });
-                      setEditEntry(null);
-                    }}
-                    style={{ flex: 1 }}
-                  />
-                </View>
-              </>
-            )}
-          </View>
-        </View>
-      </Modal>
 
       {/* Quick Add Calories Modal */}
       <Modal visible={!!quickCalModal} transparent animationType="slide">
@@ -508,15 +349,32 @@ export default function HomeScreen() {
               <Button title="Cancel" variant="ghost" onPress={() => { setQuickCalModal(null); setQuickCalAmt(''); }} style={{ flex: 1 }} />
               <Button
                 title="Add"
-                onPress={() => {
+                onPress={async () => {
                   const cal = parseInt(quickCalAmt, 10);
                   if (!cal || cal <= 0) { Alert.alert('Error', 'Enter a valid calorie amount.'); return; }
-                  addFoodEntry({
-                    name: `Quick ${cal} kcal`,
-                    calories: cal, protein_g: 0, carbs_g: 0, fat_g: 0,
-                    quantity: 1, unit: 'хувь (serving)', mealType: quickCalModal!, date: selectedDate,
+                  const food = await createCustomFood({
+                    name_mn: `Quick ${cal} kcal`,
+                    calories_per_100g: cal,
+                    protein_g_per_100g: 0,
+                    carbs_g_per_100g: 0,
+                    fat_g_per_100g: 0,
                   });
-                  setQuickCalModal(null); setQuickCalAmt('');
+                  await addLog({
+                    food_id: food.id,
+                    log_date: selectedDate,
+                    meal: quickCalModal!,
+                    unit_mode: 'grams',
+                    quantity: 100,
+                    portion_id: null,
+                    portion_label_mn: 'грамм',
+                    grams_total: 100,
+                    calories: cal,
+                    protein_g: 0,
+                    carbs_g: 0,
+                    fat_g: 0,
+                  });
+                  setQuickCalModal(null);
+                  setQuickCalAmt('');
                 }}
                 style={{ flex: 1 }}
               />
@@ -536,43 +394,28 @@ export default function HomeScreen() {
 
             {/* Sub-tabs */}
             <View style={styles.subTabs}>
-              {(['presets', 'manual', 'recent'] as const).map((t) => (
+              {(['search', 'manual', 'recent'] as const).map((t) => (
                 <TouchableOpacity
                   key={t}
                   style={[styles.subTab, addMealTab === t && styles.subTabActive]}
                   onPress={() => setAddMealTab(t)}
                 >
                   <Text style={[styles.subTabText, addMealTab === t && styles.subTabTextActive]}>
-                    {t === 'presets' ? '🥟 Presets' : t === 'manual' ? '✏️ Manual' : '⏱️ Recent'}
+                    {t === 'search' ? '🔍 Search' : t === 'manual' ? '✏️ Manual' : '⏱️ Recent'}
                   </Text>
                 </TouchableOpacity>
               ))}
             </View>
 
-            {addMealTab === 'presets' && (
-              <ScrollView showsVerticalScrollIndicator={false} style={{ maxHeight: 350 }}>
-                {MONGOLIAN_FOOD_PRESETS.map((preset) => (
-                  <TouchableOpacity
-                    key={preset.id}
-                    style={styles.presetListItem}
-                    onPress={() => {
-                      setQuickQty(1);
-                      setQuickAddModal({ preset, meal: addMealModal! });
-                      setAddMealModal(null);
-                    }}
-                  >
-                    <Text style={styles.presetListEmoji}>{preset.emoji}</Text>
-                    <View style={{ flex: 1 }}>
-                      <Text style={styles.presetListName}>{preset.name}</Text>
-                      <Text style={styles.presetListEn}>{preset.nameEn}</Text>
-                    </View>
-                    <View style={{ alignItems: 'flex-end' }}>
-                      <Text style={styles.presetListCals}>{preset.caloriesPerUnit} kcal</Text>
-                      <Text style={styles.presetListMacros}>P{preset.protein_g} C{preset.carbs_g} F{preset.fat_g}</Text>
-                    </View>
-                  </TouchableOpacity>
-                ))}
-              </ScrollView>
+            {addMealTab === 'search' && addMealModal && (
+              <FoodSearchPanel
+                initialMeal={addMealModal}
+                logDate={selectedDate}
+                onLogged={() => {
+                  loadLogsByDay(selectedDate);
+                  setAddMealModal(null);
+                }}
+              />
             )}
 
             {addMealTab === 'manual' && (
@@ -592,22 +435,32 @@ export default function HomeScreen() {
                 </View>
                 <Button
                   title="Add"
-                  onPress={() => {
+                  onPress={async () => {
                     const cal = parseInt(manualCals, 10);
                     if (!manualName.trim() || !cal || cal <= 0) {
                       Alert.alert('Error', 'Enter a valid name and calories.');
                       return;
                     }
-                    addFoodEntry({
-                      name: manualName.trim(),
+                    const food = await createCustomFood({
+                      name_mn: manualName.trim(),
+                      calories_per_100g: cal,
+                      protein_g_per_100g: parseFloat(manualProtein) || 0,
+                      carbs_g_per_100g: parseFloat(manualCarbs) || 0,
+                      fat_g_per_100g: parseFloat(manualFat) || 0,
+                    });
+                    await addLog({
+                      food_id: food.id,
+                      log_date: selectedDate,
+                      meal: addMealModal!,
+                      unit_mode: 'grams',
+                      quantity: 100,
+                      portion_id: null,
+                      portion_label_mn: 'грамм',
+                      grams_total: 100,
                       calories: cal,
                       protein_g: parseFloat(manualProtein) || 0,
                       carbs_g: parseFloat(manualCarbs) || 0,
                       fat_g: parseFloat(manualFat) || 0,
-                      quantity: 1,
-                      unit: 'хувь (serving)',
-                      mealType: addMealModal!,
-                      date: selectedDate,
                     });
                     resetManualForm();
                     setAddMealModal(null);
@@ -622,35 +475,40 @@ export default function HomeScreen() {
                 {recentFoods.length === 0 ? (
                   <Text style={styles.emptyText}>No recent foods yet — log something first</Text>
                 ) : (
-                  recentFoods.map((food, idx) => (
+                  recentFoods.map((food) => (
                     <TouchableOpacity
-                      key={`${food.name}-${idx}`}
+                      key={food.food_id}
                       style={styles.presetListItem}
-                      onPress={() => {
-                        addFoodEntry({
-                          name: food.name,
-                          calories: food.calories,
-                          protein_g: food.protein_g ?? 0,
-                          carbs_g: food.carbs_g ?? 0,
-                          fat_g: food.fat_g ?? 0,
-                          quantity: 1,
-                          unit: food.unit,
-                          mealType: addMealModal!,
-                          date: selectedDate,
-                        });
-                        setAddMealModal(null);
+                      onPress={async () => {
+                        const full = await getFoodById(food.food_id);
+                        if (full) setRecentDetailFood(full);
                       }}
                     >
                       <Text style={styles.presetListEmoji}>⏱️</Text>
                       <View style={{ flex: 1 }}>
-                        <Text style={styles.presetListName}>{food.name}</Text>
-                        <Text style={styles.presetListEn}>{food.unit}</Text>
+                        <Text style={styles.presetListName}>{food.name_mn}</Text>
+                        <Text style={styles.presetListEn}>per 100g</Text>
                       </View>
-                      <Text style={styles.presetListCals}>{food.calories} kcal</Text>
+                      <Text style={styles.presetListCals}>{food.calories_per_100g} kcal</Text>
                     </TouchableOpacity>
                   ))
                 )}
               </ScrollView>
+            )}
+
+            {recentDetailFood && addMealModal && (
+              <FoodDetailSheet
+                visible={!!recentDetailFood}
+                food={recentDetailFood}
+                initialMeal={addMealModal}
+                logDate={selectedDate}
+                onClose={() => setRecentDetailFood(null)}
+                onLogged={() => {
+                  loadLogsByDay(selectedDate);
+                  setRecentDetailFood(null);
+                  setAddMealModal(null);
+                }}
+              />
             )}
 
             <Button

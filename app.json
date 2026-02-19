@@ -1,5 +1,8 @@
 {
   "expo": {
+    "extra": {
+      "USDA_API_KEY":"Ed72fZHCLB4ayMS00d9fLNA0WVw1nuHr34ifCMUZ"
+    },
     "name": "Nutrio",
     "slug": "nutrio",
     "version": "1.0.0",

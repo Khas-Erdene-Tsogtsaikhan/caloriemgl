@@ -1,4 +1,6 @@
+import { initDb } from '@/lib/db/db';
 import { useNutrioStore } from '@/src/store';
+import { useFoodStore } from '@/store/useFoodStore';
 import { Stack, router } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import React, { useEffect, useState } from 'react';
@@ -27,15 +29,19 @@ export default function RootLayout() {
   useEffect(() => {
     if (!hydrated) return;
     const profile = useNutrioStore.getState().profile;
-    const timer = setTimeout(() => {
+    const init = async () => {
+      await initDb();
+      await useFoodStore.getState().hydrateFromDb();
+    };
+    const delay = (ms: number) => new Promise((r) => setTimeout(r, ms));
+    Promise.all([init(), delay(1200)]).then(() => {
       setReady(true);
       if (profile?.onboardingCompleted) {
         router.replace('/(tabs)/home');
       } else {
         router.replace('/(onboarding)/welcome');
       }
-    }, 1200);
-    return () => clearTimeout(timer);
+    });
   }, [hydrated]);
 
   return (
