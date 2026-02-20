@@ -1,0 +1,8188 @@
+[
+  {
+    "id": "egg",
+    "name_mn": "өндөг",
+    "name_en": "Egg, whole, raw",
+    "calories_per_100g": 143,
+    "protein_g_per_100g": 12.4,
+    "carbs_g_per_100g": 1,
+    "fat_g_per_100g": 10,
+    "aliases": [
+      "egg",
+      "egg, whole, raw",
+      "өндөг"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 50,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "rice",
+    "name_mn": "цагаан будаа",
+    "name_en": "Rice, white, cooked, glutinous",
+    "calories_per_100g": 96,
+    "protein_g_per_100g": 2,
+    "carbs_g_per_100g": 21,
+    "fat_g_per_100g": 0.2,
+    "aliases": [
+      "white rice",
+      "rice, white, cooked, glutinous",
+      "цагаан будаа",
+      "будаа"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 аяга",
+        "grams": 158,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "chicken_breast",
+    "name_mn": "тахианы цээж",
+    "name_en": "Chicken breast, roll, oven-roasted",
+    "calories_per_100g": 134,
+    "protein_g_per_100g": 14.6,
+    "carbs_g_per_100g": 1.8,
+    "fat_g_per_100g": 7.7,
+    "aliases": [
+      "chicken breast",
+      "chicken breast, roll, oven-roasted",
+      "тахианы цээж",
+      "тахиа"
+    ],
+    "portions": [
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "1 таваг",
+        "grams": 200,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "milk",
+    "name_mn": "сүү",
+    "name_en": "Milk, whole",
+    "calories_per_100g": 61,
+    "protein_g_per_100g": 3.3,
+    "carbs_g_per_100g": 4.6,
+    "fat_g_per_100g": 3.2,
+    "aliases": [
+      "milk",
+      "milk, whole",
+      "сүү"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 аяга",
+        "grams": 250,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "bread",
+    "name_mn": "талх",
+    "name_en": "Bread, white",
+    "calories_per_100g": 267,
+    "protein_g_per_100g": 9.4,
+    "carbs_g_per_100g": 49.2,
+    "fat_g_per_100g": 3.6,
+    "aliases": [
+      "bread",
+      "bread, white",
+      "талх"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 50,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "banana",
+    "name_mn": "банана",
+    "name_en": "Banana, raw",
+    "calories_per_100g": 97,
+    "protein_g_per_100g": 0.7,
+    "carbs_g_per_100g": 22.7,
+    "fat_g_per_100g": 0.3,
+    "aliases": [
+      "banana",
+      "banana, raw",
+      "банана"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 120,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "apple",
+    "name_mn": "алим",
+    "name_en": "Apple, raw",
+    "calories_per_100g": 61,
+    "protein_g_per_100g": 0.2,
+    "carbs_g_per_100g": 14.8,
+    "fat_g_per_100g": 0.2,
+    "aliases": [
+      "apple",
+      "apple, raw",
+      "алим"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 120,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "beef",
+    "name_mn": "үхрийн мах",
+    "name_en": "Beef, ground, 80% lean meat / 20% fat, raw",
+    "calories_per_100g": 254,
+    "protein_g_per_100g": 17.2,
+    "carbs_g_per_100g": 0,
+    "fat_g_per_100g": 20,
+    "aliases": [
+      "beef",
+      "beef, ground, 80% lean meat / 20% fat, raw",
+      "үхрийн мах",
+      "мах"
+    ],
+    "portions": [
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "1 таваг",
+        "grams": 200,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "yogurt",
+    "name_mn": "тараг",
+    "name_en": "Yogurt, plain, nonfat",
+    "calories_per_100g": 0,
+    "protein_g_per_100g": 4.2,
+    "carbs_g_per_100g": 8.1,
+    "fat_g_per_100g": 0.1,
+    "aliases": [
+      "yogurt",
+      "yogurt, plain, nonfat",
+      "тараг"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 30,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "cheese",
+    "name_mn": "бяслаг",
+    "name_en": "Cheese, Cheddar",
+    "calories_per_100g": 409,
+    "protein_g_per_100g": 23.3,
+    "carbs_g_per_100g": 2.4,
+    "fat_g_per_100g": 34,
+    "aliases": [
+      "cheese",
+      "cheese, cheddar",
+      "бяслаг"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 30,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "potato",
+    "name_mn": "төмс",
+    "name_en": "Potatoes, raw, skin",
+    "calories_per_100g": 58,
+    "protein_g_per_100g": 2.6,
+    "carbs_g_per_100g": 12.4,
+    "fat_g_per_100g": 0.1,
+    "aliases": [
+      "potato",
+      "potatoes, raw, skin",
+      "төмс"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 таваг",
+        "grams": 200,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "buuz",
+    "name_mn": "бууз",
+    "name_en": "Dumpling, no meat",
+    "calories_per_100g": 125,
+    "protein_g_per_100g": 3.5,
+    "carbs_g_per_100g": 20.5,
+    "fat_g_per_100g": 3.4,
+    "aliases": [
+      "buuz",
+      "dumpling, no meat",
+      "бууз"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 50,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "khuushuur",
+    "name_mn": "хуушуур",
+    "name_en": "Wonton, dumpling or pot sticker, fried",
+    "calories_per_100g": 192,
+    "protein_g_per_100g": 8.8,
+    "carbs_g_per_100g": 14.1,
+    "fat_g_per_100g": 11.1,
+    "aliases": [
+      "khuushuur",
+      "wonton, dumpling or pot sticker, fried",
+      "хуушуур"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 80,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "tsuivan",
+    "name_mn": "цуйван",
+    "name_en": "Mushrooms, shiitake, stir-fried",
+    "calories_per_100g": 39,
+    "protein_g_per_100g": 3.5,
+    "carbs_g_per_100g": 7.7,
+    "fat_g_per_100g": 0.4,
+    "aliases": [
+      "tsuivan",
+      "mushrooms, shiitake, stir-fried",
+      "цуйван"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "soup",
+    "name_mn": "шөл",
+    "name_en": "Soup, beef",
+    "calories_per_100g": 47,
+    "protein_g_per_100g": 3.3,
+    "carbs_g_per_100g": 4,
+    "fat_g_per_100g": 2.1,
+    "aliases": [
+      "soup",
+      "soup, beef",
+      "шөл"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 аяга",
+        "grams": 350,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "chicken_thigh",
+    "name_mn": "тахианы гуя",
+    "name_en": "Chicken, skin (drumsticks and thighs), cooked, roasted",
+    "calories_per_100g": 462,
+    "protein_g_per_100g": 16.6,
+    "carbs_g_per_100g": 0,
+    "fat_g_per_100g": 44,
+    "aliases": [
+      "chicken thigh",
+      "chicken, skin (drumsticks and thighs), cooked, roa",
+      "тахианы гуя"
+    ],
+    "portions": [
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "1 таваг",
+        "grams": 200,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "pork",
+    "name_mn": "гахайн мах",
+    "name_en": "Pork, chop, stuffed",
+    "calories_per_100g": 190,
+    "protein_g_per_100g": 18.4,
+    "carbs_g_per_100g": 7.8,
+    "fat_g_per_100g": 9,
+    "aliases": [
+      "pork",
+      "pork, chop, stuffed",
+      "гахайн мах",
+      "гахай"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "bacon",
+    "name_mn": "бекон",
+    "name_en": "Beef, bacon, cooked",
+    "calories_per_100g": 449,
+    "protein_g_per_100g": 31.3,
+    "carbs_g_per_100g": 1.4,
+    "fat_g_per_100g": 34.4,
+    "aliases": [
+      "bacon",
+      "beef, bacon, cooked",
+      "бекон"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "salmon",
+    "name_mn": "ягаан загас",
+    "name_en": "Fish, salmon, raw",
+    "calories_per_100g": 188,
+    "protein_g_per_100g": 20.4,
+    "carbs_g_per_100g": 0,
+    "fat_g_per_100g": 11.2,
+    "aliases": [
+      "salmon",
+      "fish, salmon, raw",
+      "ягаан загас",
+      "загас"
+    ],
+    "portions": [
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "1 таваг",
+        "grams": 200,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "tuna",
+    "name_mn": "туна",
+    "name_en": "Fish, tuna, light, canned in water, drained solids",
+    "calories_per_100g": 90,
+    "protein_g_per_100g": 19,
+    "carbs_g_per_100g": 0.1,
+    "fat_g_per_100g": 0.9,
+    "aliases": [
+      "tuna",
+      "fish, tuna, light, canned in water, drained solids",
+      "туна"
+    ],
+    "portions": [
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "1 таваг",
+        "grams": 200,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "tofu",
+    "name_mn": "тофу",
+    "name_en": "HOUSE FOODS Premium Firm Tofu",
+    "calories_per_100g": 85,
+    "protein_g_per_100g": 10.9,
+    "carbs_g_per_100g": 1,
+    "fat_g_per_100g": 4.2,
+    "aliases": [
+      "tofu",
+      "house foods premium firm tofu",
+      "тофу"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "turkey",
+    "name_mn": "индээ",
+    "name_en": "Turkey, whole, breast, meat only, cooked, roasted",
+    "calories_per_100g": 147,
+    "protein_g_per_100g": 30.1,
+    "carbs_g_per_100g": 0,
+    "fat_g_per_100g": 2.1,
+    "aliases": [
+      "turkey",
+      "turkey, whole, breast, meat only, cooked, roasted",
+      "индээ"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "carrot",
+    "name_mn": "лууван",
+    "name_en": "Carrots, raw",
+    "calories_per_100g": 44,
+    "protein_g_per_100g": 0.9,
+    "carbs_g_per_100g": 9.7,
+    "fat_g_per_100g": 0.2,
+    "aliases": [
+      "carrot",
+      "carrots, raw",
+      "лууван"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "tomato",
+    "name_mn": "улаан лооль",
+    "name_en": "Tomatoes, raw",
+    "calories_per_100g": 20,
+    "protein_g_per_100g": 0.8,
+    "carbs_g_per_100g": 4,
+    "fat_g_per_100g": 0.3,
+    "aliases": [
+      "tomato",
+      "tomatoes, raw",
+      "улаан лооль"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "cucumber",
+    "name_mn": "өргөст хэмх",
+    "name_en": "Cucumber, raw",
+    "calories_per_100g": 16,
+    "protein_g_per_100g": 0.6,
+    "carbs_g_per_100g": 3,
+    "fat_g_per_100g": 0.2,
+    "aliases": [
+      "cucumber",
+      "cucumber, raw",
+      "өргөст хэмх"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "onion",
+    "name_mn": "сонгино",
+    "name_en": "Onions, raw",
+    "calories_per_100g": 38,
+    "protein_g_per_100g": 0.9,
+    "carbs_g_per_100g": 8.5,
+    "fat_g_per_100g": 0.1,
+    "aliases": [
+      "onion",
+      "onions, raw",
+      "сонгино"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "broccoli",
+    "name_mn": "брокколи",
+    "name_en": "Broccoli, raw",
+    "calories_per_100g": 39,
+    "protein_g_per_100g": 2.6,
+    "carbs_g_per_100g": 6.3,
+    "fat_g_per_100g": 0.3,
+    "aliases": [
+      "broccoli",
+      "broccoli, raw",
+      "брокколи"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "lettuce",
+    "name_mn": "байцааны навч",
+    "name_en": "Lettuce, raw",
+    "calories_per_100g": 20,
+    "protein_g_per_100g": 0.9,
+    "carbs_g_per_100g": 3.7,
+    "fat_g_per_100g": 0.1,
+    "aliases": [
+      "lettuce",
+      "lettuce, raw",
+      "байцааны навч",
+      "салатны навч"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "spinach",
+    "name_mn": "даршил",
+    "name_en": "Spinach, raw",
+    "calories_per_100g": 27,
+    "protein_g_per_100g": 2.9,
+    "carbs_g_per_100g": 2.4,
+    "fat_g_per_100g": 0.6,
+    "aliases": [
+      "spinach",
+      "spinach, raw",
+      "даршил"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "garlic",
+    "name_mn": "сармис",
+    "name_en": "Garlic, raw",
+    "calories_per_100g": 143,
+    "protein_g_per_100g": 6.6,
+    "carbs_g_per_100g": 28.2,
+    "fat_g_per_100g": 0.4,
+    "aliases": [
+      "garlic",
+      "garlic, raw",
+      "сармис"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "bell_pepper",
+    "name_mn": "чинжүү",
+    "name_en": "Peppers, bell, green, raw",
+    "calories_per_100g": 0,
+    "protein_g_per_100g": 0.7,
+    "carbs_g_per_100g": 4.8,
+    "fat_g_per_100g": 0.1,
+    "aliases": [
+      "bell pepper",
+      "peppers, bell, green, raw",
+      "чинжүү"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "cabbage",
+    "name_mn": "байцаа",
+    "name_en": "Cabbage, raw",
+    "calories_per_100g": 25,
+    "protein_g_per_100g": 1.3,
+    "carbs_g_per_100g": 5.8,
+    "fat_g_per_100g": 0.1,
+    "aliases": [
+      "cabbage",
+      "cabbage, raw",
+      "байцаа"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "sweet_potato",
+    "name_mn": "чихэрлэг төмс",
+    "name_en": "Sweet potato leaves, raw",
+    "calories_per_100g": 42,
+    "protein_g_per_100g": 2.5,
+    "carbs_g_per_100g": 8.8,
+    "fat_g_per_100g": 0.5,
+    "aliases": [
+      "sweet potato",
+      "sweet potato leaves, raw",
+      "чихэрлэг төмс"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 таваг",
+        "grams": 200,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "corn",
+    "name_mn": "эрдэнэ шиш",
+    "name_en": "Corn, sweet, yellow, raw",
+    "calories_per_100g": 86,
+    "protein_g_per_100g": 3.3,
+    "carbs_g_per_100g": 18.7,
+    "fat_g_per_100g": 1.4,
+    "aliases": [
+      "corn",
+      "corn, sweet, yellow, raw",
+      "эрдэнэ шиш"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "peas",
+    "name_mn": "вандуй",
+    "name_en": "Green peas, raw",
+    "calories_per_100g": 81,
+    "protein_g_per_100g": 5.4,
+    "carbs_g_per_100g": 14.5,
+    "fat_g_per_100g": 0.4,
+    "aliases": [
+      "peas",
+      "green peas, raw",
+      "вандуй"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "avocado",
+    "name_mn": "авокадо",
+    "name_en": "Avocado, raw",
+    "calories_per_100g": 160,
+    "protein_g_per_100g": 2,
+    "carbs_g_per_100g": 8.5,
+    "fat_g_per_100g": 14.7,
+    "aliases": [
+      "avocado",
+      "avocado, raw",
+      "авокадо"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "orange",
+    "name_mn": "жүрж",
+    "name_en": "Orange, raw",
+    "calories_per_100g": 50,
+    "protein_g_per_100g": 0.9,
+    "carbs_g_per_100g": 11.8,
+    "fat_g_per_100g": 0.1,
+    "aliases": [
+      "orange",
+      "orange, raw",
+      "жүрж"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 120,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "strawberry",
+    "name_mn": "гүзээлзгэнэ",
+    "name_en": "Strawberries, raw",
+    "calories_per_100g": 36,
+    "protein_g_per_100g": 0.6,
+    "carbs_g_per_100g": 8,
+    "fat_g_per_100g": 0.2,
+    "aliases": [
+      "strawberry",
+      "strawberries, raw",
+      "гүзээлзгэнэ"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "grape",
+    "name_mn": "усан үзэм",
+    "name_en": "Grapes, raw",
+    "calories_per_100g": 83,
+    "protein_g_per_100g": 0.9,
+    "carbs_g_per_100g": 19.4,
+    "fat_g_per_100g": 0.2,
+    "aliases": [
+      "grape",
+      "grapes, raw",
+      "усан үзэм"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "watermelon",
+    "name_mn": "түргэн",
+    "name_en": "Watermelon, raw",
+    "calories_per_100g": 30,
+    "protein_g_per_100g": 0.6,
+    "carbs_g_per_100g": 7.6,
+    "fat_g_per_100g": 0.2,
+    "aliases": [
+      "watermelon",
+      "watermelon, raw",
+      "түргэн"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "blueberry",
+    "name_mn": "ногоон жимс",
+    "name_en": "Blueberries, raw",
+    "calories_per_100g": 64,
+    "protein_g_per_100g": 0.7,
+    "carbs_g_per_100g": 14.6,
+    "fat_g_per_100g": 0.3,
+    "aliases": [
+      "blueberry",
+      "blueberries, raw",
+      "ногоон жимс"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "lemon",
+    "name_mn": "лийр",
+    "name_en": "Lemon, raw",
+    "calories_per_100g": 29,
+    "protein_g_per_100g": 1.1,
+    "carbs_g_per_100g": 9.3,
+    "fat_g_per_100g": 0.3,
+    "aliases": [
+      "lemon",
+      "lemon, raw",
+      "лийр"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "mango",
+    "name_mn": "манго",
+    "name_en": "Mango, raw",
+    "calories_per_100g": 60,
+    "protein_g_per_100g": 0.8,
+    "carbs_g_per_100g": 15,
+    "fat_g_per_100g": 0.4,
+    "aliases": [
+      "mango",
+      "mango, raw",
+      "манго"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "pineapple",
+    "name_mn": "ананас",
+    "name_en": "Pineapple, raw",
+    "calories_per_100g": 60,
+    "protein_g_per_100g": 0.5,
+    "carbs_g_per_100g": 14.1,
+    "fat_g_per_100g": 0.2,
+    "aliases": [
+      "pineapple",
+      "pineapple, raw",
+      "ананас"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 120,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "pear",
+    "name_mn": "лиир",
+    "name_en": "Pear, raw",
+    "calories_per_100g": 59,
+    "protein_g_per_100g": 0.4,
+    "carbs_g_per_100g": 15.2,
+    "fat_g_per_100g": 0.2,
+    "aliases": [
+      "pear",
+      "pear, raw",
+      "лиир"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "peach",
+    "name_mn": "тоор",
+    "name_en": "Peach, raw",
+    "calories_per_100g": 46,
+    "protein_g_per_100g": 0.9,
+    "carbs_g_per_100g": 10.1,
+    "fat_g_per_100g": 0.3,
+    "aliases": [
+      "peach",
+      "peach, raw",
+      "тоор"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "kiwi",
+    "name_mn": "киви",
+    "name_en": "Kiwi fruit, raw",
+    "calories_per_100g": 64,
+    "protein_g_per_100g": 1.1,
+    "carbs_g_per_100g": 14,
+    "fat_g_per_100g": 0.4,
+    "aliases": [
+      "kiwi",
+      "kiwi fruit, raw",
+      "киви"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "cherry",
+    "name_mn": "интоор",
+    "name_en": "Cherries, raw",
+    "calories_per_100g": 71,
+    "protein_g_per_100g": 1,
+    "carbs_g_per_100g": 16.2,
+    "fat_g_per_100g": 0.2,
+    "aliases": [
+      "cherry",
+      "cherries, raw",
+      "интоор"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "pasta",
+    "name_mn": "гоймон",
+    "name_en": "Pasta, cooked",
+    "calories_per_100g": 157,
+    "protein_g_per_100g": 5.8,
+    "carbs_g_per_100g": 30.7,
+    "fat_g_per_100g": 0.9,
+    "aliases": [
+      "pasta",
+      "pasta, cooked",
+      "гоймон"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 аяга",
+        "grams": 158,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "oatmeal",
+    "name_mn": "овьёос",
+    "name_en": "Oatmeal, multigrain",
+    "calories_per_100g": 56,
+    "protein_g_per_100g": 2.1,
+    "carbs_g_per_100g": 12.2,
+    "fat_g_per_100g": 0.5,
+    "aliases": [
+      "oatmeal",
+      "oatmeal, multigrain",
+      "овьёос",
+      "хөвөн"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "quinoa",
+    "name_mn": "киноа",
+    "name_en": "Quinoa, cooked",
+    "calories_per_100g": 120,
+    "protein_g_per_100g": 4.4,
+    "carbs_g_per_100g": 21.3,
+    "fat_g_per_100g": 1.9,
+    "aliases": [
+      "quinoa",
+      "quinoa, cooked",
+      "киноа"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "bagel",
+    "name_mn": "бейгл",
+    "name_en": "Snacks, bagel chips, plain",
+    "calories_per_100g": 451,
+    "protein_g_per_100g": 12.3,
+    "carbs_g_per_100g": 66.4,
+    "fat_g_per_100g": 15.1,
+    "aliases": [
+      "bagel",
+      "snacks, bagel chips, plain",
+      "бейгл"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 50,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "tortilla",
+    "name_mn": "тортилла",
+    "name_en": "Tortilla, flour",
+    "calories_per_100g": 306,
+    "protein_g_per_100g": 8.2,
+    "carbs_g_per_100g": 49.4,
+    "fat_g_per_100g": 8,
+    "aliases": [
+      "tortilla",
+      "tortilla, flour",
+      "тортилла"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "cereal",
+    "name_mn": "амуу",
+    "name_en": "Cereal, corn flakes, flavored",
+    "calories_per_100g": 375,
+    "protein_g_per_100g": 4.8,
+    "carbs_g_per_100g": 84.7,
+    "fat_g_per_100g": 1.3,
+    "aliases": [
+      "cereal",
+      "cereal, corn flakes, flavored",
+      "амуу"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "brown_rice",
+    "name_mn": "хүрэн будаа",
+    "name_en": "Rice, brown, cooked, as ingredient",
+    "calories_per_100g": 124,
+    "protein_g_per_100g": 2.5,
+    "carbs_g_per_100g": 25.9,
+    "fat_g_per_100g": 1.1,
+    "aliases": [
+      "brown rice",
+      "rice, brown, cooked, as ingredient",
+      "хүрэн будаа"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 аяга",
+        "grams": 158,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "butter",
+    "name_mn": "шар тос",
+    "name_en": "Butter, salted",
+    "calories_per_100g": 717,
+    "protein_g_per_100g": 0.9,
+    "carbs_g_per_100g": 0.1,
+    "fat_g_per_100g": 81.1,
+    "aliases": [
+      "butter",
+      "butter, salted",
+      "шар тос"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 халбага",
+        "grams": 15,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "olive_oil",
+    "name_mn": "оливын тос",
+    "name_en": "Olive oil",
+    "calories_per_100g": 900,
+    "protein_g_per_100g": 0,
+    "carbs_g_per_100g": 0,
+    "fat_g_per_100g": 100,
+    "aliases": [
+      "olive oil",
+      "оливын тос"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 халбага",
+        "grams": 15,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "cream",
+    "name_mn": "өрөм",
+    "name_en": "Cream, heavy",
+    "calories_per_100g": 343,
+    "protein_g_per_100g": 2,
+    "carbs_g_per_100g": 3.8,
+    "fat_g_per_100g": 35.6,
+    "aliases": [
+      "cream",
+      "cream, heavy",
+      "өрөм"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "cottage_cheese",
+    "name_mn": "зөөлөн бяслаг",
+    "name_en": "Cheese, cottage, with fruit",
+    "calories_per_100g": 74,
+    "protein_g_per_100g": 9.4,
+    "carbs_g_per_100g": 4.9,
+    "fat_g_per_100g": 2,
+    "aliases": [
+      "cottage cheese",
+      "cheese, cottage, with fruit",
+      "зөөлөн бяслаг"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 30,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "almonds",
+    "name_mn": "бүйлсний самар",
+    "name_en": "Almond butter",
+    "calories_per_100g": 641,
+    "protein_g_per_100g": 20.7,
+    "carbs_g_per_100g": 21.1,
+    "fat_g_per_100g": 52.7,
+    "aliases": [
+      "almonds",
+      "almond butter",
+      "бүйлсний самар",
+      "самар"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "peanuts",
+    "name_mn": "газрын самрын",
+    "name_en": "Peanuts, honey roasted",
+    "calories_per_100g": 574,
+    "protein_g_per_100g": 20.7,
+    "carbs_g_per_100g": 30,
+    "fat_g_per_100g": 45.3,
+    "aliases": [
+      "peanuts",
+      "peanuts, honey roasted",
+      "газрын самрын"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "peanut_butter",
+    "name_mn": "цөцгийн тос",
+    "name_en": "Peanut butter",
+    "calories_per_100g": 598,
+    "protein_g_per_100g": 22.2,
+    "carbs_g_per_100g": 22.3,
+    "fat_g_per_100g": 51.4,
+    "aliases": [
+      "peanut butter",
+      "цөцгийн тос"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 халбага",
+        "grams": 15,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "walnuts",
+    "name_mn": "хус",
+    "name_en": "Oil, walnut",
+    "calories_per_100g": 884,
+    "protein_g_per_100g": 0,
+    "carbs_g_per_100g": 0,
+    "fat_g_per_100g": 100,
+    "aliases": [
+      "walnuts",
+      "oil, walnut",
+      "хус",
+      "хусны самар"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "cashews",
+    "name_mn": "кашью",
+    "name_en": "Cashews, honey roasted",
+    "calories_per_100g": 563,
+    "protein_g_per_100g": 10.3,
+    "carbs_g_per_100g": 43.7,
+    "fat_g_per_100g": 41.2,
+    "aliases": [
+      "cashews",
+      "cashews, honey roasted",
+      "кашью"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "honey",
+    "name_mn": "зөгийн бал",
+    "name_en": "Honey",
+    "calories_per_100g": 304,
+    "protein_g_per_100g": 0.3,
+    "carbs_g_per_100g": 82.4,
+    "fat_g_per_100g": 0,
+    "aliases": [
+      "honey",
+      "зөгийн бал"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "sugar",
+    "name_mn": "чихэр",
+    "name_en": "Sugar, white, granulated or lump",
+    "calories_per_100g": 401,
+    "protein_g_per_100g": 0,
+    "carbs_g_per_100g": 99.6,
+    "fat_g_per_100g": 0.3,
+    "aliases": [
+      "sugar",
+      "sugar, white, granulated or lump",
+      "чихэр"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "chocolate",
+    "name_mn": "шоколад",
+    "name_en": "Dark chocolate candy",
+    "calories_per_100g": 550,
+    "protein_g_per_100g": 5.1,
+    "carbs_g_per_100g": 60,
+    "fat_g_per_100g": 32.2,
+    "aliases": [
+      "chocolate",
+      "dark chocolate candy",
+      "шоколад"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "milk_chocolate",
+    "name_mn": "сүүтэй шоколад",
+    "name_en": "Almond milk, chocolate",
+    "calories_per_100g": 43,
+    "protein_g_per_100g": 0.6,
+    "carbs_g_per_100g": 7.4,
+    "fat_g_per_100g": 1.2,
+    "aliases": [
+      "milk chocolate",
+      "almond milk, chocolate",
+      "сүүтэй шоколад"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 аяга",
+        "grams": 250,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "ice_cream",
+    "name_mn": "зурмаг",
+    "name_en": "Ice cream, vanilla",
+    "calories_per_100g": 207,
+    "protein_g_per_100g": 3.5,
+    "carbs_g_per_100g": 23.6,
+    "fat_g_per_100g": 11,
+    "aliases": [
+      "ice cream",
+      "ice cream, vanilla",
+      "зурмаг"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "cookie",
+    "name_mn": "жигнэмэг",
+    "name_en": "Cookie, chocolate chip",
+    "calories_per_100g": 492,
+    "protein_g_per_100g": 5.1,
+    "carbs_g_per_100g": 65.4,
+    "fat_g_per_100g": 24.7,
+    "aliases": [
+      "cookie",
+      "cookie, chocolate chip",
+      "жигнэмэг"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "cake",
+    "name_mn": "бялуу",
+    "name_en": "Cake, yellow, enriched, dry mix",
+    "calories_per_100g": 374,
+    "protein_g_per_100g": 3.7,
+    "carbs_g_per_100g": 81.9,
+    "fat_g_per_100g": 3.5,
+    "aliases": [
+      "cake",
+      "cake, yellow, enriched, dry mix",
+      "бялуу"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "pizza",
+    "name_mn": "пицца",
+    "name_en": "Topping from cheese pizza",
+    "calories_per_100g": 230,
+    "protein_g_per_100g": 16.9,
+    "carbs_g_per_100g": 7.6,
+    "fat_g_per_100g": 14.7,
+    "aliases": [
+      "pizza",
+      "topping from cheese pizza",
+      "пицца"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 200,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "burger",
+    "name_mn": "бургер",
+    "name_en": "Hamburger (McDonalds)",
+    "calories_per_100g": 263,
+    "protein_g_per_100g": 13.3,
+    "carbs_g_per_100g": 29.6,
+    "fat_g_per_100g": 10.2,
+    "aliases": [
+      "burger",
+      "hamburger (mcdonalds)",
+      "бургер"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 200,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "fries",
+    "name_mn": "шарсан төмс",
+    "name_en": "APPLEBEE'S, french fries",
+    "calories_per_100g": 290,
+    "protein_g_per_100g": 3.3,
+    "carbs_g_per_100g": 39.5,
+    "fat_g_per_100g": 13.2,
+    "aliases": [
+      "french fries",
+      "applebee's, french fries",
+      "шарсан төмс"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "chicken_nuggets",
+    "name_mn": "шарсан тахиа",
+    "name_en": "Chicken nuggets, NFS",
+    "calories_per_100g": 307,
+    "protein_g_per_100g": 15.9,
+    "carbs_g_per_100g": 14.9,
+    "fat_g_per_100g": 20.4,
+    "aliases": [
+      "chicken nuggets",
+      "chicken nuggets, nfs",
+      "шарсан тахиа"
+    ],
+    "portions": [
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "1 таваг",
+        "grams": 200,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "sandwich",
+    "name_mn": "сэндвич",
+    "name_en": "Turkey sandwich on wheat",
+    "calories_per_100g": 187,
+    "protein_g_per_100g": 13.1,
+    "carbs_g_per_100g": 24.6,
+    "fat_g_per_100g": 3.9,
+    "aliases": [
+      "sandwich",
+      "turkey sandwich on wheat",
+      "сэндвич"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 200,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "salad",
+    "name_mn": "салат",
+    "name_en": "Mixed salad greens, raw",
+    "calories_per_100g": 21,
+    "protein_g_per_100g": 1.3,
+    "carbs_g_per_100g": 3.4,
+    "fat_g_per_100g": 0.2,
+    "aliases": [
+      "salad",
+      "mixed salad greens, raw",
+      "салат",
+      "нийслэл салат"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 таваг",
+        "grams": 200,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "mayonnaise",
+    "name_mn": "майонез",
+    "name_en": "Mayonnaise, regular",
+    "calories_per_100g": 680,
+    "protein_g_per_100g": 1,
+    "carbs_g_per_100g": 0.6,
+    "fat_g_per_100g": 74.9,
+    "aliases": [
+      "mayonnaise",
+      "mayonnaise, regular",
+      "майонез"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "ketchup",
+    "name_mn": "кетчуп",
+    "name_en": "Ketchup",
+    "calories_per_100g": 109,
+    "protein_g_per_100g": 1.1,
+    "carbs_g_per_100g": 27.1,
+    "fat_g_per_100g": 0.3,
+    "aliases": [
+      "ketchup",
+      "кетчуп"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "mustard",
+    "name_mn": "гич",
+    "name_en": "Mustard",
+    "calories_per_100g": 69,
+    "protein_g_per_100g": 4.3,
+    "carbs_g_per_100g": 5.3,
+    "fat_g_per_100g": 3.4,
+    "aliases": [
+      "mustard",
+      "гич"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "salsa",
+    "name_mn": "сальса",
+    "name_en": "Salsa verde or salsa, green",
+    "calories_per_100g": 38,
+    "protein_g_per_100g": 1.1,
+    "carbs_g_per_100g": 6.4,
+    "fat_g_per_100g": 0.9,
+    "aliases": [
+      "salsa",
+      "salsa verde or salsa, green",
+      "сальса"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "coffee",
+    "name_mn": "кофе",
+    "name_en": "Coffee, brewed",
+    "calories_per_100g": 1,
+    "protein_g_per_100g": 0.1,
+    "carbs_g_per_100g": 0,
+    "fat_g_per_100g": 0,
+    "aliases": [
+      "coffee",
+      "coffee, brewed",
+      "кофе"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 аяга",
+        "grams": 250,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "orange_juice",
+    "name_mn": "жүржний шүүс",
+    "name_en": "Babyfood, juice, orange",
+    "calories_per_100g": 45,
+    "protein_g_per_100g": 0.6,
+    "carbs_g_per_100g": 10.2,
+    "fat_g_per_100g": 0.3,
+    "aliases": [
+      "orange juice",
+      "babyfood, juice, orange",
+      "жүржний шүүс"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 аяга",
+        "grams": 250,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "apple_juice",
+    "name_mn": "алимны шүүс",
+    "name_en": "Apple juice, 100%",
+    "calories_per_100g": 48,
+    "protein_g_per_100g": 0.1,
+    "carbs_g_per_100g": 11.3,
+    "fat_g_per_100g": 0.3,
+    "aliases": [
+      "apple juice",
+      "apple juice, 100%",
+      "алимны шүүс"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 аяга",
+        "grams": 250,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "soda",
+    "name_mn": "ундаа",
+    "name_en": "Whiskey and cola",
+    "calories_per_100g": 89,
+    "protein_g_per_100g": 0,
+    "carbs_g_per_100g": 7.8,
+    "fat_g_per_100g": 0.2,
+    "aliases": [
+      "soda",
+      "whiskey and cola",
+      "ундаа",
+      "хийтэй ундаа"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 аяга",
+        "grams": 250,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "beer",
+    "name_mn": "шар айраг",
+    "name_en": "Beer",
+    "calories_per_100g": 43,
+    "protein_g_per_100g": 0.5,
+    "carbs_g_per_100g": 3.6,
+    "fat_g_per_100g": 0,
+    "aliases": [
+      "beer",
+      "шар айраг"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "wine",
+    "name_mn": "дарс",
+    "name_en": "Wine, red",
+    "calories_per_100g": 85,
+    "protein_g_per_100g": 0.1,
+    "carbs_g_per_100g": 2.6,
+    "fat_g_per_100g": 0,
+    "aliases": [
+      "wine",
+      "wine, red",
+      "дарс",
+      "улаан дарс"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "chips",
+    "name_mn": "чипс",
+    "name_en": "Potato chips, NFS",
+    "calories_per_100g": 532,
+    "protein_g_per_100g": 6.4,
+    "carbs_g_per_100g": 53.8,
+    "fat_g_per_100g": 34,
+    "aliases": [
+      "potato chips",
+      "potato chips, nfs",
+      "чипс"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 таваг",
+        "grams": 200,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "popcorn",
+    "name_mn": "ээрмэл",
+    "name_en": "Snacks, popcorn, air-popped",
+    "calories_per_100g": 387,
+    "protein_g_per_100g": 12.9,
+    "carbs_g_per_100g": 77.8,
+    "fat_g_per_100g": 4.5,
+    "aliases": [
+      "popcorn",
+      "snacks, popcorn, air-popped",
+      "ээрмэл"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "crackers",
+    "name_mn": "жигнэмэг",
+    "name_en": "Crackers, saltine",
+    "calories_per_100g": 418,
+    "protein_g_per_100g": 9.5,
+    "carbs_g_per_100g": 74.1,
+    "fat_g_per_100g": 8.6,
+    "aliases": [
+      "crackers",
+      "crackers, saltine",
+      "жигнэмэг"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "granola",
+    "name_mn": "гранола",
+    "name_en": "Cookie, granola",
+    "calories_per_100g": 464,
+    "protein_g_per_100g": 9.8,
+    "carbs_g_per_100g": 66.7,
+    "fat_g_per_100g": 17.6,
+    "aliases": [
+      "granola",
+      "cookie, granola",
+      "гранола"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "protein_bar",
+    "name_mn": "уурагны баар",
+    "name_en": "Formulated Bar, SOUTH BEACH protein bar",
+    "calories_per_100g": 412,
+    "protein_g_per_100g": 30.3,
+    "carbs_g_per_100g": 38.4,
+    "fat_g_per_100g": 15.2,
+    "aliases": [
+      "protein bar",
+      "formulated bar, south beach protein bar",
+      "уурагны баар"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "jam",
+    "name_mn": "жимсний чавга",
+    "name_en": "Jam",
+    "calories_per_100g": 278,
+    "protein_g_per_100g": 0.4,
+    "carbs_g_per_100g": 68.9,
+    "fat_g_per_100g": 0.1,
+    "aliases": [
+      "jam",
+      "жимсний чавга"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "maple_syrup",
+    "name_mn": "модны сироп",
+    "name_en": "Syrups, maple",
+    "calories_per_100g": 260,
+    "protein_g_per_100g": 0,
+    "carbs_g_per_100g": 67,
+    "fat_g_per_100g": 0.1,
+    "aliases": [
+      "maple syrup",
+      "syrups, maple",
+      "модны сироп"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "soy_sauce",
+    "name_mn": "шар буурцагны соус",
+    "name_en": "Soy sauce",
+    "calories_per_100g": 53,
+    "protein_g_per_100g": 8.1,
+    "carbs_g_per_100g": 4.9,
+    "fat_g_per_100g": 0.6,
+    "aliases": [
+      "soy sauce",
+      "шар буурцагны соус"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "vinegar",
+    "name_mn": "винегар",
+    "name_en": "Vinegar",
+    "calories_per_100g": 21,
+    "protein_g_per_100g": 0,
+    "carbs_g_per_100g": 0.9,
+    "fat_g_per_100g": 0,
+    "aliases": [
+      "vinegar",
+      "винегар"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "sausage",
+    "name_mn": "шош",
+    "name_en": "Pork sausage",
+    "calories_per_100g": 325,
+    "protein_g_per_100g": 18.5,
+    "carbs_g_per_100g": 1.4,
+    "fat_g_per_100g": 27.3,
+    "aliases": [
+      "sausage",
+      "pork sausage",
+      "шош"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "ham",
+    "name_mn": "хам",
+    "name_en": "Ham",
+    "calories_per_100g": 117,
+    "protein_g_per_100g": 19,
+    "carbs_g_per_100g": 1.6,
+    "fat_g_per_100g": 3.9,
+    "aliases": [
+      "ham",
+      "хам"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "hot_dog",
+    "name_mn": "халуун нохой",
+    "name_en": "Hot dog, vegetarian",
+    "calories_per_100g": 233,
+    "protein_g_per_100g": 19.6,
+    "carbs_g_per_100g": 7.7,
+    "fat_g_per_100g": 13.7,
+    "aliases": [
+      "hot dog",
+      "hot dog, vegetarian",
+      "халуун нохой"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "shrimp",
+    "name_mn": "хорхой",
+    "name_en": "Crustaceans, shrimp, cooked",
+    "calories_per_100g": 99,
+    "protein_g_per_100g": 24,
+    "carbs_g_per_100g": 0.2,
+    "fat_g_per_100g": 0.3,
+    "aliases": [
+      "shrimp",
+      "crustaceans, shrimp, cooked",
+      "хорхой",
+      "сам хорхой"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "cod",
+    "name_mn": "треска",
+    "name_en": "Fish, cod, Atlantic, raw",
+    "calories_per_100g": 82,
+    "protein_g_per_100g": 17.8,
+    "carbs_g_per_100g": 0,
+    "fat_g_per_100g": 0.7,
+    "aliases": [
+      "cod",
+      "fish, cod, atlantic, raw",
+      "треска"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "tilapia",
+    "name_mn": "тилапиа",
+    "name_en": "Fish, tilapia, raw",
+    "calories_per_100g": 96,
+    "protein_g_per_100g": 20.1,
+    "carbs_g_per_100g": 0,
+    "fat_g_per_100g": 1.7,
+    "aliases": [
+      "tilapia",
+      "fish, tilapia, raw",
+      "тилапиа"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "lentils",
+    "name_mn": "шар буурцаг",
+    "name_en": "Lentils, mature seeds, cooked, boiled, with salt",
+    "calories_per_100g": 114,
+    "protein_g_per_100g": 9,
+    "carbs_g_per_100g": 19.5,
+    "fat_g_per_100g": 0.4,
+    "aliases": [
+      "lentils",
+      "lentils, mature seeds, cooked, boiled, with salt",
+      "шар буурцаг"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "black_beans",
+    "name_mn": "хар буурцаг",
+    "name_en": "Beans, black, mature seeds, cooked, boiled, with salt",
+    "calories_per_100g": 132,
+    "protein_g_per_100g": 8.9,
+    "carbs_g_per_100g": 23.7,
+    "fat_g_per_100g": 0.5,
+    "aliases": [
+      "black beans",
+      "beans, black, mature seeds, cooked, boiled, with s",
+      "хар буурцаг"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "chickpeas",
+    "name_mn": "нохойн хошуу",
+    "name_en": "Chickpeas, NFS",
+    "calories_per_100g": 211,
+    "protein_g_per_100g": 8.2,
+    "carbs_g_per_100g": 25.5,
+    "fat_g_per_100g": 8.9,
+    "aliases": [
+      "chickpeas",
+      "chickpeas, nfs",
+      "нохойн хошуу"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "hummus",
+    "name_mn": "хуммус",
+    "name_en": "Hummus, commercial",
+    "calories_per_100g": 237,
+    "protein_g_per_100g": 7.8,
+    "carbs_g_per_100g": 15,
+    "fat_g_per_100g": 17.8,
+    "aliases": [
+      "hummus",
+      "hummus, commercial",
+      "хуммус"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "pancake",
+    "name_mn": "гамбир",
+    "name_en": "Chinese pancake",
+    "calories_per_100g": 207,
+    "protein_g_per_100g": 4.1,
+    "carbs_g_per_100g": 45.4,
+    "fat_g_per_100g": 0.4,
+    "aliases": [
+      "pancake",
+      "chinese pancake",
+      "гамбир"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "waffle",
+    "name_mn": "вафли",
+    "name_en": "Waffle, chocolate",
+    "calories_per_100g": 437,
+    "protein_g_per_100g": 9.1,
+    "carbs_g_per_100g": 48.6,
+    "fat_g_per_100g": 22.7,
+    "aliases": [
+      "waffle",
+      "waffle, chocolate",
+      "вафли"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "scrambled_eggs",
+    "name_mn": "шарсан өндөг",
+    "name_en": "Egg, whole, cooked, scrambled",
+    "calories_per_100g": 149,
+    "protein_g_per_100g": 10,
+    "carbs_g_per_100g": 1.6,
+    "fat_g_per_100g": 11,
+    "aliases": [
+      "scrambled eggs",
+      "egg, whole, cooked, scrambled",
+      "шарсан өндөг"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 50,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "croissant",
+    "name_mn": "кроссан",
+    "name_en": "Croissant",
+    "calories_per_100g": 406,
+    "protein_g_per_100g": 8.2,
+    "carbs_g_per_100g": 45.8,
+    "fat_g_per_100g": 21,
+    "aliases": [
+      "croissant",
+      "кроссан"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 50,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "muffin",
+    "name_mn": "маффин",
+    "name_en": "Muffins, blueberry, dry mix",
+    "calories_per_100g": 293,
+    "protein_g_per_100g": 3.5,
+    "carbs_g_per_100g": 61,
+    "fat_g_per_100g": 3.3,
+    "aliases": [
+      "muffin",
+      "muffins, blueberry, dry mix",
+      "маффин"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 50,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "donut",
+    "name_mn": "донат",
+    "name_en": "Doughnuts, cake-type, chocolate, sugared or glazed",
+    "calories_per_100g": 417,
+    "protein_g_per_100g": 4.5,
+    "carbs_g_per_100g": 57.4,
+    "fat_g_per_100g": 19.9,
+    "aliases": [
+      "donut",
+      "doughnuts, cake-type, chocolate, sugared or glazed",
+      "донат"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "brownie",
+    "name_mn": "брауни",
+    "name_en": "Cookie, butterscotch, brownie",
+    "calories_per_100g": 405,
+    "protein_g_per_100g": 4.8,
+    "carbs_g_per_100g": 63.9,
+    "fat_g_per_100g": 16.3,
+    "aliases": [
+      "brownie",
+      "cookie, butterscotch, brownie",
+      "брауни"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "cheesecake",
+    "name_mn": "бяслагтай бялуу",
+    "name_en": "Cheesecake, chocolate",
+    "calories_per_100g": 394,
+    "protein_g_per_100g": 5.7,
+    "carbs_g_per_100g": 35.5,
+    "fat_g_per_100g": 26.1,
+    "aliases": [
+      "cheesecake",
+      "cheesecake, chocolate",
+      "бяслагтай бялуу"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 30,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "pie",
+    "name_mn": "бялуу",
+    "name_en": "Pie, apple",
+    "calories_per_100g": 296,
+    "protein_g_per_100g": 2.7,
+    "carbs_g_per_100g": 37.6,
+    "fat_g_per_100g": 15.3,
+    "aliases": [
+      "pie",
+      "pie, apple",
+      "бялуу"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "yogurt_greek",
+    "name_mn": "хөх тараг",
+    "name_en": "Yogurt, Greek, plain, lowfat",
+    "calories_per_100g": 73,
+    "protein_g_per_100g": 10,
+    "carbs_g_per_100g": 3.9,
+    "fat_g_per_100g": 1.9,
+    "aliases": [
+      "greek yogurt",
+      "yogurt, greek, plain, lowfat",
+      "хөх тараг"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 30,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "sour_cream",
+    "name_mn": "исгэлэн тараг",
+    "name_en": "Sour cream, imitation",
+    "calories_per_100g": 208,
+    "protein_g_per_100g": 2.4,
+    "carbs_g_per_100g": 6.6,
+    "fat_g_per_100g": 19.5,
+    "aliases": [
+      "sour cream",
+      "sour cream, imitation",
+      "исгэлэн тараг"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "cream_cheese",
+    "name_mn": "өөхөн бяслаг",
+    "name_en": "Cheese, cream",
+    "calories_per_100g": 350,
+    "protein_g_per_100g": 6.2,
+    "carbs_g_per_100g": 5.5,
+    "fat_g_per_100g": 34.4,
+    "aliases": [
+      "cream cheese",
+      "cheese, cream",
+      "өөхөн бяслаг"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 30,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "mozzarella",
+    "name_mn": "моцарелла",
+    "name_en": "Cheese, Mozzarella, NFS",
+    "calories_per_100g": 296,
+    "protein_g_per_100g": 23.7,
+    "carbs_g_per_100g": 4.4,
+    "fat_g_per_100g": 20.4,
+    "aliases": [
+      "mozzarella",
+      "cheese, mozzarella, nfs",
+      "моцарелла"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "parmesan",
+    "name_mn": "пармезан",
+    "name_en": "Cheese, parmesan, grated",
+    "calories_per_100g": 420,
+    "protein_g_per_100g": 28.4,
+    "carbs_g_per_100g": 13.9,
+    "fat_g_per_100g": 27.8,
+    "aliases": [
+      "parmesan",
+      "cheese, parmesan, grated",
+      "пармезан"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "milk_skim",
+    "name_mn": "өөхгүй сүү",
+    "name_en": "Milk, fat free (skim)",
+    "calories_per_100g": 34,
+    "protein_g_per_100g": 3.4,
+    "carbs_g_per_100g": 4.9,
+    "fat_g_per_100g": 0.1,
+    "aliases": [
+      "skim milk",
+      "milk, fat free (skim)",
+      "өөхгүй сүү"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 аяга",
+        "grams": 250,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "milk_almond",
+    "name_mn": "бүйлсний сүү",
+    "name_en": "Almond milk, chocolate",
+    "calories_per_100g": 43,
+    "protein_g_per_100g": 0.6,
+    "carbs_g_per_100g": 7.4,
+    "fat_g_per_100g": 1.2,
+    "aliases": [
+      "almond milk",
+      "almond milk, chocolate",
+      "бүйлсний сүү"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 аяга",
+        "grams": 250,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "milk_oat",
+    "name_mn": "овьёсны сүү",
+    "name_en": "Oat milk",
+    "calories_per_100g": 45,
+    "protein_g_per_100g": 0.7,
+    "carbs_g_per_100g": 5.4,
+    "fat_g_per_100g": 2.3,
+    "aliases": [
+      "oat milk",
+      "овьёсны сүү"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 аяга",
+        "grams": 250,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "smoothie",
+    "name_mn": "жимсний коктейль",
+    "name_en": "Fruit smoothie, light",
+    "calories_per_100g": 53,
+    "protein_g_per_100g": 2.6,
+    "carbs_g_per_100g": 9.7,
+    "fat_g_per_100g": 0.6,
+    "aliases": [
+      "smoothie",
+      "fruit smoothie, light",
+      "жимсний коктейль"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "lemonade",
+    "name_mn": "лийрний ундаа",
+    "name_en": "Vodka and lemonade",
+    "calories_per_100g": 93,
+    "protein_g_per_100g": 0,
+    "carbs_g_per_100g": 9,
+    "fat_g_per_100g": 0,
+    "aliases": [
+      "lemonade",
+      "vodka and lemonade",
+      "лийрний ундаа"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "iced_tea",
+    "name_mn": "хүйтэн цай",
+    "name_en": "Tea, iced, bottled, green",
+    "calories_per_100g": 27,
+    "protein_g_per_100g": 0,
+    "carbs_g_per_100g": 6.2,
+    "fat_g_per_100g": 0.2,
+    "aliases": [
+      "iced tea",
+      "tea, iced, bottled, green",
+      "хүйтэн цай"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 аяга",
+        "grams": 250,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "latte",
+    "name_mn": "латте",
+    "name_en": "Coffee, Latte",
+    "calories_per_100g": 43,
+    "protein_g_per_100g": 2.8,
+    "carbs_g_per_100g": 4.4,
+    "fat_g_per_100g": 1.6,
+    "aliases": [
+      "latte",
+      "coffee, latte",
+      "латте"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "cappuccino",
+    "name_mn": "капучино",
+    "name_en": "Coffee, Cappuccino",
+    "calories_per_100g": 27,
+    "protein_g_per_100g": 1.7,
+    "carbs_g_per_100g": 2.8,
+    "fat_g_per_100g": 1,
+    "aliases": [
+      "cappuccino",
+      "coffee, cappuccino",
+      "капучино"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "hot_chocolate",
+    "name_mn": "халуун шоколад",
+    "name_en": "Hot chocolate / cocoa, NFS",
+    "calories_per_100g": 72,
+    "protein_g_per_100g": 1.8,
+    "carbs_g_per_100g": 13.9,
+    "fat_g_per_100g": 1,
+    "aliases": [
+      "hot chocolate",
+      "hot chocolate / cocoa, nfs",
+      "халуун шоколад"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "zucchini",
+    "name_mn": "цуккини",
+    "name_en": "Squash, zucchini, baby, raw",
+    "calories_per_100g": 21,
+    "protein_g_per_100g": 2.7,
+    "carbs_g_per_100g": 3.1,
+    "fat_g_per_100g": 0.4,
+    "aliases": [
+      "zucchini",
+      "squash, zucchini, baby, raw",
+      "цуккини"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "eggplant",
+    "name_mn": "бадынжаан",
+    "name_en": "Eggplant, raw",
+    "calories_per_100g": 25,
+    "protein_g_per_100g": 1,
+    "carbs_g_per_100g": 5.9,
+    "fat_g_per_100g": 0.2,
+    "aliases": [
+      "eggplant",
+      "eggplant, raw",
+      "бадынжаан"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 50,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "mushroom",
+    "name_mn": "мөөг",
+    "name_en": "Mushrooms, raw",
+    "calories_per_100g": 31,
+    "protein_g_per_100g": 2.9,
+    "carbs_g_per_100g": 4.1,
+    "fat_g_per_100g": 0.4,
+    "aliases": [
+      "mushroom",
+      "mushrooms, raw",
+      "мөөг"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "asparagus",
+    "name_mn": "аспарагус",
+    "name_en": "Asparagus, raw",
+    "calories_per_100g": 20,
+    "protein_g_per_100g": 2.2,
+    "carbs_g_per_100g": 3.9,
+    "fat_g_per_100g": 0.1,
+    "aliases": [
+      "asparagus",
+      "asparagus, raw",
+      "аспарагус"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "cauliflower",
+    "name_mn": "цагаан байцаа",
+    "name_en": "Cauliflower, raw",
+    "calories_per_100g": 0,
+    "protein_g_per_100g": 1.6,
+    "carbs_g_per_100g": 4.7,
+    "fat_g_per_100g": 0.2,
+    "aliases": [
+      "cauliflower",
+      "cauliflower, raw",
+      "цагаан байцаа"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "celery",
+    "name_mn": "селер",
+    "name_en": "Celery, raw",
+    "calories_per_100g": 17,
+    "protein_g_per_100g": 0.5,
+    "carbs_g_per_100g": 3.3,
+    "fat_g_per_100g": 0.2,
+    "aliases": [
+      "celery",
+      "celery, raw",
+      "селер"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "radish",
+    "name_mn": "улаан редис",
+    "name_en": "Radishes, raw",
+    "calories_per_100g": 16,
+    "protein_g_per_100g": 0.7,
+    "carbs_g_per_100g": 3.4,
+    "fat_g_per_100g": 0.1,
+    "aliases": [
+      "radish",
+      "radishes, raw",
+      "улаан редис"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "beet",
+    "name_mn": "улаан манжин",
+    "name_en": "Beets, raw",
+    "calories_per_100g": 0,
+    "protein_g_per_100g": 1.7,
+    "carbs_g_per_100g": 8.8,
+    "fat_g_per_100g": 0.3,
+    "aliases": [
+      "beet",
+      "beets, raw",
+      "улаан манжин"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "brussels_sprouts",
+    "name_mn": "брюсселийн байцаа",
+    "name_en": "Brussels sprouts, raw",
+    "calories_per_100g": 43,
+    "protein_g_per_100g": 3.4,
+    "carbs_g_per_100g": 9,
+    "fat_g_per_100g": 0.3,
+    "aliases": [
+      "brussels sprouts",
+      "brussels sprouts, raw",
+      "брюсселийн байцаа"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "kale",
+    "name_mn": "кал",
+    "name_en": "Kale, raw",
+    "calories_per_100g": 35,
+    "protein_g_per_100g": 2.9,
+    "carbs_g_per_100g": 4.4,
+    "fat_g_per_100g": 1.5,
+    "aliases": [
+      "kale",
+      "kale, raw",
+      "кал"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "arugula",
+    "name_mn": "аругула",
+    "name_en": "Arugula, raw",
+    "calories_per_100g": 25,
+    "protein_g_per_100g": 2.6,
+    "carbs_g_per_100g": 3.7,
+    "fat_g_per_100g": 0.7,
+    "aliases": [
+      "arugula",
+      "arugula, raw",
+      "аругула"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "ginger",
+    "name_mn": "цагаан гаа",
+    "name_en": "Ginger root, raw",
+    "calories_per_100g": 80,
+    "protein_g_per_100g": 1.8,
+    "carbs_g_per_100g": 17.8,
+    "fat_g_per_100g": 0.8,
+    "aliases": [
+      "ginger",
+      "ginger root, raw",
+      "цагаан гаа"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "lime",
+    "name_mn": "нимбэг",
+    "name_en": "Lime, raw",
+    "calories_per_100g": 30,
+    "protein_g_per_100g": 0.7,
+    "carbs_g_per_100g": 10.5,
+    "fat_g_per_100g": 0.2,
+    "aliases": [
+      "lime",
+      "lime, raw",
+      "нимбэг"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "grapefruit",
+    "name_mn": "грейпфрут",
+    "name_en": "Grapefruit, raw",
+    "calories_per_100g": 42,
+    "protein_g_per_100g": 0.8,
+    "carbs_g_per_100g": 10.7,
+    "fat_g_per_100g": 0.1,
+    "aliases": [
+      "grapefruit",
+      "grapefruit, raw",
+      "грейпфрут"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 120,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "plum",
+    "name_mn": "чавга",
+    "name_en": "Plum, raw",
+    "calories_per_100g": 46,
+    "protein_g_per_100g": 0.7,
+    "carbs_g_per_100g": 11.4,
+    "fat_g_per_100g": 0.3,
+    "aliases": [
+      "plum",
+      "plum, raw",
+      "чавга"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "apricot",
+    "name_mn": "зарга",
+    "name_en": "Apricot, raw",
+    "calories_per_100g": 48,
+    "protein_g_per_100g": 1.4,
+    "carbs_g_per_100g": 11.1,
+    "fat_g_per_100g": 0.4,
+    "aliases": [
+      "apricot",
+      "apricot, raw",
+      "зарга"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "raspberry",
+    "name_mn": "бамбэр",
+    "name_en": "Raspberries, raw",
+    "calories_per_100g": 57,
+    "protein_g_per_100g": 1,
+    "carbs_g_per_100g": 12.9,
+    "fat_g_per_100g": 0.2,
+    "aliases": [
+      "raspberry",
+      "raspberries, raw",
+      "бамбэр"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "blackberry",
+    "name_mn": "хар жимс",
+    "name_en": "Blackberries, raw",
+    "calories_per_100g": 43,
+    "protein_g_per_100g": 1.4,
+    "carbs_g_per_100g": 9.6,
+    "fat_g_per_100g": 0.5,
+    "aliases": [
+      "blackberry",
+      "blackberries, raw",
+      "хар жимс"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "cantaloupe",
+    "name_mn": "дулаан зүйл",
+    "name_en": "Cantaloupe, raw",
+    "calories_per_100g": 38,
+    "protein_g_per_100g": 0.8,
+    "carbs_g_per_100g": 8.2,
+    "fat_g_per_100g": 0.2,
+    "aliases": [
+      "cantaloupe",
+      "cantaloupe, raw",
+      "дулаан зүйл"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "dates",
+    "name_mn": "ургамлын жимс",
+    "name_en": "Date",
+    "calories_per_100g": 282,
+    "protein_g_per_100g": 2.5,
+    "carbs_g_per_100g": 75,
+    "fat_g_per_100g": 0.4,
+    "aliases": [
+      "dates",
+      "date",
+      "ургамлын жимс"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "raisins",
+    "name_mn": "хатаасан усан үзэм",
+    "name_en": "Raisins",
+    "calories_per_100g": 299,
+    "protein_g_per_100g": 3.3,
+    "carbs_g_per_100g": 79.3,
+    "fat_g_per_100g": 0.3,
+    "aliases": [
+      "raisins",
+      "хатаасан усан үзэм"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "prunes",
+    "name_mn": "хатаасан чавга",
+    "name_en": "Prune puree",
+    "calories_per_100g": 257,
+    "protein_g_per_100g": 2.1,
+    "carbs_g_per_100g": 65.1,
+    "fat_g_per_100g": 0.2,
+    "aliases": [
+      "prunes",
+      "prune puree",
+      "хатаасан чавга"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "fig",
+    "name_mn": "инжир",
+    "name_en": "Fig, raw",
+    "calories_per_100g": 74,
+    "protein_g_per_100g": 0.8,
+    "carbs_g_per_100g": 19.2,
+    "fat_g_per_100g": 0.3,
+    "aliases": [
+      "fig",
+      "fig, raw",
+      "инжир"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "pomegranate",
+    "name_mn": "адармал",
+    "name_en": "Pomegranate, raw",
+    "calories_per_100g": 83,
+    "protein_g_per_100g": 1.7,
+    "carbs_g_per_100g": 18.7,
+    "fat_g_per_100g": 1.2,
+    "aliases": [
+      "pomegranate",
+      "pomegranate, raw",
+      "адармал"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "cranberry",
+    "name_mn": "бүйлсний жимс",
+    "name_en": "Cranberries, raw",
+    "calories_per_100g": 46,
+    "protein_g_per_100g": 0.5,
+    "carbs_g_per_100g": 12,
+    "fat_g_per_100g": 0.1,
+    "aliases": [
+      "cranberry",
+      "cranberries, raw",
+      "бүйлсний жимс"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "sunflower_seeds",
+    "name_mn": "наргил",
+    "name_en": "Sunflower seeds, flavored",
+    "calories_per_100g": 567,
+    "protein_g_per_100g": 18.5,
+    "carbs_g_per_100g": 25.9,
+    "fat_g_per_100g": 47.6,
+    "aliases": [
+      "sunflower seeds",
+      "sunflower seeds, flavored",
+      "наргил"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "pumpkin_seeds",
+    "name_mn": "хулууны үр",
+    "name_en": "Pumpkin seeds, salted",
+    "calories_per_100g": 567,
+    "protein_g_per_100g": 29.5,
+    "carbs_g_per_100g": 14.5,
+    "fat_g_per_100g": 48.5,
+    "aliases": [
+      "pumpkin seeds",
+      "pumpkin seeds, salted",
+      "хулууны үр"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "chia_seeds",
+    "name_mn": "чиа үр",
+    "name_en": "Chia seeds",
+    "calories_per_100g": 486,
+    "protein_g_per_100g": 16.5,
+    "carbs_g_per_100g": 42.1,
+    "fat_g_per_100g": 30.7,
+    "aliases": [
+      "chia seeds",
+      "чиа үр"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "flax_seeds",
+    "name_mn": "суулганы үр",
+    "name_en": "Flax seeds",
+    "calories_per_100g": 545,
+    "protein_g_per_100g": 18,
+    "carbs_g_per_100g": 34.4,
+    "fat_g_per_100g": 37.3,
+    "aliases": [
+      "flax seeds",
+      "суулганы үр"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "vegetable_oil",
+    "name_mn": "өөхөн тос",
+    "name_en": "Vegetable oil, NFS",
+    "calories_per_100g": 900,
+    "protein_g_per_100g": 0,
+    "carbs_g_per_100g": 0,
+    "fat_g_per_100g": 100,
+    "aliases": [
+      "vegetable oil",
+      "vegetable oil, nfs",
+      "өөхөн тос",
+      "тос"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 таваг",
+        "grams": 200,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "coconut_oil",
+    "name_mn": "кокосын тос",
+    "name_en": "Coconut oil",
+    "calories_per_100g": 895,
+    "protein_g_per_100g": 0,
+    "carbs_g_per_100g": 0.8,
+    "fat_g_per_100g": 99.1,
+    "aliases": [
+      "coconut oil",
+      "кокосын тос"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 халбага",
+        "grams": 15,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "whole_wheat_bread",
+    "name_mn": "бүтэн гурилтай талх",
+    "name_en": "Bread, whole wheat",
+    "calories_per_100g": 254,
+    "protein_g_per_100g": 12.3,
+    "carbs_g_per_100g": 43.1,
+    "fat_g_per_100g": 3.6,
+    "aliases": [
+      "whole wheat bread",
+      "bread, whole wheat",
+      "бүтэн гурилтай талх"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 50,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "rye_bread",
+    "name_mn": "тарвастай талх",
+    "name_en": "Bread, rye",
+    "calories_per_100g": 259,
+    "protein_g_per_100g": 8.5,
+    "carbs_g_per_100g": 48.3,
+    "fat_g_per_100g": 3.3,
+    "aliases": [
+      "rye bread",
+      "bread, rye",
+      "тарвастай талх"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 50,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "pita",
+    "name_mn": "пита",
+    "name_en": "Bread, pita",
+    "calories_per_100g": 275,
+    "protein_g_per_100g": 9.1,
+    "carbs_g_per_100g": 55.7,
+    "fat_g_per_100g": 1.2,
+    "aliases": [
+      "pita bread",
+      "bread, pita",
+      "пита"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 50,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "english_muffin",
+    "name_mn": "англи маффин",
+    "name_en": "Muffin, English",
+    "calories_per_100g": 227,
+    "protein_g_per_100g": 8.9,
+    "carbs_g_per_100g": 44.2,
+    "fat_g_per_100g": 1.7,
+    "aliases": [
+      "english muffin",
+      "muffin, english",
+      "англи маффин"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 50,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "sourdough",
+    "name_mn": "исгэлэн талх",
+    "name_en": "Bread, french or vienna (includes sourdough)",
+    "calories_per_100g": 272,
+    "protein_g_per_100g": 10.8,
+    "carbs_g_per_100g": 51.9,
+    "fat_g_per_100g": 2.4,
+    "aliases": [
+      "sourdough bread",
+      "bread, french or vienna (includes sourdough)",
+      "исгэлэн талх"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 50,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "noodles",
+    "name_mn": "гоймон",
+    "name_en": "Noodles, egg, enriched, cooked",
+    "calories_per_100g": 138,
+    "protein_g_per_100g": 4.5,
+    "carbs_g_per_100g": 25.2,
+    "fat_g_per_100g": 2.1,
+    "aliases": [
+      "noodles",
+      "noodles, egg, enriched, cooked",
+      "гоймон"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 аяга",
+        "grams": 158,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "ramen",
+    "name_mn": "рамен",
+    "name_en": "Soup, ramen noodles, water added",
+    "calories_per_100g": 66,
+    "protein_g_per_100g": 1.5,
+    "carbs_g_per_100g": 9,
+    "fat_g_per_100g": 2.6,
+    "aliases": [
+      "ramen",
+      "soup, ramen noodles, water added",
+      "рамен"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "lasagna",
+    "name_mn": "лаазан",
+    "name_en": "Lasagna with meat",
+    "calories_per_100g": 139,
+    "protein_g_per_100g": 7.5,
+    "carbs_g_per_100g": 16.2,
+    "fat_g_per_100g": 5,
+    "aliases": [
+      "lasagna",
+      "lasagna with meat",
+      "лаазан"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "mac_cheese",
+    "name_mn": "гоймон бяслаг",
+    "name_en": "Macaroni or noodles with cheese",
+    "calories_per_100g": 223,
+    "protein_g_per_100g": 8.7,
+    "carbs_g_per_100g": 23.1,
+    "fat_g_per_100g": 10.5,
+    "aliases": [
+      "mac and cheese",
+      "macaroni or noodles with cheese",
+      "гоймон бяслаг"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 30,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "spaghetti",
+    "name_mn": "спагетти",
+    "name_en": "Spaghetti squash, cooked",
+    "calories_per_100g": 49,
+    "protein_g_per_100g": 0.7,
+    "carbs_g_per_100g": 6.3,
+    "fat_g_per_100g": 2.8,
+    "aliases": [
+      "spaghetti",
+      "spaghetti squash, cooked",
+      "спагетти"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "fried_rice",
+    "name_mn": "хиндастай будаа",
+    "name_en": "Rice, fried, meatless",
+    "calories_per_100g": 174,
+    "protein_g_per_100g": 3.8,
+    "carbs_g_per_100g": 32.5,
+    "fat_g_per_100g": 3.2,
+    "aliases": [
+      "fried rice",
+      "rice, fried, meatless",
+      "хиндастай будаа"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 аяга",
+        "grams": 158,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "burrito",
+    "name_mn": "буррито",
+    "name_en": "Burrito, beef, cheese",
+    "calories_per_100g": 267,
+    "protein_g_per_100g": 13.3,
+    "carbs_g_per_100g": 28.3,
+    "fat_g_per_100g": 10.7,
+    "aliases": [
+      "burrito",
+      "burrito, beef, cheese",
+      "буррито"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 200,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "taco",
+    "name_mn": "тако",
+    "name_en": "TACO BELL, Taco Salad",
+    "calories_per_100g": 170,
+    "protein_g_per_100g": 6.7,
+    "carbs_g_per_100g": 15.1,
+    "fat_g_per_100g": 9.2,
+    "aliases": [
+      "taco",
+      "taco bell, taco salad",
+      "тако"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 200,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "nachos",
+    "name_mn": "начос",
+    "name_en": "Nachos, chicken",
+    "calories_per_100g": 242,
+    "protein_g_per_100g": 11.2,
+    "carbs_g_per_100g": 19.9,
+    "fat_g_per_100g": 13.3,
+    "aliases": [
+      "nachos",
+      "nachos, chicken",
+      "начос"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "quesadilla",
+    "name_mn": "кесадилья",
+    "name_en": "Quesadilla, chicken",
+    "calories_per_100g": 287,
+    "protein_g_per_100g": 14.5,
+    "carbs_g_per_100g": 27.3,
+    "fat_g_per_100g": 13,
+    "aliases": [
+      "quesadilla",
+      "quesadilla, chicken",
+      "кесадилья"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "guacamole",
+    "name_mn": "гуакамоле",
+    "name_en": "Guacamole, NFS",
+    "calories_per_100g": 155,
+    "protein_g_per_100g": 2,
+    "carbs_g_per_100g": 8.5,
+    "fat_g_per_100g": 14.2,
+    "aliases": [
+      "guacamole",
+      "guacamole, nfs",
+      "гуакамоле"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "chicken_wings",
+    "name_mn": "тахианы далавч",
+    "name_en": "Chicken wing, stewed",
+    "calories_per_100g": 247,
+    "protein_g_per_100g": 22.6,
+    "carbs_g_per_100g": 0,
+    "fat_g_per_100g": 16.7,
+    "aliases": [
+      "chicken wings",
+      "chicken wing, stewed",
+      "тахианы далавч"
+    ],
+    "portions": [
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "1 таваг",
+        "grams": 200,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "meatballs",
+    "name_mn": "махны бөмбөлөг",
+    "name_en": "Meatball, meatless",
+    "calories_per_100g": 197,
+    "protein_g_per_100g": 21,
+    "carbs_g_per_100g": 8,
+    "fat_g_per_100g": 9,
+    "aliases": [
+      "meatballs",
+      "meatball, meatless",
+      "махны бөмбөлөг"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "steak",
+    "name_mn": "стейк",
+    "name_en": "Beef, sandwich steak",
+    "calories_per_100g": 326,
+    "protein_g_per_100g": 18.3,
+    "carbs_g_per_100g": 0,
+    "fat_g_per_100g": 27.6,
+    "aliases": [
+      "steak",
+      "beef, sandwich steak",
+      "стейк"
+    ],
+    "portions": [
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "1 таваг",
+        "grams": 200,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "ribs",
+    "name_mn": "хавирга",
+    "name_en": "Pork, ribs",
+    "calories_per_100g": 254,
+    "protein_g_per_100g": 16.2,
+    "carbs_g_per_100g": 12.1,
+    "fat_g_per_100g": 15.1,
+    "aliases": [
+      "ribs",
+      "pork, ribs",
+      "хавирга"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "chili",
+    "name_mn": "чили",
+    "name_en": "Chili con carne with beans, canned entree",
+    "calories_per_100g": 107,
+    "protein_g_per_100g": 5.8,
+    "carbs_g_per_100g": 13.1,
+    "fat_g_per_100g": 3.5,
+    "aliases": [
+      "chili",
+      "chili con carne with beans, canned entree",
+      "чили"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "stew",
+    "name_mn": "шөл",
+    "name_en": "Stew, beef",
+    "calories_per_100g": 107,
+    "protein_g_per_100g": 8.8,
+    "carbs_g_per_100g": 6.3,
+    "fat_g_per_100g": 5.1,
+    "aliases": [
+      "beef stew",
+      "stew, beef",
+      "шөл"
+    ],
+    "portions": [
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "1 таваг",
+        "grams": 200,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "chowder",
+    "name_mn": "шөл",
+    "name_en": "Soup, Manhattan clam chowder",
+    "calories_per_100g": 35,
+    "protein_g_per_100g": 2.5,
+    "carbs_g_per_100g": 5.3,
+    "fat_g_per_100g": 0.5,
+    "aliases": [
+      "chowder",
+      "soup, manhattan clam chowder",
+      "шөл"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "tomato_soup",
+    "name_mn": "улаан лоольн шөл",
+    "name_en": "Soup, tomato",
+    "calories_per_100g": 19,
+    "protein_g_per_100g": 0.7,
+    "carbs_g_per_100g": 3.6,
+    "fat_g_per_100g": 0.4,
+    "aliases": [
+      "tomato soup",
+      "soup, tomato",
+      "улаан лоольн шөл"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 аяга",
+        "grams": 350,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "chicken_soup",
+    "name_mn": "тахианы шөл",
+    "name_en": "Soup, chicken",
+    "calories_per_100g": 40,
+    "protein_g_per_100g": 3.4,
+    "carbs_g_per_100g": 4,
+    "fat_g_per_100g": 1.1,
+    "aliases": [
+      "chicken soup",
+      "soup, chicken",
+      "тахианы шөл"
+    ],
+    "portions": [
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "1 таваг",
+        "grams": 200,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "caesar_salad",
+    "name_mn": "цезарь салат",
+    "name_en": "Caesar salad, with romaine, no dressing",
+    "calories_per_100g": 77,
+    "protein_g_per_100g": 4,
+    "carbs_g_per_100g": 7.5,
+    "fat_g_per_100g": 3.4,
+    "aliases": [
+      "caesar salad",
+      "caesar salad, with romaine, no dressing",
+      "цезарь салат"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 таваг",
+        "grams": 200,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "coleslaw",
+    "name_mn": "байцааны салат",
+    "name_en": "Coleslaw",
+    "calories_per_100g": 117,
+    "protein_g_per_100g": 0.9,
+    "carbs_g_per_100g": 10.5,
+    "fat_g_per_100g": 8,
+    "aliases": [
+      "coleslaw",
+      "байцааны салат"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "potato_salad",
+    "name_mn": "төмсний салат",
+    "name_en": "Potato salad with egg",
+    "calories_per_100g": 157,
+    "protein_g_per_100g": 2,
+    "carbs_g_per_100g": 16.2,
+    "fat_g_per_100g": 9.4,
+    "aliases": [
+      "potato salad",
+      "potato salad with egg",
+      "төмсний салат"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 таваг",
+        "grams": 200,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "tuna_salad",
+    "name_mn": "тунны салат",
+    "name_en": "Fish, tuna salad",
+    "calories_per_100g": 187,
+    "protein_g_per_100g": 16,
+    "carbs_g_per_100g": 9.4,
+    "fat_g_per_100g": 9.3,
+    "aliases": [
+      "tuna salad",
+      "fish, tuna salad",
+      "тунны салат"
+    ],
+    "portions": [
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "1 таваг",
+        "grams": 200,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "chicken_salad",
+    "name_mn": "тахианы салат",
+    "name_en": "Chicken salad spread",
+    "calories_per_100g": 200,
+    "protein_g_per_100g": 11.6,
+    "carbs_g_per_100g": 7.4,
+    "fat_g_per_100g": 13.5,
+    "aliases": [
+      "chicken salad",
+      "chicken salad spread",
+      "тахианы салат"
+    ],
+    "portions": [
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "1 таваг",
+        "grams": 200,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "grilled_cheese",
+    "name_mn": "шарсан бяслагтай талх",
+    "name_en": "Grilled cheese sandwich, NFS",
+    "calories_per_100g": 343,
+    "protein_g_per_100g": 11,
+    "carbs_g_per_100g": 28.1,
+    "fat_g_per_100g": 20.8,
+    "aliases": [
+      "grilled cheese",
+      "grilled cheese sandwich, nfs",
+      "шарсан бяслагтай талх"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 30,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "blt",
+    "name_mn": "бекон салат талх",
+    "name_en": "Crackers, sandwich",
+    "calories_per_100g": 494,
+    "protein_g_per_100g": 11.5,
+    "carbs_g_per_100g": 58.4,
+    "fat_g_per_100g": 24.5,
+    "aliases": [
+      "blt sandwich",
+      "crackers, sandwich",
+      "бекон салат талх"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 200,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "wrap",
+    "name_mn": "ороомог",
+    "name_en": "Chicken salad sandwich wrap",
+    "calories_per_100g": 269,
+    "protein_g_per_100g": 12.9,
+    "carbs_g_per_100g": 17,
+    "fat_g_per_100g": 16.6,
+    "aliases": [
+      "wrap",
+      "chicken salad sandwich wrap",
+      "ороомог"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "sushi",
+    "name_mn": "суши",
+    "name_en": "Sushi, NFS",
+    "calories_per_100g": 94,
+    "protein_g_per_100g": 2.9,
+    "carbs_g_per_100g": 18.4,
+    "fat_g_per_100g": 0.7,
+    "aliases": [
+      "sushi",
+      "sushi, nfs",
+      "суши"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "pad_thai",
+    "name_mn": "пад тай",
+    "name_en": "Pad Thai with chicken",
+    "calories_per_100g": 154,
+    "protein_g_per_100g": 8.1,
+    "carbs_g_per_100g": 14.4,
+    "fat_g_per_100g": 7.5,
+    "aliases": [
+      "pad thai",
+      "pad thai with chicken",
+      "пад тай"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "curry",
+    "name_mn": "карри",
+    "name_en": "Chicken curry",
+    "calories_per_100g": 107,
+    "protein_g_per_100g": 6.5,
+    "carbs_g_per_100g": 6.5,
+    "fat_g_per_100g": 6.5,
+    "aliases": [
+      "curry",
+      "chicken curry",
+      "карри"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "stir_fry",
+    "name_mn": "шарсан хүнс",
+    "name_en": "Asian stir fry vegetables, cooked, fat added",
+    "calories_per_100g": 71,
+    "protein_g_per_100g": 2,
+    "carbs_g_per_100g": 9.7,
+    "fat_g_per_100g": 2.8,
+    "aliases": [
+      "stir fry",
+      "asian stir fry vegetables, cooked, fat added",
+      "шарсан хүнс"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "falafel",
+    "name_mn": "фалафель",
+    "name_en": "Falafel",
+    "calories_per_100g": 514,
+    "protein_g_per_100g": 8.3,
+    "carbs_g_per_100g": 29,
+    "fat_g_per_100g": 41.2,
+    "aliases": [
+      "falafel",
+      "фалафель"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "gyro",
+    "name_mn": "гүро",
+    "name_en": "Gyro sandwich",
+    "calories_per_100g": 184,
+    "protein_g_per_100g": 11.2,
+    "carbs_g_per_100g": 18.8,
+    "fat_g_per_100g": 6.8,
+    "aliases": [
+      "gyro",
+      "gyro sandwich",
+      "гүро"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "spring_roll",
+    "name_mn": "хавар дээр",
+    "name_en": "Roll, multigrain",
+    "calories_per_100g": 263,
+    "protein_g_per_100g": 9.6,
+    "carbs_g_per_100g": 44.6,
+    "fat_g_per_100g": 6,
+    "aliases": [
+      "spring roll",
+      "roll, multigrain",
+      "хавар дээр"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "egg_roll",
+    "name_mn": "өндөгтэй ороомог",
+    "name_en": "Egg roll, meatless",
+    "calories_per_100g": 270,
+    "protein_g_per_100g": 5.6,
+    "carbs_g_per_100g": 30,
+    "fat_g_per_100g": 14.1,
+    "aliases": [
+      "egg roll",
+      "egg roll, meatless",
+      "өндөгтэй ороомог"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 50,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "pho",
+    "name_mn": "фо",
+    "name_en": "Soup, pho, with meat",
+    "calories_per_100g": 77,
+    "protein_g_per_100g": 5.8,
+    "carbs_g_per_100g": 5.6,
+    "fat_g_per_100g": 3.3,
+    "aliases": [
+      "pho",
+      "soup, pho, with meat",
+      "фо"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "miso_soup",
+    "name_mn": "мисо шөл",
+    "name_en": "Soup, miso or tofu",
+    "calories_per_100g": 24,
+    "protein_g_per_100g": 2.2,
+    "carbs_g_per_100g": 2.3,
+    "fat_g_per_100g": 0.9,
+    "aliases": [
+      "miso soup",
+      "soup, miso or tofu",
+      "мисо шөл"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 аяга",
+        "grams": 350,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "edamame",
+    "name_mn": "эдамамэ",
+    "name_en": "Edamame, cooked",
+    "calories_per_100g": 140,
+    "protein_g_per_100g": 11.5,
+    "carbs_g_per_100g": 8.6,
+    "fat_g_per_100g": 7.6,
+    "aliases": [
+      "edamame",
+      "edamame, cooked",
+      "эдамамэ"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "kimchi",
+    "name_mn": "кимчи",
+    "name_en": "Kimchi",
+    "calories_per_100g": 15,
+    "protein_g_per_100g": 1.1,
+    "carbs_g_per_100g": 2.4,
+    "fat_g_per_100g": 0.5,
+    "aliases": [
+      "kimchi",
+      "кимчи"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "pickles",
+    "name_mn": "давсласан ногоо",
+    "name_en": "Pickles, dill",
+    "calories_per_100g": 14,
+    "protein_g_per_100g": 0.5,
+    "carbs_g_per_100g": 2,
+    "fat_g_per_100g": 0.4,
+    "aliases": [
+      "pickles",
+      "pickles, dill",
+      "давсласан ногоо"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "olives",
+    "name_mn": "олив",
+    "name_en": "Olive tapenade",
+    "calories_per_100g": 282,
+    "protein_g_per_100g": 0.7,
+    "carbs_g_per_100g": 4.2,
+    "fat_g_per_100g": 30.1,
+    "aliases": [
+      "olives",
+      "olive tapenade",
+      "олив"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "artichoke",
+    "name_mn": "артишок",
+    "name_en": "Artichoke",
+    "calories_per_100g": 53,
+    "protein_g_per_100g": 2.9,
+    "carbs_g_per_100g": 12,
+    "fat_g_per_100g": 0.3,
+    "aliases": [
+      "artichoke",
+      "артишок"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "squash",
+    "name_mn": "хулуу",
+    "name_en": "Squash, winter, butternut, raw",
+    "calories_per_100g": 45,
+    "protein_g_per_100g": 1,
+    "carbs_g_per_100g": 11.7,
+    "fat_g_per_100g": 0.1,
+    "aliases": [
+      "squash",
+      "squash, winter, butternut, raw",
+      "хулуу"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "pumpkin",
+    "name_mn": "хулуу",
+    "name_en": "Pumpkin, raw",
+    "calories_per_100g": 26,
+    "protein_g_per_100g": 1,
+    "carbs_g_per_100g": 6.5,
+    "fat_g_per_100g": 0.1,
+    "aliases": [
+      "pumpkin",
+      "pumpkin, raw",
+      "хулуу"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "bok_choy",
+    "name_mn": "бок чой",
+    "name_en": "Cabbage, bok choy, raw",
+    "calories_per_100g": 0,
+    "protein_g_per_100g": 1,
+    "carbs_g_per_100g": 3.5,
+    "fat_g_per_100g": 0.2,
+    "aliases": [
+      "bok choy",
+      "cabbage, bok choy, raw",
+      "бок чой"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "papaya",
+    "name_mn": "папайа",
+    "name_en": "Papayas, raw",
+    "calories_per_100g": 43,
+    "protein_g_per_100g": 0.5,
+    "carbs_g_per_100g": 10.8,
+    "fat_g_per_100g": 0.3,
+    "aliases": [
+      "papaya",
+      "papayas, raw",
+      "папайа"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "dragon_fruit",
+    "name_mn": "луу жимс",
+    "name_en": "Dragon fruit",
+    "calories_per_100g": 68,
+    "protein_g_per_100g": 0.7,
+    "carbs_g_per_100g": 16.2,
+    "fat_g_per_100g": 0.2,
+    "aliases": [
+      "dragon fruit",
+      "луу жимс"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 120,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "passion_fruit",
+    "name_mn": "дурлал жимс",
+    "name_en": "Passion fruit nectar",
+    "calories_per_100g": 69,
+    "protein_g_per_100g": 0.2,
+    "carbs_g_per_100g": 17.4,
+    "fat_g_per_100g": 0.1,
+    "aliases": [
+      "passion fruit",
+      "passion fruit nectar",
+      "дурлал жимс"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 120,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "lychee",
+    "name_mn": "личи",
+    "name_en": "Lychee",
+    "calories_per_100g": 66,
+    "protein_g_per_100g": 0.8,
+    "carbs_g_per_100g": 16.5,
+    "fat_g_per_100g": 0.4,
+    "aliases": [
+      "lychee",
+      "личи"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "tangerine",
+    "name_mn": "мандарин",
+    "name_en": "Tangerine, raw",
+    "calories_per_100g": 53,
+    "protein_g_per_100g": 0.8,
+    "carbs_g_per_100g": 13.3,
+    "fat_g_per_100g": 0.3,
+    "aliases": [
+      "tangerine",
+      "tangerine, raw",
+      "мандарин"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "nectarine",
+    "name_mn": "нектарин",
+    "name_en": "Nectarine, raw",
+    "calories_per_100g": 43,
+    "protein_g_per_100g": 1.1,
+    "carbs_g_per_100g": 9.2,
+    "fat_g_per_100g": 0.3,
+    "aliases": [
+      "nectarine",
+      "nectarine, raw",
+      "нектарин"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "trail_mix",
+    "name_mn": "самрын хольц",
+    "name_en": "Trail mix with chocolate",
+    "calories_per_100g": 503,
+    "protein_g_per_100g": 11.7,
+    "carbs_g_per_100g": 48.3,
+    "fat_g_per_100g": 32.3,
+    "aliases": [
+      "trail mix",
+      "trail mix with chocolate",
+      "самрын хольц"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "nutella",
+    "name_mn": "нутелла",
+    "name_en": "Nutella sandwich on wheat bread",
+    "calories_per_100g": 359,
+    "protein_g_per_100g": 9.3,
+    "carbs_g_per_100g": 51.3,
+    "fat_g_per_100g": 12.9,
+    "aliases": [
+      "nutella",
+      "nutella sandwich on wheat bread",
+      "нутелла"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "marshmallow",
+    "name_mn": "маршмаллоу",
+    "name_en": "Topping, marshmallow",
+    "calories_per_100g": 322,
+    "protein_g_per_100g": 0.8,
+    "carbs_g_per_100g": 79,
+    "fat_g_per_100g": 0.3,
+    "aliases": [
+      "marshmallow",
+      "topping, marshmallow",
+      "маршмаллоу"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "pudding",
+    "name_mn": "пудинг",
+    "name_en": "Pudding, chocolate, NFS",
+    "calories_per_100g": 142,
+    "protein_g_per_100g": 2.1,
+    "carbs_g_per_100g": 23,
+    "fat_g_per_100g": 4.6,
+    "aliases": [
+      "pudding",
+      "pudding, chocolate, nfs",
+      "пудинг"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "jello",
+    "name_mn": "желе",
+    "name_en": "Gelatin dessert",
+    "calories_per_100g": 60,
+    "protein_g_per_100g": 1.2,
+    "carbs_g_per_100g": 14.2,
+    "fat_g_per_100g": 0,
+    "aliases": [
+      "jello",
+      "gelatin dessert",
+      "желе"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "whipped_cream",
+    "name_mn": "өөхөн өрөм",
+    "name_en": "Cream, whipped",
+    "calories_per_100g": 346,
+    "protein_g_per_100g": 1.9,
+    "carbs_g_per_100g": 9.5,
+    "fat_g_per_100g": 33.5,
+    "aliases": [
+      "whipped cream",
+      "cream, whipped",
+      "өөхөн өрөм"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "flour",
+    "name_mn": "гурил",
+    "name_en": "Flour, wheat, all-purpose, enriched, bleached",
+    "calories_per_100g": 366,
+    "protein_g_per_100g": 10.9,
+    "carbs_g_per_100g": 77.3,
+    "fat_g_per_100g": 1.5,
+    "aliases": [
+      "flour",
+      "flour, wheat, all-purpose, enriched, bleached",
+      "гурил"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "vanilla",
+    "name_mn": "ваниль",
+    "name_en": "Vanilla extract",
+    "calories_per_100g": 288,
+    "protein_g_per_100g": 0.1,
+    "carbs_g_per_100g": 12.6,
+    "fat_g_per_100g": 0.1,
+    "aliases": [
+      "vanilla extract",
+      "ваниль"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "cinnamon",
+    "name_mn": "шанцай",
+    "name_en": "Bread, cinnamon",
+    "calories_per_100g": 253,
+    "protein_g_per_100g": 7.1,
+    "carbs_g_per_100g": 44.4,
+    "fat_g_per_100g": 5.3,
+    "aliases": [
+      "cinnamon",
+      "bread, cinnamon",
+      "шанцай"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "black_pepper",
+    "name_mn": "хар перец",
+    "name_en": "Spices, pepper, black",
+    "calories_per_100g": 251,
+    "protein_g_per_100g": 10.4,
+    "carbs_g_per_100g": 64,
+    "fat_g_per_100g": 3.3,
+    "aliases": [
+      "black pepper",
+      "spices, pepper, black",
+      "хар перец"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "salt",
+    "name_mn": "давс",
+    "name_en": "Pecans, salted",
+    "calories_per_100g": 747,
+    "protein_g_per_100g": 9.6,
+    "carbs_g_per_100g": 12.2,
+    "fat_g_per_100g": 73.4,
+    "aliases": [
+      "salt",
+      "pecans, salted",
+      "давс"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "oregano",
+    "name_mn": "орегано",
+    "name_en": "Spices, oregano, dried",
+    "calories_per_100g": 265,
+    "protein_g_per_100g": 9,
+    "carbs_g_per_100g": 68.9,
+    "fat_g_per_100g": 4.3,
+    "aliases": [
+      "oregano",
+      "spices, oregano, dried",
+      "орегано"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "basil",
+    "name_mn": "базилик",
+    "name_en": "Basil, fresh",
+    "calories_per_100g": 23,
+    "protein_g_per_100g": 3.2,
+    "carbs_g_per_100g": 2.7,
+    "fat_g_per_100g": 0.6,
+    "aliases": [
+      "basil",
+      "basil, fresh",
+      "базилик"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "curry_powder",
+    "name_mn": "карри нунтаг",
+    "name_en": "Spices, curry powder",
+    "calories_per_100g": 325,
+    "protein_g_per_100g": 14.3,
+    "carbs_g_per_100g": 55.8,
+    "fat_g_per_100g": 14,
+    "aliases": [
+      "curry powder",
+      "spices, curry powder",
+      "карри нунтаг"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "turmeric",
+    "name_mn": "куркума",
+    "name_en": "Spices, turmeric, ground",
+    "calories_per_100g": 312,
+    "protein_g_per_100g": 9.7,
+    "carbs_g_per_100g": 67.1,
+    "fat_g_per_100g": 3.3,
+    "aliases": [
+      "turmeric",
+      "spices, turmeric, ground",
+      "куркума"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "cumin",
+    "name_mn": "зэра",
+    "name_en": "Spices, cumin seed",
+    "calories_per_100g": 375,
+    "protein_g_per_100g": 17.8,
+    "carbs_g_per_100g": 44.2,
+    "fat_g_per_100g": 22.3,
+    "aliases": [
+      "cumin",
+      "spices, cumin seed",
+      "зэра"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "worcestershire",
+    "name_mn": "ворчестер соус",
+    "name_en": "Worcestershire sauce",
+    "calories_per_100g": 77,
+    "protein_g_per_100g": 0,
+    "carbs_g_per_100g": 19.2,
+    "fat_g_per_100g": 0,
+    "aliases": [
+      "worcestershire sauce",
+      "ворчестер соус"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "bbq_sauce",
+    "name_mn": "барбекю соус",
+    "name_en": "Chicken, broiler, rotisserie, BBQ, skin",
+    "calories_per_100g": 378,
+    "protein_g_per_100g": 15.2,
+    "carbs_g_per_100g": 0.7,
+    "fat_g_per_100g": 35.2,
+    "aliases": [
+      "bbq sauce",
+      "chicken, broiler, rotisserie, bbq, skin",
+      "барбекю соус"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "hot_sauce",
+    "name_mn": "халуун соус",
+    "name_en": "Hot pepper sauce",
+    "calories_per_100g": 12,
+    "protein_g_per_100g": 1.3,
+    "carbs_g_per_100g": 0.8,
+    "fat_g_per_100g": 0.8,
+    "aliases": [
+      "hot sauce",
+      "hot pepper sauce",
+      "халуун соус"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "teriyaki",
+    "name_mn": "терияки",
+    "name_en": "Teriyaki sauce",
+    "calories_per_100g": 89,
+    "protein_g_per_100g": 5.9,
+    "carbs_g_per_100g": 15.6,
+    "fat_g_per_100g": 0,
+    "aliases": [
+      "teriyaki sauce",
+      "терияки"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "pesto",
+    "name_mn": "песто",
+    "name_en": "Pesto sauce",
+    "calories_per_100g": 580,
+    "protein_g_per_100g": 8.6,
+    "carbs_g_per_100g": 5.7,
+    "fat_g_per_100g": 59.2,
+    "aliases": [
+      "pesto",
+      "pesto sauce",
+      "песто"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "alfredo",
+    "name_mn": "альфредо",
+    "name_en": "Alfredo sauce",
+    "calories_per_100g": 150,
+    "protein_g_per_100g": 2.1,
+    "carbs_g_per_100g": 1.8,
+    "fat_g_per_100g": 15,
+    "aliases": [
+      "alfredo sauce",
+      "альфредо"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "marinara",
+    "name_mn": "маринара",
+    "name_en": "OLIVE GARDEN, cheese ravioli with marinara sauce",
+    "calories_per_100g": 159,
+    "protein_g_per_100g": 7.4,
+    "carbs_g_per_100g": 19.6,
+    "fat_g_per_100g": 5.6,
+    "aliases": [
+      "marinara sauce",
+      "olive garden, cheese ravioli with marinara sauce",
+      "маринара"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "ranch",
+    "name_mn": "ранч",
+    "name_en": "Ranch dressing",
+    "calories_per_100g": 430,
+    "protein_g_per_100g": 1.3,
+    "carbs_g_per_100g": 5.9,
+    "fat_g_per_100g": 44.5,
+    "aliases": [
+      "ranch dressing",
+      "ранч"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "caesar_dressing",
+    "name_mn": "цезарь соус",
+    "name_en": "Caesar dressing",
+    "calories_per_100g": 542,
+    "protein_g_per_100g": 2.2,
+    "carbs_g_per_100g": 3.3,
+    "fat_g_per_100g": 57.9,
+    "aliases": [
+      "caesar dressing",
+      "цезарь соус"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "balsamic",
+    "name_mn": "бальзамын винегар",
+    "name_en": "Vinegar, balsamic",
+    "calories_per_100g": 88,
+    "protein_g_per_100g": 0.5,
+    "carbs_g_per_100g": 17,
+    "fat_g_per_100g": 0,
+    "aliases": [
+      "balsamic vinegar",
+      "vinegar, balsamic",
+      "бальзамын винегар"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "coconut_water",
+    "name_mn": "кокосын ус",
+    "name_en": "Coconut water, unsweetened",
+    "calories_per_100g": 18,
+    "protein_g_per_100g": 0.2,
+    "carbs_g_per_100g": 4.2,
+    "fat_g_per_100g": 0,
+    "aliases": [
+      "coconut water",
+      "coconut water, unsweetened",
+      "кокосын ус"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "green_tea",
+    "name_mn": "ногоон цай",
+    "name_en": "Tea, hot, leaf, green",
+    "calories_per_100g": 1,
+    "protein_g_per_100g": 0.2,
+    "carbs_g_per_100g": 0,
+    "fat_g_per_100g": 0,
+    "aliases": [
+      "green tea",
+      "tea, hot, leaf, green",
+      "ногоон цай"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 аяга",
+        "grams": 250,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "chai",
+    "name_mn": "чай",
+    "name_en": "SILK Chai, soymilk",
+    "calories_per_100g": 53,
+    "protein_g_per_100g": 2.5,
+    "carbs_g_per_100g": 7.8,
+    "fat_g_per_100g": 1.4,
+    "aliases": [
+      "chai tea",
+      "silk chai, soymilk",
+      "чай"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 аяга",
+        "grams": 250,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "protein_shake",
+    "name_mn": "уурагны ундаа",
+    "name_en": "Beverages, nutritional shake mix, high protein, powder",
+    "calories_per_100g": 392,
+    "protein_g_per_100g": 53.6,
+    "carbs_g_per_100g": 20.4,
+    "fat_g_per_100g": 10.7,
+    "aliases": [
+      "protein shake",
+      "beverages, nutritional shake mix, high protein, po",
+      "уурагны ундаа"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "bone_broth",
+    "name_mn": "ясны шөл",
+    "name_en": "Pork, bones",
+    "calories_per_100g": 236,
+    "protein_g_per_100g": 26.2,
+    "carbs_g_per_100g": 0,
+    "fat_g_per_100g": 13.8,
+    "aliases": [
+      "bone broth",
+      "pork, bones",
+      "ясны шөл"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 аяга",
+        "grams": 250,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "vegetable_broth",
+    "name_mn": "хүнсний ногооны шөл",
+    "name_en": "Soup, SWANSON, vegetable broth",
+    "calories_per_100g": 6,
+    "protein_g_per_100g": 0.2,
+    "carbs_g_per_100g": 1,
+    "fat_g_per_100g": 0.1,
+    "aliases": [
+      "vegetable broth",
+      "soup, swanson, vegetable broth",
+      "хүнсний ногооны шөл"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 аяга",
+        "grams": 250,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "chicken_broth",
+    "name_mn": "тахианы шөл",
+    "name_en": "Chicken, canned, no broth",
+    "calories_per_100g": 185,
+    "protein_g_per_100g": 25.3,
+    "carbs_g_per_100g": 0.9,
+    "fat_g_per_100g": 8.1,
+    "aliases": [
+      "chicken broth",
+      "chicken, canned, no broth",
+      "тахианы шөл"
+    ],
+    "portions": [
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "1 таваг",
+        "grams": 200,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "beef_broth",
+    "name_mn": "үхрийн шөл",
+    "name_en": "Soup, beef broth, cubed, dry",
+    "calories_per_100g": 170,
+    "protein_g_per_100g": 17.3,
+    "carbs_g_per_100g": 16.1,
+    "fat_g_per_100g": 4,
+    "aliases": [
+      "beef broth",
+      "soup, beef broth, cubed, dry",
+      "үхрийн шөл"
+    ],
+    "portions": [
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "1 таваг",
+        "grams": 200,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "kidney_beans",
+    "name_mn": "бөөрний буурцаг",
+    "name_en": "Kidney beans with meat",
+    "calories_per_100g": 173,
+    "protein_g_per_100g": 10.5,
+    "carbs_g_per_100g": 18.3,
+    "fat_g_per_100g": 6.8,
+    "aliases": [
+      "kidney beans",
+      "kidney beans with meat",
+      "бөөрний буурцаг"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "rice_noodles",
+    "name_mn": "будааны гоймон",
+    "name_en": "Rice noodles, cooked",
+    "calories_per_100g": 107,
+    "protein_g_per_100g": 1.8,
+    "carbs_g_per_100g": 23.9,
+    "fat_g_per_100g": 0.2,
+    "aliases": [
+      "rice noodles",
+      "rice noodles, cooked",
+      "будааны гоймон"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 аяга",
+        "grams": 158,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "udon",
+    "name_mn": "удон",
+    "name_en": "Noodles, cooked",
+    "calories_per_100g": 137,
+    "protein_g_per_100g": 4.5,
+    "carbs_g_per_100g": 25,
+    "fat_g_per_100g": 2.1,
+    "aliases": [
+      "udon",
+      "noodles, cooked",
+      "удон"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "soba",
+    "name_mn": "соба",
+    "name_en": "Noodles, japanese, soba, cooked",
+    "calories_per_100g": 99,
+    "protein_g_per_100g": 5.1,
+    "carbs_g_per_100g": 21.4,
+    "fat_g_per_100g": 0.1,
+    "aliases": [
+      "soba noodles",
+      "noodles, japanese, soba, cooked",
+      "соба"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 аяга",
+        "grams": 158,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "risotto",
+    "name_mn": "ризотто",
+    "name_en": "Rice, white, with cheese and/or cream based sauce, fat added",
+    "calories_per_100g": 166,
+    "protein_g_per_100g": 5.2,
+    "carbs_g_per_100g": 20,
+    "fat_g_per_100g": 7,
+    "aliases": [
+      "risotto",
+      "rice, white, with cheese and/or cream based sauce,",
+      "ризотто"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "penne",
+    "name_mn": "пенне",
+    "name_en": "Pasta, cooked",
+    "calories_per_100g": 157,
+    "protein_g_per_100g": 5.8,
+    "carbs_g_per_100g": 30.7,
+    "fat_g_per_100g": 0.9,
+    "aliases": [
+      "penne pasta",
+      "pasta, cooked",
+      "пенне"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 аяга",
+        "grams": 158,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "naan",
+    "name_mn": "наан",
+    "name_en": "Bread, naan",
+    "calories_per_100g": 311,
+    "protein_g_per_100g": 11.1,
+    "carbs_g_per_100g": 50.2,
+    "fat_g_per_100g": 7.3,
+    "aliases": [
+      "naan",
+      "bread, naan",
+      "наан"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "french_toast",
+    "name_mn": "франц шарсан талх",
+    "name_en": "French toast sticks",
+    "calories_per_100g": 278,
+    "protein_g_per_100g": 7.5,
+    "carbs_g_per_100g": 40.6,
+    "fat_g_per_100g": 9.2,
+    "aliases": [
+      "french toast",
+      "french toast sticks",
+      "франц шарсан талх"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "omelette",
+    "name_mn": "өндөгтэй хоол",
+    "name_en": "Tomatoes as ingredient in omelet",
+    "calories_per_100g": 25,
+    "protein_g_per_100g": 1.1,
+    "carbs_g_per_100g": 5.5,
+    "fat_g_per_100g": 0.2,
+    "aliases": [
+      "omelette",
+      "tomatoes as ingredient in omelet",
+      "өндөгтэй хоол"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "club_sandwich",
+    "name_mn": "клуб сэндвич",
+    "name_en": "Club sandwich on wheat",
+    "calories_per_100g": 220,
+    "protein_g_per_100g": 16,
+    "carbs_g_per_100g": 21.4,
+    "fat_g_per_100g": 7.7,
+    "aliases": [
+      "club sandwich",
+      "club sandwich on wheat",
+      "клуб сэндвич"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 200,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "reuben",
+    "name_mn": "рейбен",
+    "name_en": "Reuben sandwich",
+    "calories_per_100g": 282,
+    "protein_g_per_100g": 10,
+    "carbs_g_per_100g": 16.4,
+    "fat_g_per_100g": 19.4,
+    "aliases": [
+      "reuben sandwich",
+      "рейбен"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 200,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "sub_sandwich",
+    "name_mn": "сэндвич",
+    "name_en": "Fast foods, submarine sandwich, meatball marinara on white bread",
+    "calories_per_100g": 219,
+    "protein_g_per_100g": 9.8,
+    "carbs_g_per_100g": 26,
+    "fat_g_per_100g": 8.5,
+    "aliases": [
+      "sub sandwich",
+      "fast foods, submarine sandwich, meatball marinara ",
+      "сэндвич"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 200,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "cobb_salad",
+    "name_mn": "кобб салат",
+    "name_en": "Cobb salad, no dressing",
+    "calories_per_100g": 93,
+    "protein_g_per_100g": 11.3,
+    "carbs_g_per_100g": 2.7,
+    "fat_g_per_100g": 4.3,
+    "aliases": [
+      "cobb salad",
+      "cobb salad, no dressing",
+      "кобб салат"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 таваг",
+        "grams": 200,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "garden_salad",
+    "name_mn": "цэцэрлэгийн салат",
+    "name_en": "Seafood garden salad with seafood, lettuce, tomato and/or carrots, other vegetables, no dressing",
+    "calories_per_100g": 47,
+    "protein_g_per_100g": 7.1,
+    "carbs_g_per_100g": 3,
+    "fat_g_per_100g": 0.5,
+    "aliases": [
+      "garden salad",
+      "seafood garden salad with seafood, lettuce, tomato",
+      "цэцэрлэгийн салат"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 таваг",
+        "grams": 200,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "caprese",
+    "name_mn": "капрезе",
+    "name_en": "Salad dressing, NFS, for salads",
+    "calories_per_100g": 430,
+    "protein_g_per_100g": 1.3,
+    "carbs_g_per_100g": 5.9,
+    "fat_g_per_100g": 44.5,
+    "aliases": [
+      "caprese salad",
+      "salad dressing, nfs, for salads",
+      "капрезе"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 таваг",
+        "grams": 200,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "minestrone",
+    "name_mn": "минестроне",
+    "name_en": "Soup, minestrone",
+    "calories_per_100g": 40,
+    "protein_g_per_100g": 1.7,
+    "carbs_g_per_100g": 7.3,
+    "fat_g_per_100g": 0.5,
+    "aliases": [
+      "minestrone",
+      "soup, minestrone",
+      "минестроне"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "meatloaf",
+    "name_mn": "махны талх",
+    "name_en": "Meatloaf sandwich",
+    "calories_per_100g": 217,
+    "protein_g_per_100g": 11.8,
+    "carbs_g_per_100g": 28.7,
+    "fat_g_per_100g": 6.2,
+    "aliases": [
+      "meatloaf",
+      "meatloaf sandwich",
+      "махны талх"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "kebab",
+    "name_mn": "кебаб",
+    "name_en": "Lamb, chop",
+    "calories_per_100g": 264,
+    "protein_g_per_100g": 27.4,
+    "carbs_g_per_100g": 0,
+    "fat_g_per_100g": 16.3,
+    "aliases": [
+      "kebab",
+      "lamb, chop",
+      "кебаб"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "wonton",
+    "name_mn": "вонтон",
+    "name_en": "Crackers, wonton",
+    "calories_per_100g": 521,
+    "protein_g_per_100g": 10.3,
+    "carbs_g_per_100g": 51.9,
+    "fat_g_per_100g": 31.7,
+    "aliases": [
+      "wonton",
+      "crackers, wonton",
+      "вонтон"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "sauerkraut",
+    "name_mn": "хатаасан байцаа",
+    "name_en": "Sauerkraut",
+    "calories_per_100g": 40,
+    "protein_g_per_100g": 0.9,
+    "carbs_g_per_100g": 4.2,
+    "fat_g_per_100g": 2.5,
+    "aliases": [
+      "sauerkraut",
+      "хатаасан байцаа"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "sriracha",
+    "name_mn": "срирача",
+    "name_en": "Sauce, hot chile, sriracha, TUONG OT SRIRACHA",
+    "calories_per_100g": 79,
+    "protein_g_per_100g": 1.9,
+    "carbs_g_per_100g": 15.9,
+    "fat_g_per_100g": 0.9,
+    "aliases": [
+      "sriracha",
+      "sauce, hot chile, sriracha, tuong ot sriracha",
+      "срирача"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "hoisin",
+    "name_mn": "хойсин",
+    "name_en": "Hoisin sauce",
+    "calories_per_100g": 220,
+    "protein_g_per_100g": 3.3,
+    "carbs_g_per_100g": 44.1,
+    "fat_g_per_100g": 3.4,
+    "aliases": [
+      "hoisin sauce",
+      "хойсин"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "fish_sauce",
+    "name_mn": "загасны соус",
+    "name_en": "Fish sauce",
+    "calories_per_100g": 35,
+    "protein_g_per_100g": 5.1,
+    "carbs_g_per_100g": 3.6,
+    "fat_g_per_100g": 0,
+    "aliases": [
+      "fish sauce",
+      "загасны соус"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "oyster_sauce",
+    "name_mn": "хясааны соус",
+    "name_en": "Oyster sauce",
+    "calories_per_100g": 51,
+    "protein_g_per_100g": 1.4,
+    "carbs_g_per_100g": 10.9,
+    "fat_g_per_100g": 0.3,
+    "aliases": [
+      "oyster sauce",
+      "хясааны соус"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "italian_dressing",
+    "name_mn": "итали соус",
+    "name_en": "Italian dressing, light",
+    "calories_per_100g": 102,
+    "protein_g_per_100g": 0.4,
+    "carbs_g_per_100g": 10,
+    "fat_g_per_100g": 6.7,
+    "aliases": [
+      "italian dressing",
+      "italian dressing, light",
+      "итали соус"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "gravy",
+    "name_mn": "шөлний соус",
+    "name_en": "Gravy, brown, dry",
+    "calories_per_100g": 367,
+    "protein_g_per_100g": 10.7,
+    "carbs_g_per_100g": 59.4,
+    "fat_g_per_100g": 9.6,
+    "aliases": [
+      "gravy",
+      "gravy, brown, dry",
+      "шөлний соус"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "energy_drink",
+    "name_mn": "эрч хүчний ундаа",
+    "name_en": "Energy Drink",
+    "calories_per_100g": 43,
+    "protein_g_per_100g": 0.5,
+    "carbs_g_per_100g": 10.2,
+    "fat_g_per_100g": 0,
+    "aliases": [
+      "energy drink",
+      "эрч хүчний ундаа"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "sports_drink",
+    "name_mn": "спортын ундаа",
+    "name_en": "Sports drink, NFS",
+    "calories_per_100g": 26,
+    "protein_g_per_100g": 0,
+    "carbs_g_per_100g": 6.4,
+    "fat_g_per_100g": 0,
+    "aliases": [
+      "sports drink",
+      "sports drink, nfs",
+      "спортын ундаа"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "espresso",
+    "name_mn": "эспрессо",
+    "name_en": "Coffee, espresso",
+    "calories_per_100g": 9,
+    "protein_g_per_100g": 0.1,
+    "carbs_g_per_100g": 1.7,
+    "fat_g_per_100g": 0.2,
+    "aliases": [
+      "espresso",
+      "coffee, espresso",
+      "эспрессо"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "herbal_tea",
+    "name_mn": "өвсний цай",
+    "name_en": "Tea, hot, chamomile",
+    "calories_per_100g": 1,
+    "protein_g_per_100g": 0,
+    "carbs_g_per_100g": 0.2,
+    "fat_g_per_100g": 0,
+    "aliases": [
+      "herbal tea",
+      "tea, hot, chamomile",
+      "өвсний цай"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 аяга",
+        "grams": 250,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "black_tea",
+    "name_mn": "хар цай",
+    "name_en": "Tea, hot, leaf, black",
+    "calories_per_100g": 1,
+    "protein_g_per_100g": 0,
+    "carbs_g_per_100g": 0.3,
+    "fat_g_per_100g": 0,
+    "aliases": [
+      "black tea",
+      "tea, hot, leaf, black",
+      "хар цай"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 аяга",
+        "grams": 250,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "pretzel",
+    "name_mn": "претцель",
+    "name_en": "Babyfood, pretzels",
+    "calories_per_100g": 397,
+    "protein_g_per_100g": 10.8,
+    "carbs_g_per_100g": 82.2,
+    "fat_g_per_100g": 2,
+    "aliases": [
+      "pretzel",
+      "babyfood, pretzels",
+      "претцель"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "rice_cake",
+    "name_mn": "будааны бялуу",
+    "name_en": "Snacks, rice cakes, brown rice, plain, unsalted",
+    "calories_per_100g": 387,
+    "protein_g_per_100g": 8.2,
+    "carbs_g_per_100g": 81.5,
+    "fat_g_per_100g": 2.8,
+    "aliases": [
+      "rice cake",
+      "snacks, rice cakes, brown rice, plain, unsalted",
+      "будааны бялуу"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 аяга",
+        "grams": 158,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "gummy_bears",
+    "name_mn": "зайрмаг",
+    "name_en": "Bear",
+    "calories_per_100g": 257,
+    "protein_g_per_100g": 32.2,
+    "carbs_g_per_100g": 0,
+    "fat_g_per_100g": 13.3,
+    "aliases": [
+      "gummy candy",
+      "bear",
+      "зайрмаг"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "caramel",
+    "name_mn": "карамель",
+    "name_en": "Candies, caramels",
+    "calories_per_100g": 382,
+    "protein_g_per_100g": 4.6,
+    "carbs_g_per_100g": 77,
+    "fat_g_per_100g": 8.1,
+    "aliases": [
+      "caramel",
+      "candies, caramels",
+      "карамель"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "fudge",
+    "name_mn": "фуж",
+    "name_en": "Chocolate candy, fudge",
+    "calories_per_100g": 396,
+    "protein_g_per_100g": 1.7,
+    "carbs_g_per_100g": 79.4,
+    "fat_g_per_100g": 7.9,
+    "aliases": [
+      "fudge",
+      "chocolate candy, fudge",
+      "фуж"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "frosting",
+    "name_mn": "бялууны өөх",
+    "name_en": "Cake, cherry fudge with chocolate frosting",
+    "calories_per_100g": 264,
+    "protein_g_per_100g": 2.4,
+    "carbs_g_per_100g": 38,
+    "fat_g_per_100g": 12.5,
+    "aliases": [
+      "frosting",
+      "cake, cherry fudge with chocolate frosting",
+      "бялууны өөх"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "baking_powder",
+    "name_mn": "жигнэх нунтаг",
+    "name_en": "Leavening agents, baking powder, low-sodium",
+    "calories_per_100g": 97,
+    "protein_g_per_100g": 0.1,
+    "carbs_g_per_100g": 46.9,
+    "fat_g_per_100g": 0.4,
+    "aliases": [
+      "baking powder",
+      "leavening agents, baking powder, low-sodium",
+      "жигнэх нунтаг"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "yeast",
+    "name_mn": "дрож",
+    "name_en": "Yeast",
+    "calories_per_100g": 325,
+    "protein_g_per_100g": 40.4,
+    "carbs_g_per_100g": 41.2,
+    "fat_g_per_100g": 7.6,
+    "aliases": [
+      "yeast",
+      "дрож"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "paprika",
+    "name_mn": "паприка",
+    "name_en": "Spices, paprika",
+    "calories_per_100g": 282,
+    "protein_g_per_100g": 14.1,
+    "carbs_g_per_100g": 54,
+    "fat_g_per_100g": 12.9,
+    "aliases": [
+      "paprika",
+      "spices, paprika",
+      "паприка"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "garlic_powder",
+    "name_mn": "сармисны нунтаг",
+    "name_en": "Spices, garlic powder",
+    "calories_per_100g": 331,
+    "protein_g_per_100g": 16.6,
+    "carbs_g_per_100g": 72.7,
+    "fat_g_per_100g": 0.7,
+    "aliases": [
+      "garlic powder",
+      "spices, garlic powder",
+      "сармисны нунтаг"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "nutmeg",
+    "name_mn": "дүүрэг",
+    "name_en": "Oil, nutmeg butter",
+    "calories_per_100g": 884,
+    "protein_g_per_100g": 0,
+    "carbs_g_per_100g": 0,
+    "fat_g_per_100g": 100,
+    "aliases": [
+      "nutmeg",
+      "oil, nutmeg butter",
+      "дүүрэг"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "lemon_juice",
+    "name_mn": "лийрний шүүс",
+    "name_en": "Lemon juice, raw",
+    "calories_per_100g": 22,
+    "protein_g_per_100g": 0.4,
+    "carbs_g_per_100g": 6.9,
+    "fat_g_per_100g": 0.2,
+    "aliases": [
+      "lemon juice",
+      "lemon juice, raw",
+      "лийрний шүүс"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 аяга",
+        "grams": 250,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "lime_juice",
+    "name_mn": "нимбэгний шүүс",
+    "name_en": "Lime juice, raw",
+    "calories_per_100g": 25,
+    "protein_g_per_100g": 0.4,
+    "carbs_g_per_100g": 8.4,
+    "fat_g_per_100g": 0.1,
+    "aliases": [
+      "lime juice",
+      "lime juice, raw",
+      "нимбэгний шүүс"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 аяга",
+        "grams": 250,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "rice_vinegar",
+    "name_mn": "будааны цус",
+    "name_en": "Vinegar",
+    "calories_per_100g": 21,
+    "protein_g_per_100g": 0,
+    "carbs_g_per_100g": 0.9,
+    "fat_g_per_100g": 0,
+    "aliases": [
+      "rice vinegar",
+      "vinegar",
+      "будааны цус"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 аяга",
+        "grams": 158,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "collard_greens",
+    "name_mn": "ногоон навч",
+    "name_en": "Collards, raw",
+    "calories_per_100g": 32,
+    "protein_g_per_100g": 3,
+    "carbs_g_per_100g": 5.4,
+    "fat_g_per_100g": 0.6,
+    "aliases": [
+      "collard greens",
+      "collards, raw",
+      "ногоон навч"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "swiss_chard",
+    "name_mn": "швейцар байцаа",
+    "name_en": "Chard, swiss, raw",
+    "calories_per_100g": 19,
+    "protein_g_per_100g": 1.8,
+    "carbs_g_per_100g": 3.7,
+    "fat_g_per_100g": 0.2,
+    "aliases": [
+      "swiss chard",
+      "chard, swiss, raw",
+      "швейцар байцаа"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "watercress",
+    "name_mn": "усны навч",
+    "name_en": "Watercress, cooked",
+    "calories_per_100g": 36,
+    "protein_g_per_100g": 2.4,
+    "carbs_g_per_100g": 1.4,
+    "fat_g_per_100g": 2.8,
+    "aliases": [
+      "watercress",
+      "watercress, cooked",
+      "усны навч"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "fennel",
+    "name_mn": "улаан чинжүү",
+    "name_en": "Fennel bulb, raw",
+    "calories_per_100g": 31,
+    "protein_g_per_100g": 1.2,
+    "carbs_g_per_100g": 7.3,
+    "fat_g_per_100g": 0.2,
+    "aliases": [
+      "fennel",
+      "fennel bulb, raw",
+      "улаан чинжүү"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "turnip",
+    "name_mn": "шар манжин",
+    "name_en": "Turnip, raw",
+    "calories_per_100g": 28,
+    "protein_g_per_100g": 0.9,
+    "carbs_g_per_100g": 6.4,
+    "fat_g_per_100g": 0.1,
+    "aliases": [
+      "turnip",
+      "turnip, raw",
+      "шар манжин"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "parsnip",
+    "name_mn": "цагаан лууван",
+    "name_en": "Parsnips, raw",
+    "calories_per_100g": 75,
+    "protein_g_per_100g": 1.2,
+    "carbs_g_per_100g": 18,
+    "fat_g_per_100g": 0.3,
+    "aliases": [
+      "parsnip",
+      "parsnips, raw",
+      "цагаан лууван"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "persimmon",
+    "name_mn": "хур",
+    "name_en": "Persimmon, raw",
+    "calories_per_100g": 70,
+    "protein_g_per_100g": 0.6,
+    "carbs_g_per_100g": 18.6,
+    "fat_g_per_100g": 0.2,
+    "aliases": [
+      "persimmon",
+      "persimmon, raw",
+      "хур"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "guava",
+    "name_mn": "гуява",
+    "name_en": "Guava, raw",
+    "calories_per_100g": 68,
+    "protein_g_per_100g": 2.6,
+    "carbs_g_per_100g": 14.3,
+    "fat_g_per_100g": 1,
+    "aliases": [
+      "guava",
+      "guava, raw",
+      "гуява"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "star_fruit",
+    "name_mn": "од жимс",
+    "name_en": "DENNY'S, chicken nuggets, star shaped, from kid's menu",
+    "calories_per_100g": 377,
+    "protein_g_per_100g": 16.3,
+    "carbs_g_per_100g": 13.6,
+    "fat_g_per_100g": 28.6,
+    "aliases": [
+      "star fruit",
+      "denny's, chicken nuggets, star shaped, from kid's ",
+      "од жимс"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 120,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "plantain",
+    "name_mn": "бананы мод",
+    "name_en": "Plantain, raw",
+    "calories_per_100g": 122,
+    "protein_g_per_100g": 1.3,
+    "carbs_g_per_100g": 31.9,
+    "fat_g_per_100g": 0.4,
+    "aliases": [
+      "plantain",
+      "plantain, raw",
+      "бананы мод"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "clementine",
+    "name_mn": "клементин",
+    "name_en": "Clementine, raw",
+    "calories_per_100g": 53,
+    "protein_g_per_100g": 0.8,
+    "carbs_g_per_100g": 13.3,
+    "fat_g_per_100g": 0.3,
+    "aliases": [
+      "clementine",
+      "clementine, raw",
+      "клементин"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "dried_apricot",
+    "name_mn": "хатаасан зарга",
+    "name_en": "Apricot, dried",
+    "calories_per_100g": 241,
+    "protein_g_per_100g": 3.4,
+    "carbs_g_per_100g": 62.6,
+    "fat_g_per_100g": 0.5,
+    "aliases": [
+      "dried apricots",
+      "apricot, dried",
+      "хатаасан зарга"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "avocado_oil",
+    "name_mn": "авокадо тос",
+    "name_en": "Oil, avocado",
+    "calories_per_100g": 884,
+    "protein_g_per_100g": 0,
+    "carbs_g_per_100g": 0,
+    "fat_g_per_100g": 100,
+    "aliases": [
+      "avocado oil",
+      "oil, avocado",
+      "авокадо тос"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 халбага",
+        "grams": 15,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "sesame_oil",
+    "name_mn": "гүнжид тос",
+    "name_en": "Sesame oil",
+    "calories_per_100g": 884,
+    "protein_g_per_100g": 0,
+    "carbs_g_per_100g": 0,
+    "fat_g_per_100g": 100,
+    "aliases": [
+      "sesame oil",
+      "гүнжид тос"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 халбага",
+        "grams": 15,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "ciabatta",
+    "name_mn": "чабатта",
+    "name_en": "Bread, fruit",
+    "calories_per_100g": 374,
+    "protein_g_per_100g": 6,
+    "carbs_g_per_100g": 47.3,
+    "fat_g_per_100g": 18.1,
+    "aliases": [
+      "ciabatta",
+      "bread, fruit",
+      "чабатта"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "ensure",
+    "name_mn": "эншур",
+    "name_en": "Nutritional drink or shake, ready-to-drink (Ensure)",
+    "calories_per_100g": 105,
+    "protein_g_per_100g": 3.8,
+    "carbs_g_per_100g": 16.9,
+    "fat_g_per_100g": 2.5,
+    "aliases": [
+      "ensure",
+      "nutritional drink or shake, ready-to-drink (ensure",
+      "эншур"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  },
+  {
+    "id": "meal_replacement",
+    "name_mn": "хоолны орлуулагч",
+    "name_en": "Nutrition bar or meal replacement bar, NFS",
+    "calories_per_100g": 386,
+    "protein_g_per_100g": 22.4,
+    "carbs_g_per_100g": 55.2,
+    "fat_g_per_100g": 9.9,
+    "aliases": [
+      "meal replacement",
+      "nutrition bar or meal replacement bar, nfs",
+      "хоолны орлуулагч"
+    ],
+    "portions": [
+      {
+        "label_mn": "1 ширхэг",
+        "grams": 100,
+        "is_default": 1
+      },
+      {
+        "label_mn": "100г",
+        "grams": 100,
+        "is_default": 0
+      }
+    ]
+  }
+]

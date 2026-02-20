@@ -19,6 +19,20 @@ interface CaloriesBarChartProps {
   showDayLabels?: boolean;
 }
 
+const Y_AXIS_PADDING = 36;
+
+function getTickValues(maxValue: number, goalLine?: number): number[] {
+  const rawMax = Math.max(maxValue, goalLine ?? 0, 1);
+  const ticks: number[] = [0];
+  if (goalLine != null && goalLine > 0) {
+    ticks.push(Math.round(goalLine / 2));
+    ticks.push(goalLine);
+    if (goalLine * 1.25 <= rawMax) ticks.push(Math.round(goalLine * 1.25));
+  }
+  ticks.push(Math.ceil(rawMax));
+  return [...new Set(ticks)].sort((a, b) => a - b);
+}
+
 export default function CaloriesBarChart({
   data,
   maxValue,
@@ -30,7 +44,7 @@ export default function CaloriesBarChart({
 }: CaloriesBarChartProps) {
   const chartWidth = 320;
   const chartHeight = 170;
-  const padding = { top: 14, bottom: showDayLabels ? 26 : 8, left: 0, right: 0 };
+  const padding = { top: 14, bottom: showDayLabels ? 26 : 8, left: Y_AXIS_PADDING, right: 0 };
   const drawWidth = chartWidth - padding.left - padding.right;
   const drawHeight = chartHeight - padding.top - padding.bottom;
 
@@ -40,11 +54,28 @@ export default function CaloriesBarChart({
     : Math.max(drawWidth / Math.max(barCount, 1) - 1, 2);
   const gap = (drawWidth - barWidth * barCount) / (barCount + 1);
 
-  const effectiveMax = Math.max(maxValue, ...data.map((d) => d.value), 1);
+  const effectiveMax = Math.max(maxValue, goalLine ?? 0, ...data.map((d) => d.value), 1);
+  const tickValues = getTickValues(effectiveMax, goalLine);
 
   return (
     <View style={styles.container}>
       <Svg width={chartWidth} height={chartHeight}>
+        {/* Y-axis labels */}
+        {tickValues.map((tick) => {
+          const y = padding.top + drawHeight * (1 - tick / effectiveMax);
+          return (
+            <SvgText
+              key={tick}
+              x={padding.left - 6}
+              y={y + 4}
+              fontSize={10}
+              fill={colors.textTertiary}
+              textAnchor="end"
+            >
+              {tick}
+            </SvgText>
+          );
+        })}
         {/* Goal line */}
         {goalLine != null && goalLine > 0 && (
           <>

@@ -76,6 +76,13 @@ export function addDays(dateStr: string, days: number): string {
   return toDateString(d);
 }
 
+/** Days between two date strings (a - b). Positive if a is after b. */
+export function daysBetween(a: string, b: string): number {
+  const dA = new Date(a + 'T12:00:00').getTime();
+  const dB = new Date(b + 'T12:00:00').getTime();
+  return Math.round((dA - dB) / (24 * 60 * 60 * 1000));
+}
+
 /** Format as "Today, Feb 16" or "Mon, Feb 16" */
 export function formatDateWithDay(dateStr: string): string {
   const today = getTodayString();

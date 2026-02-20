@@ -5,6 +5,8 @@
   "scripts": {
     "start": "expo start",
     "reset-project": "node ./scripts/reset-project.js",
+    "fetch-seeds": "node scripts/fetch-usda-seeds.js",
+    "build-seeds": "node scripts/json-to-seed.js",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",

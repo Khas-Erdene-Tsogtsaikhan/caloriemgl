@@ -26,10 +26,10 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="log"
+        name="recipes"
         options={{
-          title: 'Weight',
-          tabBarIcon: ({ focused }) => <TabIcon emoji="⚖️" focused={focused} />,
+          title: 'Recipes',
+          tabBarIcon: ({ focused }) => <TabIcon emoji="🍳" focused={focused} />,
         }}
       />
       <Tabs.Screen

@@ -9,6 +9,7 @@ import {
   deleteLog,
   insertLog,
   listLogsByDay,
+  listLogsForRange,
 } from '@/lib/repo/logsRepo';
 import type { InsertLogPayload } from '@/lib/repo/logsRepo';
 import { getTodayString } from '@/src/utils/date';
@@ -33,7 +34,10 @@ interface FoodStoreState {
   search: (q: string) => Promise<void>;
   hydrateFromDb: () => Promise<void>;
   loadLogsByDay: (date: string) => Promise<void>;
-  addLog: (payload: Omit<InsertLogPayload, 'logged_at' | 'log_date'> & { log_date: string }) => Promise<void>;
+  loadLogsForRange: (startDate: string, endDate: string) => Promise<void>;
+  addLog: (
+    payload: Omit<InsertLogPayload, 'logged_at' | 'log_date'> & { log_date: string }
+  ) => Promise<void>;
   removeLog: (logId: string, date: string) => Promise<void>;
   copyLogsFromDay: (fromDate: string, toDate: string) => Promise<void>;
 }
@@ -86,6 +90,18 @@ export const useFoodStore = create<FoodStoreState>((set, get) => ({
     const logs = await listLogsByDay(date);
     set((s) => ({
       logsByDay: { ...s.logsByDay, [date]: logs },
+    }));
+  },
+  loadLogsForRange: async (startDate, endDate) => {
+    const logs = await listLogsForRange(startDate, endDate);
+    const byDay: Record<string, FoodLogRow[]> = {};
+    for (const log of logs) {
+      const d = log.log_date ?? '';
+      if (!byDay[d]) byDay[d] = [];
+      byDay[d].push(log);
+    }
+    set((s) => ({
+      logsByDay: { ...s.logsByDay, ...byDay },
     }));
   },
 

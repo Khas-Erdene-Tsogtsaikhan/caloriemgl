@@ -51,6 +51,15 @@ export const colors = {
   // Gradient stops (for header — kept but will be used sparingly)
   gradientStart: '#34915A',
   gradientEnd: '#266E42',
+
+  // Recipes (dark theme, MyFitnessPal-style)
+  recipesBg: '#1A1A1A',
+  recipesSurface: '#2D2D2D',
+  recipesSurfaceAlt: '#252525',
+  recipesText: '#FFFFFF',
+  recipesTextSecondary: '#B0B0B0',
+  recipesTextTertiary: '#808080',
+  recipesBorder: '#3D3D3D',
 };
 
 // ─── Spacing — strict 4px grid ───────────────────────────────────

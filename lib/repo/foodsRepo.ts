@@ -1,5 +1,3 @@
-import { fetchAndExtractTopFood } from '@/lib/api/usda';
-import { mnToEn } from '@/lib/data/mnToEnFoodMap';
 import { run, getAll, getOne, initDb } from '@/lib/db/db';
 import { makeId } from '@/lib/db/ids';
 
@@ -51,19 +49,23 @@ function scoreFood(query: string, nameMn: string, aliases: string[]): number {
   return score;
 }
 
+/** Case-insensitive includes for Cyrillic/Unicode (SQLite LIKE is case-sensitive for non-ASCII) */
+function includesIgnoreCase(text: string, query: string): boolean {
+  return text.toLowerCase().includes(query.toLowerCase());
+}
+
 export async function localSearchFoods(q: string): Promise<FoodRow[]> {
   if (!q.trim()) return [];
 
   await initDb();
-  const pattern = `%${q.trim().toLowerCase()}%`;
+  const query = q.trim();
+  const queryLower = query.toLowerCase();
 
+  // Fetch all foods with aliases - filter in JS for reliable Cyrillic/Unicode matching
   const rows = await getAll<FoodRow & { alias: string }>(
     `SELECT f.id, f.source, f.source_id, f.name_mn, f.name_en, f.calories_per_100g, f.protein_g_per_100g, f.carbs_g_per_100g, f.fat_g_per_100g, f.created_at, COALESCE(a.alias, '') as alias
      FROM foods f
-     LEFT JOIN food_aliases a ON a.food_id = f.id
-     WHERE f.name_mn LIKE ? OR a.alias LIKE ?
-     LIMIT 50`,
-    [pattern, pattern]
+     LEFT JOIN food_aliases a ON a.food_id = f.id`
   );
 
   const byId = new Map<string, { food: FoodRow; aliases: string[] }>();
@@ -90,12 +92,19 @@ export async function localSearchFoods(q: string): Promise<FoodRow[]> {
   }
 
   const scored = Array.from(byId.values())
+    .filter(({ food, aliases }) => {
+      const nameMatch = includesIgnoreCase(food.name_mn, query);
+      const aliasMatch = aliases.some((a) => includesIgnoreCase(a, query));
+      const enMatch = food.name_en && includesIgnoreCase(food.name_en, query);
+      return nameMatch || aliasMatch || !!enMatch;
+    })
     .map(({ food, aliases }) => ({
       food,
-      score: scoreFood(q, food.name_mn, aliases),
+      score: scoreFood(query, food.name_mn, aliases),
     }))
     .filter((x) => x.score > 0)
-    .sort((a, b) => b.score - a.score);
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 50);
 
   return scored.map((x) => x.food);
 }
@@ -178,6 +187,71 @@ export interface UpsertUsdaPayload {
   fat_g_per_100g: number;
 }
 
+export interface CreateRecipeFoodPayload {
+  recipeId: number;
+  title: string;
+  caloriesPerServing: number;
+  proteinPerServing: number;
+  carbsPerServing: number;
+  fatPerServing: number;
+}
+
+const GRAMS_PER_SERVING = 250;
+
+export async function getRecipeFoodBySourceId(sourceId: string): Promise<FoodRow | null> {
+  await initDb();
+  return getOne<FoodRow>(
+    `SELECT id, source, source_id, name_mn, name_en, calories_per_100g, protein_g_per_100g, carbs_g_per_100g, fat_g_per_100g, created_at FROM foods WHERE source = 'recipe' AND source_id = ?`,
+    [String(sourceId)]
+  );
+}
+
+export async function createRecipeFood(payload: CreateRecipeFoodPayload): Promise<FoodRow> {
+  await initDb();
+
+  const existing = await getRecipeFoodBySourceId(String(payload.recipeId));
+  if (existing) return existing;
+
+  const factor = 100 / GRAMS_PER_SERVING;
+  const calories_per_100g = Math.round(payload.caloriesPerServing * factor * 10) / 10;
+  const protein_g_per_100g = Math.round(payload.proteinPerServing * factor * 10) / 10;
+  const carbs_g_per_100g = Math.round(payload.carbsPerServing * factor * 10) / 10;
+  const fat_g_per_100g = Math.round(payload.fatPerServing * factor * 10) / 10;
+
+  const id = makeId();
+  const now = new Date().toISOString();
+
+  await run(
+    `INSERT INTO foods (id, source, source_id, name_mn, name_en, calories_per_100g, protein_g_per_100g, carbs_g_per_100g, fat_g_per_100g, created_at)
+     VALUES (?, 'recipe', ?, ?, ?, ?, ?, ?, ?, ?)`,
+    [
+      id,
+      String(payload.recipeId),
+      payload.title,
+      payload.title,
+      calories_per_100g,
+      protein_g_per_100g,
+      carbs_g_per_100g,
+      fat_g_per_100g,
+      now,
+    ]
+  );
+
+  await run(
+    `INSERT INTO food_aliases (id, food_id, alias, lang) VALUES (?, ?, ?, 'en')`,
+    [makeId(), id, payload.title.toLowerCase().trim()]
+  );
+
+  await run(
+    `INSERT INTO food_portions (id, food_id, label_mn, grams, is_default) VALUES (?, ?, ?, ?, ?)`,
+    [makeId(), id, '1 ширхэг', GRAMS_PER_SERVING, 1]
+  );
+
+  const food = await getFoodById(id);
+  if (!food) throw new Error('Failed to create recipe food');
+  return food;
+}
+
 export async function upsertFoodFromUsda(payload: UpsertUsdaPayload): Promise<FoodRow> {
   await initDb();
 
@@ -240,33 +314,11 @@ export async function upsertFoodFromUsda(payload: UpsertUsdaPayload): Promise<Fo
 }
 
 /**
- * Search locally first; if empty and USDA key + mapping exist, fetch from USDA and cache.
+ * Search local food database only (300+ common foods).
  */
 export async function searchWithUsdaFallback(
   q: string,
-  usdaApiKey: string | undefined
+  _usdaApiKey?: string
 ): Promise<FoodRow[]> {
-  const local = await localSearchFoods(q);
-  if (local.length > 0) return local;
-
-  const queryEn = mnToEn(q);
-  if (!queryEn || !usdaApiKey) return [];
-
-  try {
-    const result = await fetchAndExtractTopFood(queryEn, usdaApiKey);
-    if (!result) return [];
-
-    const food = await upsertFoodFromUsda({
-      fdcId: result.fdcId,
-      mnQuery: q.trim(),
-      name_en: result.name_en,
-      calories_per_100g: result.per100g.calories_per_100g,
-      protein_g_per_100g: result.per100g.protein_g_per_100g,
-      carbs_g_per_100g: result.per100g.carbs_g_per_100g,
-      fat_g_per_100g: result.per100g.fat_g_per_100g,
-    });
-    return [food];
-  } catch {
-    return [];
-  }
+  return localSearchFoods(q);
 }

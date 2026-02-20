@@ -7,10 +7,32 @@ import Card from '@/src/components/ui/Card';
 import { colors, spacing, typography } from '@/src/theme/tokens';
 import { useNutrioStore } from '@/src/store';
 import { GOAL_LABELS, ACTIVITY_LABELS } from '@/src/data/presets';
+import { getTodayString } from '@/src/utils/date';
+import { computePlanForProfile } from '@/src/utils/planCompute';
 
 export default function Step10() {
   const insets = useSafeAreaInsets();
   const profile = useNutrioStore((s) => s.profile);
+
+  const handleComplete = () => {
+    const p = useNutrioStore.getState().profile;
+    if (!p) return;
+    const today = getTodayString();
+    const { planTargetDate, planPaceKgPerWeek } = computePlanForProfile(
+      p.goal,
+      p.currentWeightKg,
+      p.targetWeightKg,
+      today
+    );
+    useNutrioStore.getState().updateProfile({
+      onboardingCompleted: true,
+      planStartDate: today,
+      planStartWeightKg: p.currentWeightKg,
+      planTargetDate,
+      planPaceKgPerWeek,
+    });
+    router.replace('/(tabs)/home');
+  };
 
   return (
     <View style={[styles.container, { paddingTop: insets.top + 40, paddingBottom: insets.bottom + 20 }]}>
@@ -36,13 +58,7 @@ export default function Step10() {
           </View>
         </Card>
       </View>
-      <Button
-        title="Continue"
-        onPress={() => {
-          useNutrioStore.getState().updateProfile({ onboardingCompleted: true });
-          router.replace('/(tabs)/home');
-        }}
-      />
+      <Button title="Continue" onPress={handleComplete} />
     </View>
   );
 }

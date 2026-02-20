@@ -11,6 +11,7 @@ import {
 } from '../types';
 import { calculateBMI, calculateDailyCalories } from '../utils/calories';
 import { getTodayString } from '../utils/date';
+import { computePlanForProfile } from '../utils/planCompute';
 
 interface NutrioState {
   // User profile
@@ -85,6 +86,24 @@ export const useNutrioStore = create<NutrioState>()(
             updated.activityLevel,
             updated.goal
           );
+        }
+        // Recompute plan when goal/weight changes (e.g. from Account edit)
+        if (
+          updates.goal !== undefined ||
+          updates.targetWeightKg !== undefined ||
+          updates.currentWeightKg !== undefined
+        ) {
+          const today = getTodayString();
+          const { planTargetDate, planPaceKgPerWeek } = computePlanForProfile(
+            updated.goal,
+            updated.currentWeightKg,
+            updated.targetWeightKg,
+            today
+          );
+          updated.planStartDate = today;
+          updated.planStartWeightKg = updated.currentWeightKg;
+          updated.planTargetDate = planTargetDate;
+          updated.planPaceKgPerWeek = planPaceKgPerWeek;
         }
         set({ profile: updated });
       },

@@ -1,6 +1,8 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import {
   ActivityIndicator,
+  KeyboardAvoidingView,
+  Platform,
   ScrollView,
   StyleSheet,
   Text,
@@ -49,7 +51,11 @@ export default function FoodSearchPanel({
   }, [query, debouncedSearch]);
 
   return (
-    <View style={styles.container}>
+    <KeyboardAvoidingView
+      style={styles.container}
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : 20}
+    >
       <TextInput
         style={styles.input}
         placeholder="Хоол хайх…"
@@ -112,7 +118,7 @@ export default function FoodSearchPanel({
           setDetailFood(null);
         }}
       />
-    </View>
+    </KeyboardAvoidingView>
   );
 }
 

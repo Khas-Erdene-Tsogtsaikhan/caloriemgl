@@ -16,6 +16,7 @@ const insertLogSchema = z.object({
   protein_g: z.number().min(0),
   carbs_g: z.number().min(0),
   fat_g: z.number().min(0),
+  metadata: z.object({ recipeId: z.number(), imageUrl: z.string() }).optional(),
 });
 
 export type InsertLogPayload = z.infer<typeof insertLogSchema>;
@@ -37,6 +38,7 @@ export interface FoodLogRow {
   carbs_g: number;
   fat_g: number;
   name_mn?: string;
+  metadata?: string;
 }
 
 const USER_ID = 'local-user';
@@ -46,9 +48,10 @@ export async function insertLog(payload: InsertLogPayload): Promise<FoodLogRow> 
   await initDb();
 
   const id = makeId();
+  const metadataJson = parsed.metadata ? JSON.stringify(parsed.metadata) : null;
   await run(
-    `INSERT INTO food_logs (id, user_id, food_id, logged_at, log_date, meal, unit_mode, quantity, portion_id, portion_label_mn, grams_total, calories, protein_g, carbs_g, fat_g)
-     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+    `INSERT INTO food_logs (id, user_id, food_id, logged_at, log_date, meal, unit_mode, quantity, portion_id, portion_label_mn, grams_total, calories, protein_g, carbs_g, fat_g, metadata)
+     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
     [
       id,
       USER_ID,
@@ -65,6 +68,7 @@ export async function insertLog(payload: InsertLogPayload): Promise<FoodLogRow> 
       parsed.protein_g,
       parsed.carbs_g,
       parsed.fat_g,
+      metadataJson,
     ]
   );
 
@@ -78,6 +82,15 @@ export async function listLogsByDay(date: string): Promise<FoodLogRow[]> {
   const rows = await getAll<FoodLogRow & { name_mn: string }>(
     `SELECT l.*, f.name_mn FROM food_logs l JOIN foods f ON f.id = l.food_id WHERE l.user_id = ? AND l.log_date = ? ORDER BY l.logged_at ASC`,
     [USER_ID, date]
+  );
+  return rows;
+}
+
+export async function listLogsForRange(startDate: string, endDate: string): Promise<FoodLogRow[]> {
+  await initDb();
+  const rows = await getAll<FoodLogRow & { name_mn: string }>(
+    `SELECT l.*, f.name_mn FROM food_logs l JOIN foods f ON f.id = l.food_id WHERE l.user_id = ? AND l.log_date >= ? AND l.log_date <= ? ORDER BY l.log_date ASC, l.logged_at ASC`,
+    [USER_ID, startDate, endDate]
   );
   return rows;
 }

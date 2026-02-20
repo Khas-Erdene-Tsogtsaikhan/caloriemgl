@@ -29,6 +29,11 @@ export interface UserProfile {
   activityLevel: ActivityLevel;
   onboardingCompleted: boolean;
   dailyCalorieGoal: number;
+  /** Plan set at onboarding — stays fixed until user edits goal */
+  planStartDate?: string; // YYYY-MM-DD
+  planStartWeightKg?: number;
+  planTargetDate?: string; // YYYY-MM-DD
+  planPaceKgPerWeek?: number;
 }
 
 export interface FoodEntry {

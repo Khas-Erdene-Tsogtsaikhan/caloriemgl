@@ -4,10 +4,11 @@ import RangeSwitcher from '@/src/components/insights/RangeSwitcher';
 import Card from '@/src/components/ui/Card';
 import ProgressBar from '@/src/components/ui/ProgressBar';
 import { useNutrioStore } from '@/src/store';
+import { useFoodStore } from '@/store/useFoodStore';
 import { colors, radii, shadows, spacing, typography } from '@/src/theme/tokens';
 import { calcBMI } from '@/src/utils/bmi';
 import { addDays, getDayLabel, getMonthDatesFrom, getTodayString, getWeekDatesFrom } from '@/src/utils/date';
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
@@ -18,8 +19,8 @@ export default function InsightsScreen() {
   const insets = useSafeAreaInsets();
   const [period, setPeriod] = useState<Period>('week');
   const [insightTab, setInsightTab] = useState<InsightTab>('calories');
-  // Raw reactive arrays — these trigger re-render on any CRUD
-  const foodEntries = useNutrioStore((s) => s.foodEntries);
+  const logsByDay = useFoodStore((s) => s.logsByDay);
+  const loadLogsForRange = useFoodStore((s) => s.loadLogsForRange);
   const activityEntries = useNutrioStore((s) => s.activityEntries);
   const weightEntries = useNutrioStore((s) => s.weightEntries);
   const profile = useNutrioStore((s) => s.profile);
@@ -33,26 +34,38 @@ export default function InsightsScreen() {
   const rangeStart = dates[0];
   const dailyGoal = profile?.dailyCalorieGoal ?? 2000;
 
-  // Reactive derived data from raw arrays
+  useEffect(() => {
+    loadLogsForRange(rangeStart, rangeEnd);
+  }, [rangeStart, rangeEnd, loadLogsForRange]);
+
+  const sumDayLogs = (dayLogs: { calories: number }[]) =>
+    dayLogs.reduce((s, e) => s + e.calories, 0);
+  const sumDayProtein = (dayLogs: { protein_g: number }[]) =>
+    dayLogs.reduce((s, e) => s + e.protein_g, 0);
+  const sumDayCarbs = (dayLogs: { carbs_g: number }[]) =>
+    dayLogs.reduce((s, e) => s + e.carbs_g, 0);
+  const sumDayFat = (dayLogs: { fat_g: number }[]) =>
+    dayLogs.reduce((s, e) => s + e.fat_g, 0);
+
   const calorieData = useMemo(
     () => dates.map((d) => ({
       date: d,
-      value: foodEntries.filter((e) => e.date === d).reduce((s, e) => s + e.calories * e.quantity, 0),
+      value: Math.round(sumDayLogs(logsByDay[d] ?? [])),
     })),
-    [dates, foodEntries]
+    [dates, logsByDay]
   );
 
   const macrosByDay = useMemo(
     () => dates.map((d) => {
-      const dayE = foodEntries.filter((e) => e.date === d);
+      const dayLogs = logsByDay[d] ?? [];
       return {
         date: d,
-        protein: Math.round(dayE.reduce((s, e) => s + (e.protein_g ?? 0) * e.quantity, 0)),
-        carbs: Math.round(dayE.reduce((s, e) => s + (e.carbs_g ?? 0) * e.quantity, 0)),
-        fat: Math.round(dayE.reduce((s, e) => s + (e.fat_g ?? 0) * e.quantity, 0)),
+        protein: Math.round(sumDayProtein(dayLogs)),
+        carbs: Math.round(sumDayCarbs(dayLogs)),
+        fat: Math.round(sumDayFat(dayLogs)),
       };
     }),
-    [dates, foodEntries]
+    [dates, logsByDay]
   );
 
   const macroTotals = useMemo(
@@ -146,7 +159,7 @@ export default function InsightsScreen() {
           {weekStripDates.map((d) => {
             const dayNum = d.split('-')[2];
             const isSelected = selectedDay === d;
-            const dayCals = foodEntries.filter((e) => e.date === d).reduce((s, e) => s + e.calories * e.quantity, 0);
+            const dayCals = sumDayLogs(logsByDay[d] ?? []);
             const hasData = dayCals > 0;
             return (
               <TouchableOpacity
@@ -168,7 +181,7 @@ export default function InsightsScreen() {
         <Card style={styles.dayCallout}>
           <Text style={styles.dayCalloutTitle}>{selectedDay}</Text>
           <Text style={styles.dayCalloutValue}>
-            {foodEntries.filter((e) => e.date === selectedDay).reduce((s, e) => s + e.calories * e.quantity, 0)} kcal eaten
+            {sumDayLogs(logsByDay[selectedDay] ?? [])} kcal eaten
             {' · '}
             {activityEntries.filter((a) => a.date === selectedDay).reduce((s, a) => s + a.caloriesBurned, 0)} burned
           </Text>
