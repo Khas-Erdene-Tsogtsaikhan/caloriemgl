@@ -1,8 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import {
   ActivityIndicator,
-  KeyboardAvoidingView,
-  Platform,
   ScrollView,
   StyleSheet,
   Text,
@@ -51,11 +49,7 @@ export default function FoodSearchPanel({
   }, [query, debouncedSearch]);
 
   return (
-    <KeyboardAvoidingView
-      style={styles.container}
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : 20}
-    >
+    <View style={styles.container}>
       <TextInput
         style={styles.input}
         placeholder="Хоол хайх…"
@@ -94,7 +88,12 @@ export default function FoodSearchPanel({
             </TouchableOpacity>
           ) : null}
           {moreExpanded && (
-            <ScrollView style={styles.moreList} nestedScrollEnabled>
+            <ScrollView
+              style={styles.moreList}
+              nestedScrollEnabled
+              keyboardShouldPersistTaps="handled"
+              showsVerticalScrollIndicator={false}
+            >
               {moreResults.slice(0, 8).map((food) => (
                 <FoodResultCard
                   key={food.id}
@@ -118,13 +117,14 @@ export default function FoodSearchPanel({
           setDetailFood(null);
         }}
       />
-    </KeyboardAvoidingView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    minHeight: 200,
+    minHeight: 220,
+    maxHeight: 400,
   },
   input: {
     ...typography.body,

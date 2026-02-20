@@ -10,7 +10,12 @@ interface FoodResultCardProps {
 
 export default function FoodResultCard({ food, onPress }: FoodResultCardProps) {
   return (
-    <TouchableOpacity style={styles.card} onPress={onPress} activeOpacity={0.7}>
+    <TouchableOpacity
+      style={styles.card}
+      onPress={onPress}
+      activeOpacity={0.7}
+      hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}
+    >
       <Text style={styles.name}>{food.name_mn}</Text>
       <Text style={styles.macros}>
         {Math.round(food.calories_per_100g)} kcal · P{Math.round(food.protein_g_per_100g)} C

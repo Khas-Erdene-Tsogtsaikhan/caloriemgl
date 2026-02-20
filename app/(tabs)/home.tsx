@@ -1,5 +1,7 @@
 import FoodDetailSheet from '@/components/foods/FoodDetailSheet';
 import FoodSearchPanel from '@/components/foods/FoodSearchPanel';
+import { createCustomFood, getFoodById, type FoodRow } from '@/lib/repo/foodsRepo';
+import { listRecentFoods, type RecentFoodRow } from '@/lib/repo/logsRepo';
 import DateSwitcher from '@/src/components/home/DateSwitcher';
 import Button from '@/src/components/ui/Button';
 import Card from '@/src/components/ui/Card';
@@ -9,12 +11,10 @@ import ProgressBar from '@/src/components/ui/ProgressBar';
 import ProgressRing from '@/src/components/ui/ProgressRing';
 import { MEAL_EMOJIS, MEAL_LABELS } from '@/src/data/presets';
 import { useNutrioStore } from '@/src/store';
-import { useFoodStore } from '@/store/useFoodStore';
-import { createCustomFood, getFoodById, type FoodRow } from '@/lib/repo/foodsRepo';
-import { listRecentFoods, type RecentFoodRow } from '@/lib/repo/logsRepo';
 import { colors, radii, shadows, spacing, typography } from '@/src/theme/tokens';
 import { MealType } from '@/src/types';
 import { addDays, getTodayString } from '@/src/utils/date';
+import { useFoodStore } from '@/store/useFoodStore';
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import {
     Alert,
@@ -23,12 +23,14 @@ import {
     StyleSheet,
     Text,
     TouchableOpacity,
+    useWindowDimensions,
     View
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 export default function HomeScreen() {
   const insets = useSafeAreaInsets();
+  const { height: windowHeight } = useWindowDimensions();
   const profile = useNutrioStore((s) => s.profile);
   const activityEntries = useNutrioStore((s) => s.activityEntries);
   const addActivityEntry = useNutrioStore((s) => s.addActivityEntry);
@@ -386,7 +388,7 @@ export default function HomeScreen() {
       {/* Add to Meal Modal — with Presets / Manual / Recents tabs */}
       <Modal visible={!!addMealModal} transparent animationType="slide">
         <View style={styles.modalOverlay}>
-          <View style={[styles.modalContent, { maxHeight: '80%' }]}>
+          <View style={[styles.modalContent, { height: windowHeight * 0.9 }]}>
             <ModalHandle />
             <Text style={styles.modalTitle}>
               Add to {addMealModal ? MEAL_LABELS[addMealModal] : ''}
@@ -408,14 +410,16 @@ export default function HomeScreen() {
             </View>
 
             {addMealTab === 'search' && addMealModal && (
-              <FoodSearchPanel
-                initialMeal={addMealModal}
-                logDate={selectedDate}
-                onLogged={() => {
-                  loadLogsByDay(selectedDate);
-                  setAddMealModal(null);
-                }}
-              />
+              <ScrollView style={styles.modalBodyScroll} showsVerticalScrollIndicator={false}>
+                <FoodSearchPanel
+                  initialMeal={addMealModal}
+                  logDate={selectedDate}
+                  onLogged={() => {
+                    loadLogsByDay(selectedDate);
+                    setAddMealModal(null);
+                  }}
+                />
+              </ScrollView>
             )}
 
             {addMealTab === 'manual' && (
@@ -589,6 +593,7 @@ const styles = StyleSheet.create({
   presetCals: { ...typography.small, color: colors.textTertiary, marginTop: 2 },
   modalOverlay: { flex: 1, backgroundColor: colors.overlay, justifyContent: 'flex-end' },
   modalContent: { backgroundColor: colors.surface, borderTopLeftRadius: radii.xl, borderTopRightRadius: radii.xl, padding: spacing.xxl, paddingBottom: spacing.huge },
+  modalBodyScroll: { flex: 1 },
   modalTitle: { ...typography.h2, color: colors.text, textAlign: 'center', marginBottom: spacing.md },
   modalSub: { ...typography.caption, color: colors.textSecondary, textAlign: 'center', marginTop: 2, marginBottom: spacing.lg },
   modalInfo: { ...typography.body, color: colors.textSecondary, textAlign: 'center', marginBottom: spacing.xl },

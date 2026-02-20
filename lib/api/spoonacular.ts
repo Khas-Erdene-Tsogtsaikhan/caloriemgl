@@ -3,14 +3,18 @@ import Constants from 'expo-constants';
 const SPOONACULAR_BASE = 'https://api.spoonacular.com';
 const IMAGE_BASE = 'https://img.spoonacular.com/recipes';
 
+const PREFERRED_SIZES = ['636x393', '556x370'] as const;
+export type PreferredSize = (typeof PREFERRED_SIZES)[number];
+
 function getApiKey(): string | undefined {
   return Constants.expoConfig?.extra?.SPOONACULAR_API_KEY as string | undefined;
 }
 
-function resolveImageUrl(image: string | undefined): string {
+/** Upgrade any Spoonacular image size (-90x90, -240x150, -312x231, etc.) to preferred size for sharper display */
+export function resolveImageUrl(image: string | undefined, size: PreferredSize = '636x393'): string {
   if (!image) return '';
-  if (image.startsWith('http')) return image;
-  return `${IMAGE_BASE}/${image}`;
+  const url = image.startsWith('http') ? image : `${IMAGE_BASE}/${image}`;
+  return url.replace(/-\d+x\d+(?=\.\w+$)/, `-${size}`);
 }
 
 export interface RecipeNutrition {
@@ -99,7 +103,7 @@ export async function searchRecipes(
     return {
       id: r.id as number,
       title: (r.title as string) ?? '',
-      image: resolveImageUrl(r.image as string),
+      image: resolveImageUrl(r.image as string, '636x393'),
       imageType: r.imageType as string | undefined,
       readyInMinutes: (r.readyInMinutes as number) ?? 0,
       servings: (r.servings as number) ?? 1,
@@ -129,7 +133,7 @@ export async function getRandomRecipes(number: number = 10): Promise<RecipeSearc
     return {
       id: r.id as number,
       title: (r.title as string) ?? '',
-      image: resolveImageUrl(r.image as string),
+      image: resolveImageUrl(r.image as string, '636x393'),
       imageType: r.imageType as string | undefined,
       readyInMinutes: (r.readyInMinutes as number) ?? 0,
       servings: (r.servings as number) ?? 1,
@@ -158,7 +162,7 @@ export async function getRecipeById(id: number): Promise<RecipeDetail | null> {
   return {
     id: r.id,
     title: r.title ?? '',
-    image: resolveImageUrl(r.image),
+    image: resolveImageUrl(r.image, '636x393'),
     servings: r.servings ?? 1,
     readyInMinutes: r.readyInMinutes ?? 0,
     extendedIngredients: r.extendedIngredients ?? [],

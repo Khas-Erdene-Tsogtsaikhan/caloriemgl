@@ -294,7 +294,7 @@ const styles = StyleSheet.create({
   },
   hero: {
     width: '100%',
-    aspectRatio: 16 / 10,
+    aspectRatio: 636 / 393,
     backgroundColor: colors.recipesSurfaceAlt,
   },
   content: {

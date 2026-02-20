@@ -32,7 +32,8 @@ export default function RecipeCard({ recipe, onPress }: RecipeCardProps) {
 }
 
 const CARD_WIDTH = 200;
-const IMAGE_HEIGHT = 140;
+/** Match Spoonacular 636x393 aspect ratio to avoid aggressive cropping */
+const IMAGE_ASPECT = 636 / 393;
 
 const styles = StyleSheet.create({
   card: {
@@ -44,7 +45,7 @@ const styles = StyleSheet.create({
   },
   image: {
     width: CARD_WIDTH,
-    height: IMAGE_HEIGHT,
+    aspectRatio: IMAGE_ASPECT,
     backgroundColor: colors.recipesSurfaceAlt,
   },
   content: {
