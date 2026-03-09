@@ -61,17 +61,72 @@ export interface RecipeDetail {
   };
 }
 
-function extractNutrition(nutrients: Array<{ name: string; amount: number; unit: string }> | undefined): RecipeNutrition {
-  const getVal = (name: string) => {
-    const n = nutrients?.find((x) => x.name.toLowerCase().includes(name));
-    return n?.amount ?? 0;
+function extractNutritionFromNutrients(nutrients: Array<{ name: string; amount: number; unit: string }> | undefined): RecipeNutrition {
+  if (!nutrients?.length) return { calories: 0, protein: 0, carbs: 0, fat: 0 };
+  const getVal = (names: string[], exactOnly = false) => {
+    for (const name of names) {
+      const lower = name.toLowerCase();
+      const exact = nutrients.find((x) => x.name.toLowerCase() === lower);
+      if (exact) return exact.amount;
+      if (!exactOnly) {
+        const partial = nutrients.find((x) => {
+          const xLower = x.name.toLowerCase();
+          if (xLower === lower) return true;
+          if (xLower.includes(lower)) {
+            // For "fat", avoid "saturated fat", "trans fat", etc.
+            if (lower === 'fat' && (xLower.includes('saturated') || xLower.includes('trans') || xLower.includes('poly') || xLower.includes('mono')))
+              return false;
+            return true;
+          }
+          return false;
+        });
+        if (partial) return partial.amount;
+      }
+    }
+    return 0;
   };
   return {
-    calories: Math.round(getVal('Calories') * 10) / 10,
-    protein: Math.round(getVal('Protein') * 10) / 10,
-    carbs: Math.round(getVal('Carbohydrate') * 10) / 10,
-    fat: Math.round(getVal('Fat') * 10) / 10,
+    calories: Math.round(getVal(['Calories', 'Energy']) * 10) / 10,
+    protein: Math.round(getVal(['Protein']) * 10) / 10,
+    carbs: Math.round(getVal(['Carbohydrates', 'Carbohydrate']) * 10) / 10,
+    fat: Math.round(getVal(['Fat']) * 10) / 10,
   };
+}
+
+function parseNutritionFromApi(apiNutrition: unknown): RecipeNutrition | undefined {
+  if (!apiNutrition || typeof apiNutrition !== 'object') return undefined;
+  const n = apiNutrition as Record<string, unknown>;
+
+  // Format 1: nutrition.nutrients array (standard Spoonacular format)
+  const nutrients = n.nutrients as Array<{ name: string; amount: number; unit: string }> | undefined;
+  if (Array.isArray(nutrients) && nutrients.length > 0) {
+    const parsed = extractNutritionFromNutrients(nutrients);
+    if (parsed.calories > 0 || parsed.protein > 0 || parsed.carbs > 0 || parsed.fat > 0) {
+      return parsed;
+    }
+  }
+
+  // Format 2: flat object { calories, protein, fat, carbohydrates }
+  const flatCal = typeof n.calories === 'number' ? n.calories : undefined;
+  const flatProtein = typeof n.protein === 'number' ? n.protein : undefined;
+  const flatFat = typeof n.fat === 'number' ? n.fat : undefined;
+  const flatCarbs = typeof n.carbohydrates === 'number' ? n.carbohydrates : typeof n.carbs === 'number' ? n.carbs : undefined;
+  if (flatCal !== undefined || flatProtein !== undefined || flatFat !== undefined || flatCarbs !== undefined) {
+    return {
+      calories: Math.round((flatCal ?? 0) * 10) / 10,
+      protein: Math.round((flatProtein ?? 0) * 10) / 10,
+      carbs: Math.round((flatCarbs ?? 0) * 10) / 10,
+      fat: Math.round((flatFat ?? 0) * 10) / 10,
+    };
+  }
+
+  return undefined;
+}
+
+/** Parse nutrition from API response - exported for recipe detail screen */
+export function parseRecipeNutrition(apiNutrition: unknown): RecipeNutrition | null {
+  const parsed = parseNutritionFromApi(apiNutrition);
+  return parsed ?? null;
 }
 
 export async function searchRecipes(
@@ -99,7 +154,7 @@ export async function searchRecipes(
   const results = data.results ?? [];
 
   return results.map((r: Record<string, unknown>) => {
-    const nutrition = r.nutrition as { nutrients?: Array<{ name: string; amount: number; unit: string }> } | undefined;
+    const nutrition = parseNutritionFromApi(r.nutrition);
     return {
       id: r.id as number,
       title: (r.title as string) ?? '',
@@ -107,7 +162,7 @@ export async function searchRecipes(
       imageType: r.imageType as string | undefined,
       readyInMinutes: (r.readyInMinutes as number) ?? 0,
       servings: (r.servings as number) ?? 1,
-      nutrition: nutrition?.nutrients ? extractNutrition(nutrition.nutrients) : undefined,
+      nutrition: nutrition ?? undefined,
     };
   });
 }
@@ -129,7 +184,7 @@ export async function getRandomRecipes(number: number = 10): Promise<RecipeSearc
   const recipes = data.recipes ?? [];
 
   return recipes.map((r: Record<string, unknown>) => {
-    const nutrition = r.nutrition as { nutrients?: Array<{ name: string; amount: number; unit: string }> } | undefined;
+    const nutrition = parseNutritionFromApi(r.nutrition);
     return {
       id: r.id as number,
       title: (r.title as string) ?? '',
@@ -137,7 +192,7 @@ export async function getRandomRecipes(number: number = 10): Promise<RecipeSearc
       imageType: r.imageType as string | undefined,
       readyInMinutes: (r.readyInMinutes as number) ?? 0,
       servings: (r.servings as number) ?? 1,
-      nutrition: nutrition?.nutrients ? extractNutrition(nutrition.nutrients) : undefined,
+      nutrition: nutrition ?? undefined,
     };
   });
 }

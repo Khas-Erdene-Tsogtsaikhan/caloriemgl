@@ -14,7 +14,7 @@ import { Image } from 'expo-image';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Button from '@/src/components/ui/Button';
-import { getRecipeById, type RecipeDetail } from '@/lib/api/spoonacular';
+import { getRecipeById, parseRecipeNutrition, type RecipeDetail } from '@/lib/api/spoonacular';
 import {
   createRecipeFood,
   getRecipeFoodBySourceId,
@@ -31,20 +31,6 @@ const MEAL_LABELS: Record<MealType, string> = {
   dinner: 'Dinner',
   snack: 'Snack',
 };
-
-function extractNutrition(recipe: RecipeDetail) {
-  const nutrients = recipe.nutrition?.nutrients ?? [];
-  const getVal = (name: string) => {
-    const n = nutrients.find((x) => x.name.toLowerCase().includes(name));
-    return n?.amount ?? 0;
-  };
-  return {
-    calories: Math.round(getVal('Calories') * 10) / 10,
-    protein: Math.round(getVal('Protein') * 10) / 10,
-    carbs: Math.round(getVal('Carbohydrate') * 10) / 10,
-    fat: Math.round(getVal('Fat') * 10) / 10,
-  };
-}
 
 export default function RecipeDetailScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
@@ -78,7 +64,7 @@ export default function RecipeDetailScreen() {
     };
   }, [recipeId]);
 
-  const nutrition = recipe ? extractNutrition(recipe) : null;
+  const nutrition = recipe ? parseRecipeNutrition(recipe.nutrition) : null;
   const perServing = nutrition
     ? {
         calories: nutrition.calories,

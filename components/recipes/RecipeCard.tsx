@@ -11,7 +11,7 @@ interface RecipeCardProps {
 
 export default function RecipeCard({ recipe, onPress }: RecipeCardProps) {
   const kcal = recipe.nutrition?.calories ?? 0;
-  const stats = `${recipe.readyInMinutes} min • ${Math.round(kcal)} kcal`;
+  const stats = `${recipe.readyInMinutes} min${kcal > 0 ? ` • ${Math.round(kcal)} kcal` : ''}`;
 
   return (
     <TouchableOpacity style={styles.card} onPress={onPress} activeOpacity={0.8}>

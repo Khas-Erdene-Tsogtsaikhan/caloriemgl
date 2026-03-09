@@ -11,7 +11,8 @@ interface RecipeListCardProps {
 
 export default function RecipeListCard({ recipe, onPress }: RecipeListCardProps) {
   const n = recipe.nutrition;
-  const macros = n
+  const hasMacros = n && (n.calories > 0 || n.protein > 0 || n.carbs > 0 || n.fat > 0);
+  const macros = hasMacros && n
     ? `${Math.round(n.calories)} kcal/serv • P${Math.round(n.protein)} C${Math.round(n.carbs)} F${Math.round(n.fat)}`
     : `${recipe.readyInMinutes} min`;
 

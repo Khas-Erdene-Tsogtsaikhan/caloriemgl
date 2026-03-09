@@ -15,7 +15,7 @@ export default function WelcomeScreen() {
         <Text style={styles.subtitle}>Your personal nutrition companion{'\n'}made for Mongolia</Text>
       </View>
       <View style={styles.features}>
-        {['🍜 Track Mongolian meals easily', '💧 Water & weight tracking', '📊 Weekly & monthly insights'].map((f) => (
+        {['🍜 Track Mongolian meals easily', '💧 Water & weight tracking', '📊 Weekly insights'].map((f) => (
           <Text key={f} style={styles.feature}>{f}</Text>
         ))}
       </View>
