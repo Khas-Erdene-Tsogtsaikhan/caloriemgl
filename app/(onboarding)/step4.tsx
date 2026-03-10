@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import { View, StyleSheet } from 'react-native';
-import { router } from 'expo-router';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import OnboardingStep from '@/src/components/onboarding/OnboardingStep';
 import Input from '@/src/components/ui/Input';
-import { colors } from '@/src/theme/tokens';
 import { useNutrioStore } from '@/src/store';
+import { colors } from '@/src/theme/tokens';
+import { router } from 'expo-router';
+import React, { useState } from 'react';
+import { StyleSheet, View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 export default function Step4() {
   const insets = useSafeAreaInsets();
@@ -16,8 +16,7 @@ export default function Step4() {
       <OnboardingStep
         step={4}
         totalSteps={8}
-        title="How tall are you?"
-        subtitle="Enter your height in centimeters."
+        title="Таны өндөр?"
         onNext={() => {
           const h = parseInt(height, 10);
           if (h > 0) {
@@ -29,7 +28,7 @@ export default function Step4() {
         nextDisabled={!height || parseInt(height, 10) <= 0}
       >
         <Input
-          label="Height"
+          label="Өндөр"
           placeholder="170"
           value={height}
           onChangeText={setHeight}

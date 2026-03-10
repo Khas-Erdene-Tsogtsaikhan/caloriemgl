@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import { View, StyleSheet } from 'react-native';
-import { router } from 'expo-router';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import OnboardingStep from '@/src/components/onboarding/OnboardingStep';
 import Input from '@/src/components/ui/Input';
-import { colors } from '@/src/theme/tokens';
 import { useNutrioStore } from '@/src/store';
+import { colors } from '@/src/theme/tokens';
+import { router } from 'expo-router';
+import React, { useState } from 'react';
+import { StyleSheet, View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 export default function Step6() {
   const insets = useSafeAreaInsets();
@@ -16,8 +16,7 @@ export default function Step6() {
       <OnboardingStep
         step={6}
         totalSteps={8}
-        title="Target weight?"
-        subtitle="What weight would you like to reach?"
+        title="Зорилтот жин?"
         onNext={() => {
           const w = parseFloat(weight);
           if (w > 0) {
@@ -29,7 +28,7 @@ export default function Step6() {
         nextDisabled={!weight || parseFloat(weight) <= 0}
       >
         <Input
-          label="Target Weight"
+          label="Ямар жинд хүрэхийг хүсч байна вэ?"
           placeholder="65"
           value={weight}
           onChangeText={setWeight}

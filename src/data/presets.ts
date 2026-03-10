@@ -23,26 +23,26 @@ export const MONGOLIAN_FOOD_PRESETS: FoodPreset[] = MONGOLIAN_PRESETS.map((p) =>
 }));
 
 export const GOAL_LABELS: Record<string, string> = {
-  lose_weight: 'Lose weight',
-  gain_muscle: 'Gain muscle',
-  maintain_weight: 'Maintain weight',
-  boost_energy: 'Boost energy',
-  improve_nutrition: 'Improve nutrition',
-  gain_weight: 'Gain weight',
+  lose_weight: 'Жингээ хасах',
+  gain_muscle: 'Булчин нэмэх',
+  maintain_weight: 'Жингээ хадгалах',
+  boost_energy: 'Эрч хүч нэмэх',
+  improve_nutrition: 'Хоол хүнс сайжруулах',
+  gain_weight: 'Жингээ нэмэх',
 };
 
 export const ACTIVITY_LABELS: Record<string, string> = {
-  sedentary: 'Sedentary',
-  lightly_active: 'Lightly active',
-  moderately_active: 'Moderately active',
-  very_active: 'Very active',
+  sedentary: 'Огт дасгал хийдэггүй',
+  lightly_active: 'Бага идэвхтэй',
+  moderately_active: 'Дунд идэвхтэй',
+  very_active: 'Маш идэвхтэй',
 };
 
 export const MEAL_LABELS: Record<string, string> = {
-  breakfast: 'Breakfast',
-  lunch: 'Lunch',
-  dinner: 'Dinner',
-  snack: 'Snacks',
+  breakfast: 'Өглөөний цай',
+  lunch: 'Өдрийн хоол',
+  dinner: 'Оройн хоол',
+  snack: 'Хөнгөн зууш',
 };
 
 export const MEAL_EMOJIS: Record<string, string> = {

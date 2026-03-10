@@ -38,27 +38,27 @@ export default function Step10() {
     <View style={[styles.container, { paddingTop: insets.top + 40, paddingBottom: insets.bottom + 20 }]}>
       <View style={styles.center}>
         <Text style={styles.emoji}>🎉</Text>
-        <Text style={styles.title}>Your plan is ready!</Text>
-        <Text style={styles.subtitle}>Here's what we've set up for you, {profile?.name}.</Text>
+        <Text style={styles.title}>Төлөвлөгөө бэлэн боллоо!</Text>
+        <Text style={styles.subtitle}>{profile?.name}, танд бэлдсэн зүйлс.</Text>
 
         <Card style={styles.card}>
           <View style={styles.row}>
-            <Text style={styles.label}>Daily calorie goal</Text>
+            <Text style={styles.label}>Өдрийн калори</Text>
             <Text style={styles.value}>{profile?.dailyCalorieGoal ?? 2000} kcal</Text>
           </View>
           <View style={styles.divider} />
           <View style={styles.row}>
-            <Text style={styles.label}>Goal</Text>
+            <Text style={styles.label}>Зорилго</Text>
             <Text style={styles.value}>{GOAL_LABELS[profile?.goal ?? 'maintain_weight']}</Text>
           </View>
           <View style={styles.divider} />
           <View style={styles.row}>
-            <Text style={styles.label}>Activity</Text>
+            <Text style={styles.label}>Үйл ажиллагаа</Text>
             <Text style={styles.value}>{ACTIVITY_LABELS[profile?.activityLevel ?? 'moderately_active']}</Text>
           </View>
         </Card>
       </View>
-      <Button title="Continue" onPress={handleComplete} />
+      <Button title="Үргэлжлүүлэх" onPress={handleComplete} />
     </View>
   );
 }

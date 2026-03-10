@@ -8,12 +8,12 @@ import { colors, radii, spacing, typography } from '@/src/theme/tokens';
 import { router } from 'expo-router';
 import React, { useState } from 'react';
 import {
-    Alert,
-    Modal,
-    ScrollView,
-    StyleSheet,
-    Text,
-    View,
+  Alert,
+  Modal,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
@@ -36,7 +36,7 @@ export default function AccountScreen() {
       contentContainerStyle={styles.content}
       showsVerticalScrollIndicator={false}
     >
-      <Text style={styles.screenTitle}>Account</Text>
+      <Text style={styles.screenTitle}>Профайл</Text>
 
       {/* Profile Summary */}
       <Card style={styles.profileCard}>
@@ -45,7 +45,7 @@ export default function AccountScreen() {
             <Text style={styles.avatarText}>{profile?.name?.charAt(0)?.toUpperCase() ?? '?'}</Text>
           </View>
           <View style={{ flex: 1 }}>
-            <Text style={styles.profileName}>{profile?.name ?? 'User'}</Text>
+            <Text style={styles.profileName}>{profile?.name ?? 'Хэрэглэгч'}</Text>
             <Text style={styles.profileMeta}>
               {GOAL_LABELS[profile?.goal ?? 'maintain_weight']} · {ACTIVITY_LABELS[profile?.activityLevel ?? 'moderately_active']}
             </Text>
@@ -54,17 +54,17 @@ export default function AccountScreen() {
         <View style={styles.profileStats}>
           <View style={styles.profileStat}>
             <Text style={styles.profileStatValue}>{profile?.dailyCalorieGoal ?? 2000}</Text>
-            <Text style={styles.profileStatLabel}>Daily Goal</Text>
+            <Text style={styles.profileStatLabel}>Өдрийн зорилго</Text>
           </View>
           <View style={styles.profileStatDivider} />
           <View style={styles.profileStat}>
             <Text style={styles.profileStatValue}>{profile?.currentWeightKg ?? 0} kg</Text>
-            <Text style={styles.profileStatLabel}>Current</Text>
+            <Text style={styles.profileStatLabel}>Одоо</Text>
           </View>
           <View style={styles.profileStatDivider} />
           <View style={styles.profileStat}>
             <Text style={styles.profileStatValue}>{profile?.targetWeightKg ?? 0} kg</Text>
-            <Text style={styles.profileStatLabel}>Target</Text>
+            <Text style={styles.profileStatLabel}>Зорилго</Text>
           </View>
         </View>
       </Card>
@@ -72,7 +72,7 @@ export default function AccountScreen() {
       {/* Actions */}
       <View style={styles.actions}>
         <Button
-          title="Edit Profile"
+          title="Профайл засах"
           variant="secondary"
           onPress={() => {
             setEditName(profile?.name ?? '');
@@ -83,13 +83,13 @@ export default function AccountScreen() {
           }}
         />
         <Button
-          title="Reset Onboarding"
+          title="дахин эхлэх"
           variant="ghost"
           onPress={() =>
-            Alert.alert('Reset Onboarding', 'You will go through onboarding again.', [
-              { text: 'Cancel' },
+            Alert.alert('дахин эхлэх', 'Онбоардинг дахин эхлэнэ.', [
+              { text: 'Цуцлах' },
               {
-                text: 'Reset',
+                text: 'Дахин эхлэх',
                 onPress: () => {
                   resetOnboarding();
                   router.replace('/(onboarding)/welcome');
@@ -99,13 +99,13 @@ export default function AccountScreen() {
           }
         />
         <Button
-          title="Clear All Data"
+          title="устгах"
           variant="danger"
           onPress={() =>
-            Alert.alert('Clear All Data', 'This will delete all your data. Are you sure?', [
-              { text: 'Cancel' },
+            Alert.alert('Бүх өгөгдөл устгах', 'Бүх өгөгдөл устгагдана. Итгэлтэй байна уу?', [
+              { text: 'Цуцлах' },
               {
-                text: 'Delete',
+                text: 'Устгах',
                 style: 'destructive',
                 onPress: () => {
                   clearAllData();
@@ -124,15 +124,15 @@ export default function AccountScreen() {
         <View style={styles.modalOverlay}>
           <View style={styles.modalContent}>
             <ModalHandle />
-            <Text style={styles.modalTitle}>Edit Profile</Text>
-            <Input label="Name" value={editName} onChangeText={setEditName} />
-            <Input label="Height" value={editHeight} onChangeText={setEditHeight} keyboardType="numeric" suffix="cm" />
-            <Input label="Current Weight" value={editWeight} onChangeText={setEditWeight} keyboardType="numeric" suffix="kg" />
-            <Input label="Target Weight" value={editTarget} onChangeText={setEditTarget} keyboardType="numeric" suffix="kg" />
+            <Text style={styles.modalTitle}>Профайл засах</Text>
+            <Input label="Нэр" value={editName} onChangeText={setEditName} />
+            <Input label="Өндөр" value={editHeight} onChangeText={setEditHeight} keyboardType="numeric" suffix="см" />
+            <Input label="Одоогийн жин" value={editWeight} onChangeText={setEditWeight} keyboardType="numeric" suffix="кг" />
+            <Input label="Зорилго жин" value={editTarget} onChangeText={setEditTarget} keyboardType="numeric" suffix="кг" />
             <View style={styles.modalActions}>
-              <Button title="Cancel" variant="ghost" onPress={() => setEditModal(false)} style={{ flex: 1 }} />
+              <Button title="Цуцлах" variant="ghost" onPress={() => setEditModal(false)} style={{ flex: 1 }} />
               <Button
-                title="Save"
+                title="Хадгалах"
                 onPress={() => {
                   updateProfile({
                     name: editName.trim() || profile?.name,

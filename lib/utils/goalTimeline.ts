@@ -84,15 +84,15 @@ export function getOnTrackStatus(
   goalType: GoalType
 ): { status: OnTrackStatus; etaDate: string | null; message: string } {
   if (goalType === 'maintain') {
-    return { status: 'on_track', etaDate: null, message: 'Maintaining' };
+    return { status: 'on_track', etaDate: null, message: 'Хадгалаж байна' };
   }
   const trendToday = getTrendWeight(weightEntries, today);
   if (trendToday == null) {
-    return { status: 'unknown', etaDate: null, message: 'Log weigh-ins to see if you\'re on track' };
+    return { status: 'unknown', etaDate: null, message: 'Жин бүртгэж байна уу' };
   }
   const remainingKg = Math.abs(targetWeight - trendToday);
   if (remainingKg < 0.1) {
-    return { status: 'on_track', etaDate: today, message: 'Almost there!' };
+    return { status: 'on_track', etaDate: today, message: 'Бараг хүрлээ!' };
   }
   const rate = goalType === 'lose' ? DEFAULT_RATE_LOSE : DEFAULT_RATE_GAIN;
   const etaWeeks = remainingKg / rate;
@@ -103,10 +103,10 @@ export function getOnTrackStatus(
   const diffWeeks = Math.abs(etaDays - planDays) / 7;
 
   if (diffWeeks <= 1) {
-    return { status: 'on_track', etaDate, message: 'On track!' };
+    return { status: 'on_track', etaDate, message: 'Зөв чиглэлд!' };
   }
   if (etaDays < planDays) {
-    return { status: 'ahead', etaDate, message: 'Ahead of schedule!' };
+    return { status: 'ahead', etaDate, message: 'Цаг хугацаанаас өмнө!' };
   }
-  return { status: 'behind', etaDate, message: 'A bit behind — keep going!' };
+  return { status: 'behind', etaDate, message: 'Бага сааж байна — үргэлжлүүл!' };
 }

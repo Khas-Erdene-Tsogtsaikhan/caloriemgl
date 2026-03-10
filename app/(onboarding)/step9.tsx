@@ -35,7 +35,7 @@ export default function Step9() {
     <View style={[styles.container, { paddingTop: insets.top }]}>
       <View style={styles.center}>
         <Text style={styles.emoji}>✨</Text>
-        <Text style={styles.title}>Personalizing your experience…</Text>
+        <Text style={styles.title}>Тохируулж байна…</Text>
         <Animated.View style={[styles.shimmerRow, shimmerStyle]}>
           <View style={styles.shimmerBar} />
           <View style={[styles.shimmerBar, { width: '70%' }]} />

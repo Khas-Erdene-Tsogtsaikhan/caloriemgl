@@ -72,7 +72,7 @@ export const useFoodStore = create<FoodStoreState>((set, get) => ({
     } catch (e) {
       set({
         loading: false,
-        error: e instanceof Error ? e.message : 'Search failed',
+        error: e instanceof Error ? e.message : 'Хайлт амжилтгүй',
       });
     }
   },

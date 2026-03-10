@@ -87,7 +87,7 @@ export default function FoodSearchScreen() {
 
         {!loading && (
         <>
-            <Text style={styles.sectionTitle}>Top match</Text>
+            <Text style={styles.sectionTitle}>Хамгийн ойр</Text>
             {topMatch ? (
               <FoodResultCard food={topMatch} onPress={() => handleSelectFood(topMatch)} />
             ) : (

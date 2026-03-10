@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import { router } from 'expo-router';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { View, StyleSheet } from 'react-native';
 import OnboardingStep from '@/src/components/onboarding/OnboardingStep';
 import Input from '@/src/components/ui/Input';
-import { colors } from '@/src/theme/tokens';
 import { useNutrioStore } from '@/src/store';
+import { colors } from '@/src/theme/tokens';
+import { router } from 'expo-router';
+import React, { useState } from 'react';
+import { StyleSheet, View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 export default function Step1() {
   const insets = useSafeAreaInsets();
@@ -16,8 +16,8 @@ export default function Step1() {
       <OnboardingStep
         step={1}
         totalSteps={8}
-        title="What's your name?"
-        subtitle="We'll use this to personalize your experience."
+        title="Таны нэр?"
+        subtitle="Таны хэрэгцээ, зорилгод илүү тохирсон хэрэглээ бүрдүүлэхэд ашиглана."
         onNext={() => {
           useNutrioStore.setState({ profile: { ...DEFAULT_PROFILE, name } });
           router.push('/(onboarding)/step2');
@@ -25,7 +25,7 @@ export default function Step1() {
         nextDisabled={name.trim().length === 0}
       >
         <Input
-          placeholder="Enter your name"
+          placeholder="Нэрээ оруулна уу"
           value={name}
           onChangeText={setName}
           maxLength={30}

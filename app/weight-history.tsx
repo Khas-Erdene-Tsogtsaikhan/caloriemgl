@@ -34,12 +34,12 @@ export default function WeightHistoryScreen() {
       showsVerticalScrollIndicator={false}
     >
       <View style={styles.header}>
-        <Text style={styles.title}>All Weight Entries</Text>
-        <Text style={styles.subtitle}>{sorted.length} entries</Text>
+        <Text style={styles.title}>Бүх жингийн бүртгэл</Text>
+        <Text style={styles.subtitle}>{sorted.length} бүртгэл</Text>
       </View>
 
       {sorted.length === 0 ? (
-        <Text style={styles.emptyText}>No weight entries yet.</Text>
+        <Text style={styles.emptyText}>Жингийн бүртгэл байхгүй.</Text>
       ) : (
         sorted.map((entry, idx) => {
           const change = getChange(idx);
@@ -62,12 +62,12 @@ export default function WeightHistoryScreen() {
                   style={styles.deleteBtn}
                   onPress={() =>
                     Alert.alert(
-                      'Delete Entry',
-                      `Remove ${entry.weightKg} kg on ${formatDate(entry.date)}?`,
+                      'Бүртгэл устгах',
+                      `${formatDate(entry.date)}-д ${entry.weightKg} кг устгах уу?`,
                       [
-                        { text: 'Cancel', style: 'cancel' },
+                        { text: 'Цуцлах', style: 'cancel' },
                         {
-                          text: 'Delete',
+                          text: 'Устгах',
                           style: 'destructive',
                           onPress: () => removeWeightEntry(entry.id),
                         },

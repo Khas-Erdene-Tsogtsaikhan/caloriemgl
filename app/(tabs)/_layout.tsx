@@ -21,28 +21,28 @@ export default function TabLayout() {
       <Tabs.Screen
         name="home"
         options={{
-          title: 'Home',
+          title: 'Нүүр',
           tabBarIcon: ({ focused }) => <TabIcon emoji="🏠" focused={focused} />,
         }}
       />
       <Tabs.Screen
         name="recipes"
         options={{
-          title: 'Recipes',
+          title: 'Жор',
           tabBarIcon: ({ focused }) => <TabIcon emoji="🍳" focused={focused} />,
         }}
       />
       <Tabs.Screen
         name="insights"
         options={{
-          title: 'Insights',
+          title: 'Статистик',
           tabBarIcon: ({ focused }) => <TabIcon emoji="📊" focused={focused} />,
         }}
       />
       <Tabs.Screen
         name="account"
         options={{
-          title: 'Account',
+          title: 'Профайл',
           tabBarIcon: ({ focused }) => <TabIcon emoji="👤" focused={focused} />,
         }}
       />

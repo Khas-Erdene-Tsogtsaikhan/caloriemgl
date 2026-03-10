@@ -31,11 +31,9 @@ function getTickValues(maxValue: number): number[] {
   return ticks;
 }
 
-function getShortDayLabel(dateStr: string): string {
-  const parts = dateStr.split('-');
-  const dayNum = parts[2] ?? '';
-  const dayName = getDayLabel(dateStr);
-  return `${dayName[0]}${dayNum}`;
+/** Returns Mongolian day abbreviation: Ня, Да, Мя, Лх, Пү, Ба, Бя */
+function getChartDayLabel(dateStr: string): string {
+  return getDayLabel(dateStr);
 }
 
 interface CaloriesByMealStackedBarChartProps {
@@ -129,7 +127,7 @@ export default function CaloriesByMealStackedBarChart({ data, goal }: CaloriesBy
                 fill={colors.textTertiary}
                 textAnchor="middle"
               >
-                {getShortDayLabel(d.date)}
+                {getChartDayLabel(d.date)}
               </SvgText>
             </React.Fragment>
           );

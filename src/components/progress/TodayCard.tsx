@@ -66,14 +66,14 @@ export default function TodayCard() {
 
   return (
     <Card style={styles.card}>
-      <Text style={styles.header}>Today</Text>
+      <Text style={styles.header}>Өнөөдөр</Text>
       <View style={styles.calorieBlock}>
         <View style={styles.calorieMain}>
           <Text style={styles.remainingValue}>
             {over > 0 ? `+${over}` : remaining}
           </Text>
           <Text style={styles.remainingLabel}>
-            {over > 0 ? 'over goal' : 'kcal remaining'}
+            {over > 0 ? 'зорилгоос давсан' : 'үлдсэн'}
           </Text>
         </View>
         <View style={styles.calorieBarWrap}>
@@ -89,15 +89,15 @@ export default function TodayCard() {
             />
           </View>
           <View style={styles.calorieMeta}>
-            <Text style={styles.calorieConsumed}>{consumed} eaten</Text>
-            <Text style={styles.calorieGoal}>{dailyGoal} goal</Text>
+            <Text style={styles.calorieConsumed}>{consumed} идсэн</Text>
+            <Text style={styles.calorieGoal}>{dailyGoal} зорилго</Text>
           </View>
         </View>
       </View>
       <View style={styles.macroGrid}>
-        <MacroPill label="Protein" value={macros.protein} color={colors.proteinColor} target={proteinTarget} />
-        <MacroPill label="Carbs" value={macros.carbs} color={colors.carbColor} target={carbsTarget} />
-        <MacroPill label="Fat" value={macros.fat} color={colors.fatColor} target={fatTarget} />
+        <MacroPill label="Уураг" value={macros.protein} color={colors.proteinColor} target={proteinTarget} />
+        <MacroPill label="Нүүрс ус" value={macros.carbs} color={colors.carbColor} target={carbsTarget} />
+        <MacroPill label="Өөх тос" value={macros.fat} color={colors.fatColor} target={fatTarget} />
       </View>
     </Card>
   );

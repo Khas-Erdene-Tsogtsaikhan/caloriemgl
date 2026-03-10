@@ -1,17 +1,16 @@
-import React, { useState } from 'react';
-import { View, StyleSheet } from 'react-native';
-import { router } from 'expo-router';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import OnboardingStep from '@/src/components/onboarding/OnboardingStep';
 import Chip from '@/src/components/ui/Chip';
-import { colors, spacing } from '@/src/theme/tokens';
 import { useNutrioStore } from '@/src/store';
+import { colors, spacing } from '@/src/theme/tokens';
 import { Gender } from '@/src/types';
+import { router } from 'expo-router';
+import React, { useState } from 'react';
+import { StyleSheet, View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const GENDERS: { value: Gender; label: string; emoji: string }[] = [
-  { value: 'male', label: 'Male', emoji: '👨' },
-  { value: 'female', label: 'Female', emoji: '👩' },
-  { value: 'other', label: 'Other', emoji: '🧑' },
+  { value: 'male', label: 'Эрэгтэй', emoji: '👨' },
+  { value: 'female', label: 'Эмэгтэй', emoji: '👩' },
 ];
 
 export default function Step2() {
@@ -23,8 +22,8 @@ export default function Step2() {
       <OnboardingStep
         step={2}
         totalSteps={8}
-        title="What's your gender?"
-        subtitle="This helps us calculate your calorie needs."
+        title="Таны xүйс?"
+  
         onNext={() => {
           if (gender) {
             useNutrioStore.getState().updateProfile({ gender });

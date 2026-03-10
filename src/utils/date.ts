@@ -6,8 +6,8 @@ export function getTodayString(): string {
 export function formatDate(dateStr: string): string {
   const d = new Date(dateStr + 'T00:00:00');
   const months = [
-    'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec',
+    '1-р сар', '2-р сар', '3-р сар', '4-р сар', '5-р сар', '6-р сар',
+    '7-р сар', '8-р сар', '9-р сар', '10-р сар', '11-р сар', '12-р сар',
   ];
   return `${months[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`;
 }
@@ -15,8 +15,8 @@ export function formatDate(dateStr: string): string {
 export function formatDateShort(dateStr: string): string {
   const d = new Date(dateStr + 'T00:00:00');
   const months = [
-    'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec',
+    '1-р сар', '2-р сар', '3-р сар', '4-р сар', '5-р сар', '6-р сар',
+    '7-р сар', '8-р сар', '9-р сар', '10-р сар', '11-р сар', '12-р сар',
   ];
   return `${months[d.getMonth()]} ${d.getDate()}`;
 }
@@ -49,7 +49,7 @@ export function getMonthDates(): string[] {
 
 export function getDayLabel(dateStr: string): string {
   const d = new Date(dateStr + 'T00:00:00');
-  const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  const days = ['Ня', 'Да', 'Мя', 'Лх', 'Пү', 'Ба', 'Бя'];
   return days[d.getDay()];
 }
 
@@ -83,14 +83,14 @@ export function daysBetween(a: string, b: string): number {
   return Math.round((dA - dB) / (24 * 60 * 60 * 1000));
 }
 
-/** Format as "Today, Feb 16" or "Mon, Feb 16" */
+/** Format as "Өнөөдөр, 2-р сар 16" or "Да, 2-р сар 16" */
 export function formatDateWithDay(dateStr: string): string {
   const today = getTodayString();
   const d = new Date(dateStr + 'T00:00:00');
-  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  const months = ['1-р сар', '2-р сар', '3-р сар', '4-р сар', '5-р сар', '6-р сар', '7-р сар', '8-р сар', '9-р сар', '10-р сар', '11-р сар', '12-р сар'];
   const dayStr = `${months[d.getMonth()]} ${d.getDate()}`;
-  if (dateStr === today) return `Today, ${dayStr}`;
-  const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  if (dateStr === today) return `Өнөөдөр, ${dayStr}`;
+  const days = ['Ня', 'Да', 'Мя', 'Лх', 'Пү', 'Ба', 'Бя'];
   return `${days[d.getDay()]}, ${dayStr}`;
 }
 
@@ -112,10 +112,10 @@ export function getMonthDatesFrom(endDate: string): string[] {
   return dates;
 }
 
-/** Format a date range like "Feb 10 - Feb 16, 2025" */
+/** Format a date range like "2-р сар 10 - 2-р сар 16, 2025" */
 export function formatRange(startDate: string, endDate: string): string {
   const s = new Date(startDate + 'T00:00:00');
   const e = new Date(endDate + 'T00:00:00');
-  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  const months = ['1-р сар', '2-р сар', '3-р сар', '4-р сар', '5-р сар', '6-р сар', '7-р сар', '8-р сар', '9-р сар', '10-р сар', '11-р сар', '12-р сар'];
   return `${months[s.getMonth()]} ${s.getDate()} - ${months[e.getMonth()]} ${e.getDate()}, ${e.getFullYear()}`;
 }

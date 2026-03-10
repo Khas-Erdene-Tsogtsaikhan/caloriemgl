@@ -80,9 +80,9 @@ function CalendarGrid({
   const year = viewDate.getFullYear();
   const month = viewDate.getMonth();
 
-  const months = ['January', 'February', 'March', 'April', 'May', 'June',
-    'July', 'August', 'September', 'October', 'November', 'December'];
-  const dayHeaders = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
+  const months = ['1-р сар', '2-р сар', '3-р сар', '4-р сар', '5-р сар', '6-р сар',
+    '7-р сар', '8-р сар', '9-р сар', '10-р сар', '11-р сар', '12-р сар'];
+  const dayHeaders = ['Ня', 'Да', 'Мя', 'Лх', 'Пү', 'Ба', 'Бя'];
 
   const firstDay = new Date(year, month, 1).getDay();
   const daysInMonth = new Date(year, month + 1, 0).getDate();

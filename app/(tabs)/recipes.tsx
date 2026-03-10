@@ -18,12 +18,12 @@ import RecipeListCard from '@/components/recipes/RecipeListCard';
 import { colors, radii, spacing, typography } from '@/src/theme/tokens';
 
 const CATEGORIES = [
-  { id: 'high_protein', label: 'High protein', diet: 'high-protein' },
-  { id: 'quick', label: 'Quick', type: 'snack' },
-  { id: 'budget', label: 'Budget', type: 'side dish' },
-  { id: 'breakfast', label: 'Breakfast', type: 'breakfast' },
-  { id: 'dinner', label: 'Dinner', type: 'dinner' },
-  { id: 'dessert', label: 'Dessert', type: 'dessert' },
+  { id: 'high_protein', label: 'Өндөр уураг', diet: 'high-protein' },
+  { id: 'quick', label: 'Түргэн', type: 'snack' },
+  { id: 'budget', label: 'Хямд', type: 'side dish' },
+  { id: 'breakfast', label: 'Өглөөний цай', type: 'breakfast' },
+  { id: 'dinner', label: 'Оройн хоол', type: 'dinner' },
+  { id: 'dessert', label: 'Амттан', type: 'dessert' },
 ] as const;
 
 export default function RecipesScreen() {
@@ -97,7 +97,7 @@ export default function RecipesScreen() {
     <View style={[styles.container, { paddingTop: insets.top }]}>
       <StatusBar style="light" />
       <View style={styles.header}>
-        <Text style={styles.headerTitle}>Recipes</Text>
+        <Text style={styles.headerTitle}>Жор</Text>
       </View>
 
       <ScrollView
@@ -108,7 +108,7 @@ export default function RecipesScreen() {
       >
         <TextInput
           style={styles.search}
-          placeholder="Search recipes (pizza, pasta, chicken…)"
+          placeholder="Жор хайх (пицца, паста…)"
           placeholderTextColor={colors.recipesTextTertiary}
           value={searchQuery}
           onChangeText={setSearchQuery}
@@ -116,7 +116,7 @@ export default function RecipesScreen() {
           returnKeyType="search"
         />
 
-        <Text style={styles.sectionTitle}>Popular today</Text>
+        <Text style={styles.sectionTitle}>Өнөөдрийн эрэлттэй</Text>
         {loadingPopular ? (
           <View style={styles.carouselPlaceholder}>
             <ActivityIndicator size="small" color={colors.primary} />
@@ -137,7 +137,7 @@ export default function RecipesScreen() {
           </View>
         )}
 
-        <Text style={styles.sectionTitle}>Categories</Text>
+        <Text style={styles.sectionTitle}>Ангилал</Text>
         <ScrollView
           horizontal
           showsHorizontalScrollIndicator={false}
@@ -156,7 +156,7 @@ export default function RecipesScreen() {
           ))}
         </ScrollView>
 
-        <Text style={styles.sectionTitle}>Recipes</Text>
+        <Text style={styles.sectionTitle}>Жор</Text>
         {loadingList ? (
           <View style={styles.listPlaceholder}>
             <ActivityIndicator size="small" color={colors.primary} />
@@ -169,7 +169,7 @@ export default function RecipesScreen() {
           </View>
         ) : (
           <View style={styles.emptyState}>
-            <Text style={styles.emptyText}>No recipes found. Try a different search or category.</Text>
+            <Text style={styles.emptyText}>Жор олдсонгүй. Өөр хайлт оролдоно уу.</Text>
           </View>
         )}
       </ScrollView>

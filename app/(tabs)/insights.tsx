@@ -3,9 +3,9 @@ import MacrosStackedBarChart from '@/src/components/insights/MacrosStackedBarCha
 import RangeSwitcher from '@/src/components/insights/RangeSwitcher';
 import Card from '@/src/components/ui/Card';
 import { useNutrioStore } from '@/src/store';
-import { useFoodStore } from '@/store/useFoodStore';
-import { colors, radii, shadows, spacing, typography } from '@/src/theme/tokens';
+import { colors, radii, spacing, typography } from '@/src/theme/tokens';
 import { addDays, getDayLabel, getTodayString, getWeekDatesFrom } from '@/src/utils/date';
+import { useFoodStore } from '@/store/useFoodStore';
 import React, { useEffect, useMemo, useState } from 'react';
 import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -110,7 +110,7 @@ export default function InsightsScreen() {
       contentContainerStyle={styles.content}
       showsVerticalScrollIndicator={false}
     >
-      <Text style={styles.screenTitle}>Insights</Text>
+      <Text style={styles.screenTitle}>Статистик</Text>
 
       {/* Range Switcher */}
       <RangeSwitcher
@@ -146,9 +146,9 @@ export default function InsightsScreen() {
         <Card style={styles.dayCallout}>
           <Text style={styles.dayCalloutTitle}>{selectedDay}</Text>
           <Text style={styles.dayCalloutValue}>
-            {sumDayLogs(logsByDay[selectedDay] ?? [])} kcal eaten
+            {sumDayLogs(logsByDay[selectedDay] ?? [])} калори идсэн
             {' · '}
-            {activityEntries.filter((a) => a.date === selectedDay).reduce((s, a) => s + a.caloriesBurned, 0)} burned
+            {activityEntries.filter((a) => a.date === selectedDay).reduce((s, a) => s + a.caloriesBurned, 0)} шатаасан
           </Text>
         </Card>
       )}
@@ -159,27 +159,27 @@ export default function InsightsScreen() {
           style={[styles.insightTab, insightTab === 'calories' && styles.insightTabActive]}
           onPress={() => setInsightTab('calories')}
         >
-          <Text style={[styles.insightTabText, insightTab === 'calories' && styles.insightTabTextActive]}>🔥 Calories</Text>
+          <Text style={[styles.insightTabText, insightTab === 'calories' && styles.insightTabTextActive]}>🔥 Калори</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={[styles.insightTab, insightTab === 'macros' && styles.insightTabActive]}
           onPress={() => setInsightTab('macros')}
         >
-          <Text style={[styles.insightTabText, insightTab === 'macros' && styles.insightTabTextActive]}>🥩 Macros</Text>
+          <Text style={[styles.insightTabText, insightTab === 'macros' && styles.insightTabTextActive]}>🥩 Уураг/Нүүрс/Өөх</Text>
         </TouchableOpacity>
       </View>
 
       {insightTab === 'calories' && (
         <>
           <Card style={styles.chartCard}>
-            <Text style={styles.chartTitle}>Calories by Meal</Text>
+            <Text style={styles.chartTitle}>Энэ долоо хоногт</Text>
             <CaloriesByMealStackedBarChart data={caloriesByMealByDay} goal={dailyGoal} />
             <View style={styles.calorieSummary}>
               <Text style={styles.calorieSummaryRow}>
-                Total: {calorieData.reduce((s, d) => s + d.value, 0)} kcal
+                Нийт: {calorieData.reduce((s, d) => s + d.value, 0)} калори
               </Text>
               <Text style={styles.calorieSummaryRow}>
-                Goal: {dailyGoal}
+                Зорилго: {dailyGoal}
               </Text>
             </View>
           </Card>
@@ -188,15 +188,15 @@ export default function InsightsScreen() {
           <View style={styles.summaryRow}>
             <Card style={styles.summaryCard}>
               <Text style={styles.summaryValue}>{avgCalories}</Text>
-              <Text style={styles.summaryLabel}>Avg kcal</Text>
+              <Text style={styles.summaryLabel}>Дундаж калори</Text>
             </Card>
             <Card style={styles.summaryCard}>
               <Text style={styles.summaryValue}>{daysOnTarget}</Text>
-              <Text style={styles.summaryLabel}>On target</Text>
+              <Text style={styles.summaryLabel}>Зорилгод хүрсэн</Text>
             </Card>
             <Card style={styles.summaryCard}>
               <Text style={styles.summaryValue}>{avgProtein}g</Text>
-              <Text style={styles.summaryLabel}>Avg protein</Text>
+              <Text style={styles.summaryLabel}>Дундаж уураг</Text>
             </Card>
           </View>
         </>
@@ -204,7 +204,7 @@ export default function InsightsScreen() {
 
       {insightTab === 'macros' && (
         <Card style={styles.chartCard}>
-          <Text style={styles.chartTitle}>Macros</Text>
+          <Text style={styles.chartTitle}>Уураг/Нүүрс ус/Өөх тос</Text>
           <MacrosStackedBarChart data={macrosByDay} />
         </Card>
       )}

@@ -1,19 +1,19 @@
-import React, { useState } from 'react';
-import { View, StyleSheet } from 'react-native';
-import { router } from 'expo-router';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import OnboardingStep from '@/src/components/onboarding/OnboardingStep';
 import Chip from '@/src/components/ui/Chip';
-import { colors, spacing } from '@/src/theme/tokens';
 import { useNutrioStore } from '@/src/store';
+import { colors, spacing } from '@/src/theme/tokens';
 import { ActivityLevel } from '@/src/types';
 import { calculateDailyCalories } from '@/src/utils/calories';
+import { router } from 'expo-router';
+import React, { useState } from 'react';
+import { StyleSheet, View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const LEVELS: { value: ActivityLevel; label: string; desc: string; emoji: string }[] = [
-  { value: 'sedentary', label: 'Sedentary', desc: 'Little or no exercise', emoji: '🪑' },
-  { value: 'lightly_active', label: 'Lightly active', desc: 'Light exercise 1-3 days/week', emoji: '🚶' },
-  { value: 'moderately_active', label: 'Moderately active', desc: 'Moderate exercise 3-5 days/week', emoji: '🏃' },
-  { value: 'very_active', label: 'Very active', desc: 'Hard exercise 6-7 days/week', emoji: '🏋️' },
+  { value: 'sedentary', label: 'Xийдэггүй', desc: 'Огт дасгал хийдэггүй', emoji: '🪑' },
+  { value: 'lightly_active', label: 'Бага идэвхтэй', desc: '1-3 өдөр долоо хоногт', emoji: '🚶' },
+  { value: 'moderately_active', label: 'Дунд идэвхтэй', desc: '3-5 өдөр долоо хоногт', emoji: '🏃' },
+  { value: 'very_active', label: 'Маш идэвхтэй', desc: '6-7 өдөр долоо хоногт', emoji: '🏋️' },
 ];
 
 export default function Step8() {
@@ -25,8 +25,8 @@ export default function Step8() {
       <OnboardingStep
         step={8}
         totalSteps={8}
-        title="Activity level?"
-        subtitle="How active are you on a typical week?"
+        title="Үйл ажиллагааны түвшин?"
+        subtitle="Долоо хоногт хэр идэвхтэй вэ?"
         onNext={() => {
           if (level) {
             const profile = useNutrioStore.getState().profile;

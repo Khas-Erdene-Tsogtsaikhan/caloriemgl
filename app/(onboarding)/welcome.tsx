@@ -1,9 +1,9 @@
-import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import { router } from 'expo-router';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Button from '@/src/components/ui/Button';
 import { colors, spacing, typography } from '@/src/theme/tokens';
+import { router } from 'expo-router';
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 export default function WelcomeScreen() {
   const insets = useSafeAreaInsets();
@@ -12,15 +12,13 @@ export default function WelcomeScreen() {
       <View style={styles.hero}>
         <Text style={styles.emoji}>🥗</Text>
         <Text style={styles.title}>Nutrio</Text>
-        <Text style={styles.subtitle}>Your personal nutrition companion{'\n'}made for Mongolia</Text>
+        <Text style={styles.subtitle}>Таны эрүүл амьдралын шинэ эхлэл</Text>
       </View>
       <View style={styles.features}>
-        {['🍜 Track Mongolian meals easily', '💧 Water & weight tracking', '📊 Weekly insights'].map((f) => (
-          <Text key={f} style={styles.feature}>{f}</Text>
-        ))}
+       
       </View>
       <View style={styles.footer}>
-        <Button title="Get Started" onPress={() => router.push('/(onboarding)/step1')} />
+        <Button title="Эхлэх" onPress={() => router.push('/(onboarding)/step1')} />
       </View>
     </View>
   );

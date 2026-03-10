@@ -17,14 +17,14 @@ import { addDays, getTodayString } from '@/src/utils/date';
 import { useFoodStore } from '@/store/useFoodStore';
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import {
-    Alert,
-    Modal,
-    ScrollView,
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    useWindowDimensions,
-    View
+  Alert,
+  Modal,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  useWindowDimensions,
+  View
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
@@ -111,7 +111,7 @@ export default function HomeScreen() {
     const yesterday = addDays(selectedDate, -1);
     const logs = logsByDay[yesterday] ?? [];
     if (logs.length === 0) {
-      Alert.alert('Nothing to copy', 'No food entries found for yesterday.');
+      Alert.alert('Копилох зүйл алга', 'Өчигдрийн хоол олдсонгүй.');
       return;
     }
     await copyLogsFromDay(yesterday, selectedDate);
@@ -125,8 +125,8 @@ export default function HomeScreen() {
     >
       {/* Header */}
       <View style={[styles.header, { paddingTop: insets.top + spacing.lg }]}>
-        <Text style={styles.greeting}>Hello, {profile?.name ?? 'there'}</Text>
-        <Text style={styles.greetingSub}>Track your nutrition today</Text>
+        <Text style={styles.greeting}>Сайн байна уу, {profile?.name ?? 'та'}</Text>
+        <Text style={styles.greetingSub}>Өнөөдөр хоол хүнсээ бүртгэ</Text>
       </View>
 
       <View style={styles.body}>
@@ -141,28 +141,28 @@ export default function HomeScreen() {
               size={120}
               strokeWidth={11}
               value={String(remaining)}
-              label="kcal left"
+              label="үлдсэн"
             />
             <View style={styles.calorieDetails}>
               <View style={styles.calorieStat}>
                 <Text style={styles.statEmoji}>🍽️</Text>
                 <View>
                   <Text style={styles.statValue}>{eaten}</Text>
-                  <Text style={styles.statLabel}>Eaten</Text>
+                  <Text style={styles.statLabel}>Идсэн</Text>
                 </View>
               </View>
               <View style={styles.calorieStat}>
                 <Text style={styles.statEmoji}>🔥</Text>
                 <View>
                   <Text style={styles.statValue}>{burned}</Text>
-                  <Text style={styles.statLabel}>Burned</Text>
+                  <Text style={styles.statLabel}>Шатаасан</Text>
                 </View>
               </View>
               <View style={styles.calorieStat}>
                 <Text style={styles.statEmoji}>🎯</Text>
                 <View>
                   <Text style={styles.statValue}>{dailyGoal}</Text>
-                  <Text style={styles.statLabel}>Goal</Text>
+                  <Text style={styles.statLabel}>Зорилго</Text>
                 </View>
               </View>
             </View>
@@ -170,42 +170,42 @@ export default function HomeScreen() {
 
           {/* Macro Progress Bars */}
           <View style={styles.macroSection}>
-            <MacroBar label="Protein" value={macros.protein} color={colors.proteinColor} suffix="g" />
-            <MacroBar label="Carbs" value={macros.carbs} color={colors.carbColor} suffix="g" />
-            <MacroBar label="Fat" value={macros.fat} color={colors.fatColor} suffix="g" />
+            <MacroBar label="Уураг" value={macros.protein} color={colors.proteinColor} suffix="г" />
+            <MacroBar label="Нүүрс ус" value={macros.carbs} color={colors.carbColor} suffix="г" />
+            <MacroBar label="Өөх тос" value={macros.fat} color={colors.fatColor} suffix="г" />
           </View>
         </Card>
 
         {/* Activity / Burned Section */}
         <Card style={styles.activityCard}>
           <View style={styles.activityHeader}>
-            <Text style={styles.sectionTitle}>🏃 Activity & Burned</Text>
+            <Text style={styles.sectionTitle}>🏃 Дасгал хөдөлгөө</Text>
             <TouchableOpacity
               style={styles.addBtn}
               onPress={() => setShowActivityForm(!showActivityForm)}
             >
-              <Text style={styles.addBtnText}>{showActivityForm ? 'Cancel' : '+ Add'}</Text>
+              <Text style={styles.addBtnText}>{showActivityForm ? 'Цуцлах' : '+ Нэмэх'}</Text>
             </TouchableOpacity>
           </View>
 
           {showActivityForm && (
             <View style={styles.activityForm}>
-              <Input label="Activity" value={actName} onChangeText={setActName} placeholder="e.g. Walking" />
+              <Input label="Дасгал" value={actName} onChangeText={setActName} placeholder="Жишээ: Алхах" />
               <View style={styles.actFormRow}>
                 <View style={{ flex: 1 }}>
-                  <Input label="Duration" value={actDuration} onChangeText={setActDuration} placeholder="30" keyboardType="numeric" suffix="min" />
+                  <Input label="Хугацаа" value={actDuration} onChangeText={setActDuration} placeholder="30" keyboardType="numeric" suffix="мин" />
                 </View>
                 <View style={{ flex: 1 }}>
-                  <Input label="Burned" value={actBurned} onChangeText={setActBurned} placeholder="150" keyboardType="numeric" suffix="kcal" />
+                  <Input label="Шатаасан" value={actBurned} onChangeText={setActBurned} placeholder="150" keyboardType="numeric" suffix="калори" />
                 </View>
               </View>
               <Button
-                title="Log Activity"
+                title="Дасгал бүртгэх"
                 onPress={() => {
                   const dur = parseInt(actDuration, 10);
                   const cal = parseInt(actBurned, 10);
                   if (!actName.trim() || !dur || !cal) {
-                    Alert.alert('Error', 'Please fill all fields.');
+                    Alert.alert('Алдаа', 'Бүх талбарыг бөглөнө үү.');
                     return;
                   }
                   addActivityEntry({ name: actName.trim(), durationMinutes: dur, caloriesBurned: cal, date: selectedDate });
@@ -217,7 +217,7 @@ export default function HomeScreen() {
           )}
 
           {dayActivities.length === 0 && !showActivityForm ? (
-            <Text style={styles.emptyText}>No activities yet — tap + Add to start</Text>
+            <Text style={styles.emptyText}> Шатаасан kcal  + Нэмэх дарна уу</Text>
           ) : (
             dayActivities.map((a) => (
               <View key={a.id} style={styles.entryRow}>
@@ -227,9 +227,9 @@ export default function HomeScreen() {
                 </View>
                 <TouchableOpacity
                   onPress={() =>
-                    Alert.alert('Delete', `Remove ${a.name}?`, [
-                      { text: 'Cancel' },
-                      { text: 'Delete', style: 'destructive', onPress: () => removeActivityEntry(a.id) },
+                    Alert.alert('Устгах', `${a.name} устгах уу?`, [
+                      { text: 'Цуцлах' },
+                      { text: 'Устгах', style: 'destructive', onPress: () => removeActivityEntry(a.id) },
                     ])
                   }
                 >
@@ -261,7 +261,7 @@ export default function HomeScreen() {
                     style={styles.addBtn}
                     onPress={() => { setAddMealTab('search'); setAddMealModal(meal); }}
                   >
-                    <Text style={styles.addBtnText}>+ Add</Text>
+                    <Text style={styles.addBtnText}>+ Нэмэх</Text>
                   </TouchableOpacity>
                 </View>
               </View>
@@ -285,9 +285,9 @@ export default function HomeScreen() {
                   </View>
                   <TouchableOpacity
                     onPress={() =>
-                      Alert.alert('Delete', `Remove ${entry.name_mn ?? 'this'}?`, [
-                        { text: 'Cancel' },
-                        { text: 'Delete', style: 'destructive', onPress: () => removeLog(entry.id, selectedDate) },
+                      Alert.alert('Устгах', `${entry.name_mn ?? 'энэ'} устгах уу?`, [
+                        { text: 'Цуцлах' },
+                        { text: 'Устгах', style: 'destructive', onPress: () => removeLog(entry.id, selectedDate) },
                       ])
                     }
                     hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
@@ -304,11 +304,11 @@ export default function HomeScreen() {
         <View style={styles.actionRow}>
           <TouchableOpacity style={styles.actionBtn} onPress={() => setQuickCalModal('snack')}>
             <Text style={styles.actionBtnEmoji}>⚡</Text>
-            <Text style={styles.actionBtnLabel}>Quick Cal</Text>
+            <Text style={styles.actionBtnLabel}>Хурдан калори</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.actionBtn} onPress={copyYesterday}>
             <Text style={styles.actionBtnEmoji}>📋</Text>
-            <Text style={styles.actionBtnLabel}>Copy Yesterday</Text>
+            <Text style={styles.actionBtnLabel}>Өчигдрийг хуулгах</Text>
           </TouchableOpacity>
         </View>
 
@@ -320,7 +320,7 @@ export default function HomeScreen() {
         <View style={styles.modalOverlay}>
           <View style={styles.modalContent}>
             <ModalHandle />
-            <Text style={styles.modalTitle}>Quick Add Calories</Text>
+            <Text style={styles.modalTitle}>Калори хурдан нэмэх</Text>
             <View style={styles.quickCalRow}>
               {[100, 200, 300, 500].map((amt) => (
                 <TouchableOpacity
@@ -332,8 +332,8 @@ export default function HomeScreen() {
                 </TouchableOpacity>
               ))}
             </View>
-            <Input label="Or enter custom" value={quickCalAmt} onChangeText={setQuickCalAmt} keyboardType="numeric" suffix="kcal" />
-            <Text style={styles.modalLabel}>Meal</Text>
+            <Input label="Эсвэл өөрийн" value={quickCalAmt} onChangeText={setQuickCalAmt} keyboardType="numeric" suffix="калори" />
+            <Text style={styles.modalLabel}>Цаг</Text>
             <View style={styles.mealPicker}>
               {meals.map((m) => (
                 <TouchableOpacity
@@ -348,12 +348,12 @@ export default function HomeScreen() {
               ))}
             </View>
             <View style={styles.modalActions}>
-              <Button title="Cancel" variant="ghost" onPress={() => { setQuickCalModal(null); setQuickCalAmt(''); }} style={{ flex: 1 }} />
+              <Button title="Цуцлах" variant="ghost" onPress={() => { setQuickCalModal(null); setQuickCalAmt(''); }} style={{ flex: 1 }} />
               <Button
-                title="Add"
+                title="Нэмэх"
                 onPress={async () => {
                   const cal = parseInt(quickCalAmt, 10);
-                  if (!cal || cal <= 0) { Alert.alert('Error', 'Enter a valid calorie amount.'); return; }
+                  if (!cal || cal <= 0) { Alert.alert('Алдаа', 'Зөв калори оруулна уу.'); return; }
                   const food = await createCustomFood({
                     name_mn: `Quick ${cal} kcal`,
                     calories_per_100g: cal,
@@ -391,7 +391,7 @@ export default function HomeScreen() {
           <View style={[styles.modalContent, { height: windowHeight * 0.9 }]}>
             <ModalHandle />
             <Text style={styles.modalTitle}>
-              Add to {addMealModal ? MEAL_LABELS[addMealModal] : ''}
+              {addMealModal ? MEAL_LABELS[addMealModal] : ''} дээр нэмэх
             </Text>
 
             {/* Sub-tabs */}
@@ -403,7 +403,7 @@ export default function HomeScreen() {
                   onPress={() => setAddMealTab(t)}
                 >
                   <Text style={[styles.subTabText, addMealTab === t && styles.subTabTextActive]}>
-                    {t === 'search' ? '🔍 Search' : t === 'manual' ? '✏️ Manual' : '⏱️ Recent'}
+                    {t === 'search' ? '🔍 Хайх' : t === 'manual' ? '✏️ Гараар' : '⏱️ Сүүлийн'}
                   </Text>
                 </TouchableOpacity>
               ))}
@@ -424,25 +424,25 @@ export default function HomeScreen() {
 
             {addMealTab === 'manual' && (
               <View style={{ paddingTop: spacing.md }}>
-                <Input label="Food name" value={manualName} onChangeText={setManualName} placeholder="e.g. Бууз" />
-                <Input label="Calories" value={manualCals} onChangeText={setManualCals} placeholder="200" keyboardType="numeric" suffix="kcal" />
+                <Input label="Хоолын нэр" value={manualName} onChangeText={setManualName} placeholder="Жишээ: Бууз" />
+                <Input label="Калори" value={manualCals} onChangeText={setManualCals} placeholder="200" keyboardType="numeric" suffix="калори" />
                 <View style={styles.actFormRow}>
                   <View style={{ flex: 1 }}>
-                    <Input label="Protein" value={manualProtein} onChangeText={setManualProtein} placeholder="0" keyboardType="numeric" suffix="g" />
+                    <Input label="Уураг" value={manualProtein} onChangeText={setManualProtein} placeholder="0" keyboardType="numeric" suffix="г" />
                   </View>
                   <View style={{ flex: 1 }}>
-                    <Input label="Carbs" value={manualCarbs} onChangeText={setManualCarbs} placeholder="0" keyboardType="numeric" suffix="g" />
+                    <Input label="Нүүрс ус" value={manualCarbs} onChangeText={setManualCarbs} placeholder="0" keyboardType="numeric" suffix="г" />
                   </View>
                   <View style={{ flex: 1 }}>
-                    <Input label="Fat" value={manualFat} onChangeText={setManualFat} placeholder="0" keyboardType="numeric" suffix="g" />
+                    <Input label="Өөх тос" value={manualFat} onChangeText={setManualFat} placeholder="0" keyboardType="numeric" suffix="г" />
                   </View>
                 </View>
                 <Button
-                  title="Add"
+                  title="Нэмэх"
                   onPress={async () => {
                     const cal = parseInt(manualCals, 10);
                     if (!manualName.trim() || !cal || cal <= 0) {
-                      Alert.alert('Error', 'Enter a valid name and calories.');
+                      Alert.alert('Алдаа', 'Зөв нэр, калори оруулна уу.');
                       return;
                     }
                     const food = await createCustomFood({
@@ -477,7 +477,7 @@ export default function HomeScreen() {
             {addMealTab === 'recent' && (
               <ScrollView showsVerticalScrollIndicator={false} style={{ maxHeight: 350 }}>
                 {recentFoods.length === 0 ? (
-                  <Text style={styles.emptyText}>No recent foods yet — log something first</Text>
+                  <Text style={styles.emptyText}>Сүүлийн хоол байхгүй — эхлээд бүртгэх</Text>
                 ) : (
                   recentFoods.map((food) => (
                     <TouchableOpacity
@@ -491,7 +491,7 @@ export default function HomeScreen() {
                       <Text style={styles.presetListEmoji}>⏱️</Text>
                       <View style={{ flex: 1 }}>
                         <Text style={styles.presetListName}>{food.name_mn}</Text>
-                        <Text style={styles.presetListEn}>per 100g</Text>
+                        <Text style={styles.presetListEn}>100г-д</Text>
                       </View>
                       <Text style={styles.presetListCals}>{food.calories_per_100g} kcal</Text>
                     </TouchableOpacity>
@@ -516,7 +516,7 @@ export default function HomeScreen() {
             )}
 
             <Button
-              title="Cancel"
+              title="Цуцлах"
               variant="ghost"
               onPress={() => { setAddMealModal(null); resetManualForm(); }}
               style={{ marginTop: spacing.md }}

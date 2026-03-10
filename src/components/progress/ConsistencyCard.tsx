@@ -7,11 +7,11 @@ import { colors, radii, shadows, spacing, typography } from '@/src/theme/tokens'
 import { addDays, getDayLabel, getTodayString } from '@/src/utils/date';
 
 function getStreakMessage(streak: number): string {
-  if (streak === 0) return 'Log today to start your streak!';
-  if (streak === 1) return 'Great start!';
-  if (streak < 5) return 'Keep it up!';
-  if (streak < 10) return "You're on fire!";
-  return 'Incredible consistency!';
+  if (streak === 0) return 'Өнөөдөр бүртгэж эхлээрэй!';
+  if (streak === 1) return 'Сайн эхлэл!';
+  if (streak < 5) return 'Үргэлжлүүл!';
+  if (streak < 10) return 'Гайхалтай!';
+  return 'Гайхалтай тогтвортой!';
 }
 
 export default function ConsistencyCard() {
@@ -49,26 +49,26 @@ export default function ConsistencyCard() {
 
   return (
     <Card style={styles.card}>
-      <Text style={styles.header}>Consistency</Text>
+      <Text style={styles.header}>Тогтвортой байдал</Text>
       <View style={styles.streakBlock}>
         <View style={styles.streakRow}>
           <Text style={styles.streakEmoji}>🔥</Text>
           <View>
             <Text style={styles.streakValue}>{streak}</Text>
-            <Text style={styles.streakLabel}>day streak</Text>
+            <Text style={styles.streakLabel}>хоногийн дараалал</Text>
           </View>
         </View>
         <Text style={styles.streakMessage}>{getStreakMessage(streak)}</Text>
       </View>
       <View style={styles.weekBlock}>
         <View style={styles.weekHeader}>
-          <Text style={styles.weekTitle}>This week</Text>
+          <Text style={styles.weekTitle}>Энэ долоо хоног</Text>
           <View style={styles.weekBadge}>
             <Text style={styles.weekBadgeText}>{weekPct}%</Text>
           </View>
         </View>
         <Text style={styles.weekSubtitle}>
-          {daysLoggedThisWeek} of 7 days logged
+          {daysLoggedThisWeek} / 7 хоног бүртгэгдсэн
         </Text>
         <View style={styles.weekRow}>
           {weekDates.map((d) => {

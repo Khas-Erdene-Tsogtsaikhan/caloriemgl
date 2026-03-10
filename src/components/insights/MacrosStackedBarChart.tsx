@@ -26,11 +26,9 @@ function getTickValues(maxValue: number): number[] {
   return [...new Set(ticks)].sort((a, b) => a - b);
 }
 
-function getShortDayLabel(dateStr: string): string {
-  const parts = dateStr.split('-');
-  const dayNum = parts[2] ?? '';
-  const dayName = getDayLabel(dateStr);
-  return `${dayName[0]}${dayNum}`;
+/** Returns Mongolian day abbreviation: Ня, Да, Мя, Лх, Пү, Ба, Бя */
+function getChartDayLabel(dateStr: string): string {
+  return getDayLabel(dateStr);
 }
 
 export default function MacrosStackedBarChart({ data }: MacrosStackedBarChartProps) {
@@ -55,15 +53,15 @@ export default function MacrosStackedBarChart({ data }: MacrosStackedBarChartPro
       <View style={styles.legend}>
         <View style={styles.legendRow}>
           <View style={[styles.legendDot, { backgroundColor: colors.proteinColor }]} />
-          <Text style={styles.legendText}>Protein</Text>
+          <Text style={styles.legendText}>Уураг</Text>
         </View>
         <View style={styles.legendRow}>
           <View style={[styles.legendDot, { backgroundColor: colors.carbColor }]} />
-          <Text style={styles.legendText}>Carbs</Text>
+          <Text style={styles.legendText}>Нүүрс ус</Text>
         </View>
         <View style={styles.legendRow}>
           <View style={[styles.legendDot, { backgroundColor: colors.fatColor }]} />
-          <Text style={styles.legendText}>Fat</Text>
+          <Text style={styles.legendText}>Өөх тос</Text>
         </View>
       </View>
       <Svg width={chartWidth} height={chartHeight}>
@@ -117,7 +115,7 @@ export default function MacrosStackedBarChart({ data }: MacrosStackedBarChartPro
                 fill={colors.textTertiary}
                 textAnchor="middle"
               >
-                {getShortDayLabel(d.date)}
+                {getChartDayLabel(d.date)}
               </SvgText>
             </React.Fragment>
           );

@@ -1,20 +1,20 @@
-import React, { useState } from 'react';
-import { View, StyleSheet } from 'react-native';
-import { router } from 'expo-router';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import OnboardingStep from '@/src/components/onboarding/OnboardingStep';
 import Chip from '@/src/components/ui/Chip';
-import { colors, spacing } from '@/src/theme/tokens';
 import { useNutrioStore } from '@/src/store';
+import { colors, spacing } from '@/src/theme/tokens';
 import { Goal } from '@/src/types';
+import { router } from 'expo-router';
+import React, { useState } from 'react';
+import { StyleSheet, View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const GOALS: { value: Goal; label: string; emoji: string }[] = [
-  { value: 'lose_weight', label: 'Lose weight', emoji: '⚖️' },
-  { value: 'gain_muscle', label: 'Gain muscle', emoji: '💪' },
-  { value: 'maintain_weight', label: 'Maintain weight', emoji: '✅' },
-  { value: 'boost_energy', label: 'Boost energy', emoji: '⚡' },
-  { value: 'improve_nutrition', label: 'Improve nutrition', emoji: '🥦' },
-  { value: 'gain_weight', label: 'Gain weight', emoji: '📈' },
+  { value: 'lose_weight', label: 'Жингээ хасах', emoji: '⚖️' },
+  { value: 'gain_muscle', label: 'Булчин нэмэх', emoji: '💪' },
+  { value: 'maintain_weight', label: 'Жингээ хадгалах', emoji: '✅' },
+  { value: 'boost_energy', label: 'Эрч хүч нэмэх', emoji: '⚡' },
+  { value: 'improve_nutrition', label: 'Хоол хүнс сайжруулах', emoji: '🥦' },
+  { value: 'gain_weight', label: 'Жингээ нэмэх', emoji: '📈' },
 ];
 
 export default function Step7() {
@@ -26,8 +26,7 @@ export default function Step7() {
       <OnboardingStep
         step={7}
         totalSteps={8}
-        title="What's your main goal?"
-        subtitle="Choose the goal that matters most to you."
+        title="Үндсэн зорилгоо сонгоно уу"
         onNext={() => {
           if (goal) {
             useNutrioStore.getState().updateProfile({ goal });

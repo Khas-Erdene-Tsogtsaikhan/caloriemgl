@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
-import { router } from 'expo-router';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import OnboardingStep from '@/src/components/onboarding/OnboardingStep';
-import { colors, spacing, typography, radii } from '@/src/theme/tokens';
 import { useNutrioStore } from '@/src/store';
+import { colors, radii, spacing, typography } from '@/src/theme/tokens';
+import { router } from 'expo-router';
+import React, { useState } from 'react';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 export default function Step3() {
   const insets = useSafeAreaInsets();
@@ -12,15 +12,14 @@ export default function Step3() {
   const [month, setMonth] = useState(1);
   const [day, setDay] = useState(1);
 
-  const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const months = ['1-р сар','2-р сар','3-р сар','4-р сар','5-р сар','6-р сар','7-р сар','8-р сар','9-р сар','10-р сар','11-р сар','12-р сар'];
 
   return (
     <View style={[styles.container, { paddingTop: insets.top }]}>
       <OnboardingStep
         step={3}
         totalSteps={8}
-        title="When were you born?"
-        subtitle="We need your age for accurate calculations."
+        title="Төрсөн он?"
         onNext={() => {
           const birthdate = `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
           useNutrioStore.getState().updateProfile({ birthdate });
@@ -30,7 +29,7 @@ export default function Step3() {
       >
         <View style={styles.pickerRow}>
           <View style={styles.pickerCol}>
-            <Text style={styles.pickerLabel}>Year</Text>
+            <Text style={styles.pickerLabel}>Жил</Text>
             <View style={styles.scrollCol}>
               <TouchableOpacity onPress={() => setYear((y) => Math.min(y + 1, 2020))} style={styles.arrowBtn}>
                 <Text style={styles.arrow}>▲</Text>
@@ -42,7 +41,7 @@ export default function Step3() {
             </View>
           </View>
           <View style={styles.pickerCol}>
-            <Text style={styles.pickerLabel}>Month</Text>
+            <Text style={styles.pickerLabel}>Сар</Text>
             <View style={styles.scrollCol}>
               <TouchableOpacity onPress={() => setMonth((m) => (m < 12 ? m + 1 : 1))} style={styles.arrowBtn}>
                 <Text style={styles.arrow}>▲</Text>
@@ -54,7 +53,7 @@ export default function Step3() {
             </View>
           </View>
           <View style={styles.pickerCol}>
-            <Text style={styles.pickerLabel}>Day</Text>
+            <Text style={styles.pickerLabel}>Өдөр</Text>
             <View style={styles.scrollCol}>
               <TouchableOpacity onPress={() => setDay((d) => (d < 31 ? d + 1 : 1))} style={styles.arrowBtn}>
                 <Text style={styles.arrow}>▲</Text>

@@ -23,7 +23,7 @@ export default function OnboardingStep({
   children,
   onNext,
   onBack,
-  nextLabel = 'Continue',
+  nextLabel = 'Үргэлжлүүлэх',
   nextDisabled = false,
 }: OnboardingStepProps) {
   return (
@@ -45,7 +45,6 @@ export default function OnboardingStep({
           ))}
         </View>
 
-        <Text style={styles.stepLabel}>Step {step} of {totalSteps}</Text>
         <Text style={styles.title}>{title}</Text>
         {subtitle ? <Text style={styles.subtitle}>{subtitle}</Text> : null}
 
@@ -54,7 +53,7 @@ export default function OnboardingStep({
 
       <View style={styles.footer}>
         {onBack ? (
-          <Button title="Back" variant="ghost" onPress={onBack} style={styles.backBtn} />
+          <Button title="Буцах" variant="ghost" onPress={onBack} style={styles.backBtn} />
         ) : (
           <View style={styles.backBtn} />
         )}
@@ -91,11 +90,6 @@ const styles = StyleSheet.create({
   },
   dotEmpty: {
     backgroundColor: colors.border,
-  },
-  stepLabel: {
-    ...typography.caption,
-    color: colors.textTertiary,
-    marginBottom: spacing.sm,
   },
   title: {
     ...typography.h1,

@@ -26,10 +26,10 @@ import { colors, radii, spacing, typography } from '@/src/theme/tokens';
 import type { MealType } from '@/store/useFoodStore';
 
 const MEAL_LABELS: Record<MealType, string> = {
-  breakfast: 'Breakfast',
-  lunch: 'Lunch',
-  dinner: 'Dinner',
-  snack: 'Snack',
+  breakfast: 'Өглөөний цай',
+  lunch: 'Өдрийн хоол',
+  dinner: 'Оройн хоол',
+  snack: 'Зайрмаг',
 };
 
 export default function RecipeDetailScreen() {
@@ -156,7 +156,7 @@ export default function RecipeDetailScreen() {
       <StatusBar style="light" />
       <ScrollView style={styles.scroll} contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
         <TouchableOpacity style={styles.backBtn} onPress={() => router.back()}>
-          <Text style={styles.backText}>← Back</Text>
+          <Text style={styles.backText}>← Буцах</Text>
         </TouchableOpacity>
 
         <Image
@@ -177,7 +177,7 @@ export default function RecipeDetailScreen() {
           </View>
 
           <View style={styles.stepperRow}>
-            <Text style={styles.stepperLabel}>Servings</Text>
+            <Text style={styles.stepperLabel}>Порц</Text>
             <View style={styles.stepper}>
               <TouchableOpacity
                 style={styles.stepperBtn}
@@ -197,7 +197,7 @@ export default function RecipeDetailScreen() {
 
           {totals && (
             <View style={styles.totalsRow}>
-              <Text style={styles.totalsLabel}>Total:</Text>
+              <Text style={styles.totalsLabel}>Нийт:</Text>
               <Text style={styles.totalsValue}>
                 {Math.round(totals.calories)} kcal · P{Math.round(totals.protein)} C
                 {Math.round(totals.carbs)} F{Math.round(totals.fat)}
@@ -205,19 +205,19 @@ export default function RecipeDetailScreen() {
             </View>
           )}
 
-          <Text style={styles.sectionTitle}>Ingredients</Text>
+          <Text style={styles.sectionTitle}>Орц</Text>
           {recipe.extendedIngredients.map((ing, i) => (
             <Text key={i} style={styles.ingredient}>
               • {ing.original}
             </Text>
           ))}
 
-          <Text style={styles.sectionTitle}>Instructions</Text>
-          <Text style={styles.instructions}>{displayInstructions || 'No instructions available.'}</Text>
+          <Text style={styles.sectionTitle}>Заавар</Text>
+          <Text style={styles.instructions}>{displayInstructions || 'Заавар байхгүй.'}</Text>
 
           {showMealPicker ? (
             <View style={styles.mealPicker}>
-              <Text style={styles.mealPickerTitle}>Log as</Text>
+              <Text style={styles.mealPickerTitle}>Бүртгэх цаг</Text>
               {(Object.keys(MEAL_LABELS) as MealType[]).map((m) => (
                 <TouchableOpacity
                   key={m}
@@ -230,18 +230,18 @@ export default function RecipeDetailScreen() {
                 </TouchableOpacity>
               ))}
               <Button
-                title={logging ? 'Logging…' : 'Log this recipe'}
+                title={logging ? 'Бүртгэж байна…' : 'Энэ жорыг бүртгэх'}
                 onPress={handleLog}
                 disabled={logging}
                 style={styles.logBtn}
               />
               <TouchableOpacity onPress={() => setShowMealPicker(false)}>
-                <Text style={styles.cancelText}>Cancel</Text>
+                <Text style={styles.cancelText}>Цуцлах</Text>
               </TouchableOpacity>
             </View>
           ) : (
             <Button
-              title="Log this recipe"
+              title="Энэ жорыг бүртгэх"
               onPress={() => setShowMealPicker(true)}
               style={styles.logBtn}
             />
