@@ -54,7 +54,7 @@ export default function AccountScreen() {
         <View style={styles.profileStats}>
           <View style={styles.profileStat}>
             <Text style={styles.profileStatValue}>{profile?.dailyCalorieGoal ?? 2000}</Text>
-            <Text style={styles.profileStatLabel}>Өдрийн зорилго</Text>
+            <Text style={styles.profileStatLabel}>Өдрийн kcal</Text>
           </View>
           <View style={styles.profileStatDivider} />
           <View style={styles.profileStat}>

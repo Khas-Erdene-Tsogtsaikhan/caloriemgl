@@ -138,7 +138,7 @@ export default function HomeScreen() {
           <View style={styles.calorieRow}>
             <ProgressRing
               progress={progress}
-              size={120}
+              size={142}
               strokeWidth={11}
               value={String(remaining)}
               label="үлдсэн"
@@ -179,7 +179,7 @@ export default function HomeScreen() {
         {/* Activity / Burned Section */}
         <Card style={styles.activityCard}>
           <View style={styles.activityHeader}>
-            <Text style={styles.sectionTitle}>🏃 Дасгал хөдөлгөө</Text>
+            <Text style={styles.sectionTitle}>🏃 Дасгал хөдөлгөөн</Text>
             <TouchableOpacity
               style={styles.addBtn}
               onPress={() => setShowActivityForm(!showActivityForm)}

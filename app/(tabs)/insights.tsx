@@ -3,9 +3,10 @@ import MacrosStackedBarChart from '@/src/components/insights/MacrosStackedBarCha
 import RangeSwitcher from '@/src/components/insights/RangeSwitcher';
 import Card from '@/src/components/ui/Card';
 import { useNutrioStore } from '@/src/store';
-import { colors, radii, spacing, typography } from '@/src/theme/tokens';
+import { colors, radii, shadows, spacing, typography } from '@/src/theme/tokens';
 import { addDays, getDayLabel, getTodayString, getWeekDatesFrom } from '@/src/utils/date';
 import { useFoodStore } from '@/store/useFoodStore';
+import { useRouter } from 'expo-router';
 import React, { useEffect, useMemo, useState } from 'react';
 import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -14,6 +15,7 @@ type InsightTab = 'calories' | 'macros';
 
 export default function InsightsScreen() {
   const insets = useSafeAreaInsets();
+  const router = useRouter();
   const [insightTab, setInsightTab] = useState<InsightTab>('calories');
   const logsByDay = useFoodStore((s) => s.logsByDay);
   const loadLogsForRange = useFoodStore((s) => s.loadLogsForRange);
@@ -96,13 +98,40 @@ export default function InsightsScreen() {
     const daysWithData = macrosByDay.filter((d) => d.protein > 0);
     return daysWithData.length > 0 ? Math.round(daysWithData.reduce((s, d) => s + d.protein, 0) / daysWithData.length) : 0;
   }, [macrosByDay]);
+  const avgCarbs = useMemo(() => {
+    const daysWithData = macrosByDay.filter((d) => d.carbs > 0);
+    return daysWithData.length > 0 ? Math.round(macrosByDay.reduce((s, d) => s + d.carbs, 0) / macrosByDay.length) : 0;
+  }, [macrosByDay]);
+  const avgFat = useMemo(() => {
+    const daysWithData = macrosByDay.filter((d) => d.fat > 0);
+    return daysWithData.length > 0 ? Math.round(macrosByDay.reduce((s, d) => s + d.fat, 0) / macrosByDay.length) : 0;
+  }, [macrosByDay]);
 
   const shiftRange = (dir: number) => {
     setRangeEnd(addDays(rangeEnd, dir * step));
   };
 
+  const goToCurrentWeek = () => {
+    setRangeEnd(today);
+    setSelectedDay(null);
+  };
+
+  const isCurrentWeek = rangeEnd === today;
+
   // Week strip dates (always show current week around rangeEnd)
   const weekStripDates = useMemo(() => getWeekDatesFrom(rangeEnd), [rangeEnd]);
+
+  // Empty state: no data at all for the week
+  const weekHasNoData = useMemo(() => {
+    const totalEaten = calorieData.reduce((s, d) => s + d.value, 0);
+    const totalBurned = activityEntries.filter((a) => dates.includes(a.date)).reduce((s, a) => s + a.caloriesBurned, 0);
+    return totalEaten === 0 && totalBurned === 0;
+  }, [calorieData, activityEntries, dates]);
+
+  const handleTabChange = (tab: InsightTab) => {
+    if (tab === insightTab) return;
+    setInsightTab(tab);
+  };
 
   return (
     <ScrollView
@@ -118,6 +147,8 @@ export default function InsightsScreen() {
         endDate={rangeEnd}
         onPrev={() => shiftRange(-1)}
         onNext={() => shiftRange(1)}
+        onGoToCurrentWeek={goToCurrentWeek}
+        isCurrentWeek={isCurrentWeek}
       />
 
       {/* Week Strip Calendar */}
@@ -141,29 +172,22 @@ export default function InsightsScreen() {
         })}
       </View>
 
-      {/* Selected day callout */}
-      {selectedDay && (
-        <Card style={styles.dayCallout}>
-          <Text style={styles.dayCalloutTitle}>{selectedDay}</Text>
-          <Text style={styles.dayCalloutValue}>
-            {sumDayLogs(logsByDay[selectedDay] ?? [])} калори идсэн
-            {' · '}
-            {activityEntries.filter((a) => a.date === selectedDay).reduce((s, a) => s + a.caloriesBurned, 0)} шатаасан
-          </Text>
-        </Card>
-      )}
+      {/* Divider */}
+      <View style={styles.sectionDivider} />
 
-      {/* Insight Tab: Calories / Macros */}
+      {/* Insight Tab: Calories / Macros - pill segmented control */}
       <View style={styles.insightTabs}>
         <TouchableOpacity
           style={[styles.insightTab, insightTab === 'calories' && styles.insightTabActive]}
-          onPress={() => setInsightTab('calories')}
+          onPress={() => handleTabChange('calories')}
+          activeOpacity={0.7}
         >
           <Text style={[styles.insightTabText, insightTab === 'calories' && styles.insightTabTextActive]}>🔥 Калори</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={[styles.insightTab, insightTab === 'macros' && styles.insightTabActive]}
-          onPress={() => setInsightTab('macros')}
+          onPress={() => handleTabChange('macros')}
+          activeOpacity={0.7}
         >
           <Text style={[styles.insightTabText, insightTab === 'macros' && styles.insightTabTextActive]}>🥩 Уураг/Нүүрс/Өөх</Text>
         </TouchableOpacity>
@@ -171,42 +195,83 @@ export default function InsightsScreen() {
 
       {insightTab === 'calories' && (
         <>
-          <Card style={styles.chartCard}>
-            <Text style={styles.chartTitle}>Энэ долоо хоногт</Text>
-            <CaloriesByMealStackedBarChart data={caloriesByMealByDay} goal={dailyGoal} />
-            <View style={styles.calorieSummary}>
-              <Text style={styles.calorieSummaryRow}>
-                Нийт: {calorieData.reduce((s, d) => s + d.value, 0)} калори
-              </Text>
-              <Text style={styles.calorieSummaryRow}>
-                Зорилго: {dailyGoal}
-              </Text>
+          {weekHasNoData ? (
+            <View style={styles.emptyState}>
+              <Text style={styles.emptyStateIcon}>📊</Text>
+              <Text style={styles.emptyStateText}>Энэ долоо хоногт өгөгдөл байхгүй байна</Text>
+              <TouchableOpacity style={styles.emptyStateBtn} onPress={() => router.push('/(tabs)/home')}>
+                <Text style={styles.emptyStateBtnText}>Хоол бүртгэх</Text>
+              </TouchableOpacity>
             </View>
-          </Card>
+          ) : (
+            <>
+              <View style={styles.chartSection}>
+                <CaloriesByMealStackedBarChart
+                  data={caloriesByMealByDay}
+                  goal={dailyGoal}
+                  selectedDay={selectedDay}
+                  onSelectDay={setSelectedDay}
+                />
+              </View>
 
-          {/* Summary Cards */}
-          <View style={styles.summaryRow}>
-            <Card style={styles.summaryCard}>
-              <Text style={styles.summaryValue}>{avgCalories}</Text>
-              <Text style={styles.summaryLabel}>Дундаж калори</Text>
-            </Card>
-            <Card style={styles.summaryCard}>
-              <Text style={styles.summaryValue}>{daysOnTarget}</Text>
-              <Text style={styles.summaryLabel}>Зорилгод хүрсэн</Text>
-            </Card>
-            <Card style={styles.summaryCard}>
-              <Text style={styles.summaryValue}>{avgProtein}g</Text>
-              <Text style={styles.summaryLabel}>Дундаж уураг</Text>
-            </Card>
-          </View>
+              {/* Summary Cards */}
+              <View style={styles.summaryRow}>
+                <Card style={styles.statCard}>
+                  <Text style={styles.summaryValue}>{avgCalories}</Text>
+                  <Text style={styles.summaryLabel}>Дундаж калори</Text>
+                </Card>
+                <Card style={styles.statCard}>
+                  <Text style={styles.summaryValue}>{daysOnTarget}</Text>
+                  <Text style={styles.summaryLabel}>Зорилгод хүрсэн</Text>
+                </Card>
+                <Card style={styles.statCard}>
+                  <Text style={styles.summaryValue}>{avgProtein}g</Text>
+                  <Text style={styles.summaryLabel}>Дундаж уураг</Text>
+                </Card>
+              </View>
+            </>
+          )}
         </>
       )}
 
       {insightTab === 'macros' && (
-        <Card style={styles.chartCard}>
-          <Text style={styles.chartTitle}>Уураг/Нүүрс ус/Өөх тос</Text>
-          <MacrosStackedBarChart data={macrosByDay} />
-        </Card>
+        <>
+          {weekHasNoData ? (
+            <View style={styles.emptyState}>
+              <Text style={styles.emptyStateIcon}>📊</Text>
+              <Text style={styles.emptyStateText}>Энэ долоо хоногт өгөгдөл байхгүй байна</Text>
+              <TouchableOpacity style={styles.emptyStateBtn} onPress={() => router.push('/(tabs)/home')}>
+                <Text style={styles.emptyStateBtnText}>Хоол бүртгэх</Text>
+              </TouchableOpacity>
+            </View>
+          ) : (
+            <>
+              <View style={styles.chartSection}>
+                <MacrosStackedBarChart
+                  data={macrosByDay}
+                  selectedDay={selectedDay}
+                  onSelectDay={setSelectedDay}
+                />
+              </View>
+
+              {/* Summary Cards - same layout as Calories */}
+              <View style={styles.summaryRow}>
+                <Card style={styles.statCard}>
+                  <Text style={styles.summaryValue}>{avgProtein}g</Text>
+                  <Text style={styles.summaryLabel}>Дундаж уураг</Text>
+                </Card>
+                <Card style={styles.statCard}>
+                  <Text style={styles.summaryValue}>{avgCarbs}g</Text>
+                  <Text style={styles.summaryLabel}>Дундаж нүүрс ус</Text>
+                </Card>
+                <Card style={styles.statCard}>
+                  <Text style={styles.summaryValue}>{avgFat}g</Text>
+                  <Text style={styles.summaryLabel}>Дундаж өөх тос</Text>
+                </Card>
+              </View>
+            </>
+          )}
+        </>
       )}
 
       <View style={{ height: 30 }} />
@@ -217,8 +282,8 @@ export default function InsightsScreen() {
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: colors.background },
   content: { paddingHorizontal: spacing.xl, paddingBottom: spacing.huge },
-  screenTitle: { ...typography.h1, color: colors.text, marginTop: spacing.lg, marginBottom: spacing.md },
-  weekStrip: { flexDirection: 'row', justifyContent: 'space-between', marginBottom: spacing.lg },
+  screenTitle: { ...typography.h1, color: colors.text, marginTop: spacing.lg, marginBottom: spacing.lg },
+  weekStrip: { flexDirection: 'row', justifyContent: 'space-between', marginBottom: spacing.xl },
   weekDay: { alignItems: 'center', paddingVertical: spacing.sm, paddingHorizontal: spacing.sm, borderRadius: radii.md, minWidth: 40 },
   weekDaySelected: { backgroundColor: colors.primary },
   weekDayLabel: { ...typography.small, color: colors.textTertiary, marginBottom: 2 },
@@ -227,23 +292,41 @@ const styles = StyleSheet.create({
   weekDayNumSelected: { color: colors.textInverse },
   weekDayDot: { width: 5, height: 5, borderRadius: 3, backgroundColor: colors.primary, marginTop: 3 },
   weekDayDotSelected: { backgroundColor: colors.textInverse },
-  dayCallout: { marginBottom: spacing.lg, paddingVertical: spacing.md },
-  dayCalloutTitle: { ...typography.captionBold, color: colors.textSecondary },
-  dayCalloutValue: { ...typography.body, color: colors.text, marginTop: 2 },
-  insightTabs: { flexDirection: 'row', gap: spacing.sm, marginBottom: spacing.lg },
-  insightTab: { flex: 1, paddingVertical: spacing.sm + 2, borderRadius: radii.sm, alignItems: 'center', backgroundColor: colors.surfaceAlt, borderWidth: 1, borderColor: colors.border },
-  insightTabActive: { backgroundColor: colors.primaryMuted, borderColor: colors.primary },
+  sectionDivider: {
+    height: 1,
+    backgroundColor: colors.borderLight,
+    marginBottom: spacing.xl,
+  },
+  insightTabs: {
+    flexDirection: 'row',
+    backgroundColor: colors.surfaceAlt,
+    borderRadius: radii.full,
+    padding: 4,
+    marginBottom: spacing.xl,
+  },
+  insightTab: { flex: 1, paddingVertical: spacing.sm + 2, borderRadius: radii.full, alignItems: 'center' },
+  insightTabActive: { backgroundColor: colors.primary },
   insightTabText: { ...typography.captionBold, color: colors.textTertiary },
-  insightTabTextActive: { color: colors.primary },
-  chartCard: { marginBottom: spacing.lg },
-  chartTitle: { ...typography.bodyBold, color: colors.text, marginBottom: spacing.md },
-  chartSubtitle: { ...typography.captionBold, color: colors.textSecondary, marginBottom: spacing.sm },
-  selectedLabel: { ...typography.caption, color: colors.primary, textAlign: 'center', marginTop: spacing.sm },
-  calorieSummary: { marginTop: spacing.lg, gap: spacing.xs },
-  calorieSummaryRow: { ...typography.caption, color: colors.textSecondary },
-  emptyText: { ...typography.caption, color: colors.textTertiary, textAlign: 'center', paddingVertical: spacing.xl },
-  summaryRow: { flexDirection: 'row', gap: spacing.sm, marginBottom: spacing.lg },
-  summaryCard: { flex: 1, alignItems: 'center', paddingVertical: spacing.md },
+  insightTabTextActive: { color: colors.textInverse, fontWeight: '600' },
+  chartSection: { marginBottom: spacing.xl },
+  summaryRow: { flexDirection: 'row', gap: spacing.md, marginBottom: spacing.xl },
+  statCard: { flex: 1, alignItems: 'center', paddingVertical: spacing.lg },
   summaryValue: { ...typography.h3, color: colors.primary },
   summaryLabel: { ...typography.small, color: colors.textTertiary, marginTop: 2 },
+  emptyState: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: spacing.huge,
+    marginBottom: spacing.xl,
+  },
+  emptyStateIcon: { fontSize: 48, marginBottom: spacing.lg },
+  emptyStateText: { ...typography.body, color: colors.textSecondary, textAlign: 'center', marginBottom: spacing.xl },
+  emptyStateBtn: {
+    backgroundColor: colors.primary,
+    paddingVertical: spacing.md,
+    paddingHorizontal: spacing.xl,
+    borderRadius: radii.lg,
+    ...shadows.sm,
+  },
+  emptyStateBtnText: { ...typography.captionBold, color: colors.textInverse },
 });

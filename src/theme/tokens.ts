@@ -88,13 +88,13 @@ export const radii = {
 // ─── Typography — tighter tracking on headings, optical balance ──
 export const typography = {
   h1: { fontSize: 28, fontWeight: '700' as const, lineHeight: 34, letterSpacing: -0.4 },
-  h2: { fontSize: 22, fontWeight: '700' as const, lineHeight: 28, letterSpacing: -0.3 },
+  h2: { fontSize: 26, fontWeight: '700' as const, lineHeight: 28, letterSpacing: -0.3 },
   h3: { fontSize: 18, fontWeight: '600' as const, lineHeight: 24, letterSpacing: -0.2 },
   body: { fontSize: 15, fontWeight: '400' as const, lineHeight: 22 },
   bodyBold: { fontSize: 15, fontWeight: '600' as const, lineHeight: 22 },
-  caption: { fontSize: 13, fontWeight: '400' as const, lineHeight: 18 },
+  caption: { fontSize: 14, fontWeight: '400' as const, lineHeight: 18 },
   captionBold: { fontSize: 13, fontWeight: '600' as const, lineHeight: 18 },
-  small: { fontSize: 11, fontWeight: '400' as const, lineHeight: 16 },
+  small: { fontSize: 12, fontWeight: '450' as const, lineHeight: 16 },
   big: { fontSize: 36, fontWeight: '700' as const, lineHeight: 42, letterSpacing: -0.5 },
 };
 
